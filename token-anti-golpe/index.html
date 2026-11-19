@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Token Anti-Golpe | OAB Tatuapé</title>
+<meta name="description" content="Ferramenta gratuita da OAB Tatuapé para o cliente confirmar que o contato vem mesmo do seu advogado, com um código de segurança que muda a cada 30 segundos.">
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+
+<header class="topo">
+  <div class="marca">
+    <a class="nome" href="index.html">TOKEN ANTI-GOLPE <span>| OAB TATUAPÉ</span></a>
+    <nav><a href="advogado.html">Sou advogado(a)</a><a href="cliente.html">Sou cliente</a></nav>
+  </div>
+  <div class="chamada">
+    <h1>Confirme que é mesmo o seu advogado antes de qualquer pagamento.</h1>
+    <p>Criminosos usam nome, foto e dados de processos de advogados para pedir dinheiro aos clientes. O Token Anti-Golpe dá ao cliente e ao advogado um código de segurança que só os dois conhecem e que muda a cada 30 segundos.</p>
+  </div>
+</header>
+
+<main>
+
+  <div class="grade dupla">
+    <section class="cartao">
+      <h2>Sou advogado(a)</h2>
+      <p>Cadastre seus clientes, entregue o acesso a cada um e informe o código sempre que fizer um contato importante.</p>
+      <a class="botao grande" href="advogado.html">Abrir painel do advogado</a>
+    </section>
+    <section class="cartao">
+      <h2>Sou cliente</h2>
+      <p>Veja o código do seu advogado e confira se quem está falando com você é mesmo ele.</p>
+      <a class="botao grande secundario" href="cliente.html">Abrir meu token</a>
+    </section>
+  </div>
+
+  <section class="alerta erro">
+    <strong>Regra de ouro</strong>
+    Quem diz o código é sempre o advogado. O cliente apenas confere na própria tela. Se alguém pedir para você ler o seu código, desligar e "confirmar depois", ou mandar um novo link ou QR Code por mensagem, é golpe.
+  </section>
+
+  <section class="cartao" id="como-funciona">
+    <h2>Como funciona</h2>
+    <ol class="passos">
+      <li><b>Vínculo.</b> O advogado cria no painel um vínculo para cada cliente. O sistema gera uma chave secreta exclusiva daquela relação.</li>
+      <li><b>Entrega.</b> O cliente aponta a câmera do celular para o QR Code mostrado pelo advogado, de preferência no escritório ou em videochamada. A partir daí, os dois aparelhos passam a mostrar o mesmo código de 6 dígitos.</li>
+      <li><b>Conferência.</b> Sempre que receber ligação, mensagem ou pedido em nome do advogado, o cliente pede o código. O advogado lê o número que aparece na tela dele, e o cliente confere se é igual ao da própria tela.</li>
+      <li><b>Decisão.</b> Código igual: o contato é autêntico. Código diferente, ou recusa em informar: encerre a conversa e procure o escritório pelos canais que você já conhece.</li>
+    </ol>
+    <p class="sutil">O código muda a cada 30 segundos e não pode ser descoberto por quem viu o nome do advogado na internet ou leu os autos do processo.</p>
+  </section>
+
+  <section class="cartao" id="advogados">
+    <h2>Passo a passo para advogados</h2>
+    <ol class="passos">
+      <li>Abra o <a href="advogado.html">painel do advogado</a> no computador ou no celular do escritório e informe seu nome e número de inscrição na OAB.</li>
+      <li>Clique em <b>Novo cliente</b> e digite o nome do cliente. Use um nome que você reconheça, como "Maria Souza, inventário".</li>
+      <li>Mostre o QR Code para o cliente escanear com a câmera do celular. Se ele preferir, pode escanear o QR Code do aplicativo autenticador (Google Authenticator ou Microsoft Authenticator).</li>
+      <li>Peça ao cliente para tocar em <b>Confirmar vínculo</b> e conferir junto com você se o código das duas telas é o mesmo.</li>
+      <li>Se quiser, imprima a folha de instruções e entregue ao cliente.</li>
+      <li>A cada ligação ou mensagem que envolva pagamento, documentos ou mudança de conta bancária, informe espontaneamente o código atual.</li>
+      <li>Faça a cópia de segurança do painel e guarde em local protegido. Ela permite usar o painel em outro computador do escritório.</li>
+    </ol>
+  </section>
+
+  <section class="cartao" id="clientes">
+    <h2>Passo a passo para clientes</h2>
+    <ol class="passos">
+      <li>No escritório ou em videochamada, aponte a câmera do celular para o QR Code que o advogado mostrar e abra o link.</li>
+      <li>Confira o nome e o número da OAB do seu advogado e toque em <b>Confirmar vínculo</b>.</li>
+      <li>Adicione a página à tela inicial do celular para encontrar fácil (no navegador, menu "Adicionar à tela inicial").</li>
+      <li>Quando alguém falar em nome do advogado, abra o token e peça: "qual é o código?".</li>
+      <li>Compare o número dito com o da sua tela. Se for igual, pode seguir a conversa. Se não for, encerre o contato.</li>
+      <li>Se preferir, digite o número no campo <b>Conferir código</b> e o sistema responde se confere.</li>
+    </ol>
+  </section>
+
+  <section class="cartao" id="perguntas">
+    <h2>Perguntas frequentes</h2>
+    <details>
+      <summary>Quanto custa?</summary>
+      <p>Nada. A ferramenta é gratuita para advogados e clientes.</p>
+    </details>
+    <details>
+      <summary>Preciso instalar algum aplicativo?</summary>
+      <p>Não. Funciona no navegador do celular ou do computador. Quem já usa Google Authenticator ou Microsoft Authenticator pode guardar o token lá, pelo segundo QR Code do painel.</p>
+    </details>
+    <details>
+      <summary>Meus dados vão para algum servidor?</summary>
+      <p>Não. Os nomes, os números de OAB e as chaves secretas ficam guardados somente no navegador do aparelho onde foram cadastrados. O código é calculado no próprio aparelho, sem internet, depois que a página carrega.</p>
+    </details>
+    <details>
+      <summary>O código não confere. E agora?</summary>
+      <p>Confira primeiro se você abriu o vínculo do advogado certo e se o relógio do celular está no horário automático. Persistindo a diferença, encerre o contato e ligue para o escritório no número que você já tinha, nunca no número que o desconhecido informou.</p>
+    </details>
+    <details>
+      <summary>Troquei de celular ou apaguei os dados do navegador.</summary>
+      <p>O vínculo se perde junto. Peça ao advogado um novo vínculo, presencialmente ou em videochamada. Desconfie de qualquer novo QR Code ou link enviado por mensagem sem conversa prévia.</p>
+    </details>
+    <details>
+      <summary>O advogado tem mais de um computador ou uma equipe.</summary>
+      <p>No painel, use <b>Cópia de segurança</b> para baixar o arquivo e <b>Restaurar cópia</b> no outro aparelho. O arquivo contém as chaves dos clientes e deve ser guardado com o mesmo cuidado de uma senha.</p>
+    </details>
+    <details>
+      <summary>Um cliente encerrou o contrato. Como desligo o token dele?</summary>
+      <p>No painel, clique em <b>Excluir</b> no cartão do cliente. O código daquele vínculo deixa de existir no seu aparelho.</p>
+    </details>
+    <details>
+      <summary>Posso ser vítima mesmo usando o token?</summary>
+      <p>O token reduz muito o risco, mas a proteção depende da regra de ouro: quem informa o código é o advogado, e o cliente nunca lê o próprio código para ninguém. Na dúvida, ligue para o escritório pelo número que você já conhecia.</p>
+    </details>
+  </section>
+
+  <section class="alerta aviso">
+    <strong>Sofreu ou presenciou uma tentativa de golpe?</strong>
+    Registre boletim de ocorrência, avise o advogado pelo contato que você já conhecia e comunique a OAB. Guarde prints, números de telefone e comprovantes.
+  </section>
+
+</main>
+
+<footer class="rodape-site">
+  Token Anti-Golpe, iniciativa da Subseção Tatuapé da OAB SP. Ferramenta gratuita e informativa, sem coleta de dados pessoais.
+</footer>
+
+</body>
+</html>

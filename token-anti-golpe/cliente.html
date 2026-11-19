@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#000d21">
+<title>Meu Token | Token Anti-Golpe</title>
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+
+<header class="topo">
+  <div class="marca">
+    <a class="nome" href="index.html">TOKEN ANTI-GOLPE <span>| OAB TATUAPÉ</span></a>
+    <nav><a href="index.html#clientes">Instruções</a></nav>
+  </div>
+  <div class="chamada">
+    <h1>Meu token</h1>
+    <p>Antes de pagar, enviar documentos ou trocar dados bancários, peça ao advogado o código e confira com o da sua tela.</p>
+  </div>
+</header>
+
+<main>
+
+  <div id="sem-armazenamento" class="alerta erro oculto">
+    <strong>Este navegador não está guardando dados.</strong>
+    Saia da aba anônima ou use o navegador normal do celular, senão o vínculo se perde ao fechar a página.
+  </div>
+
+  <!-- confirmação de vínculo recebido -->
+  <section id="tela-vinculo" class="cartao oculto">
+    <h2>Confirmar vínculo</h2>
+    <p>Você está vinculando este celular ao token de:</p>
+    <div class="alerta ok" style="margin:10px 0">
+      <strong id="v-adv"></strong>
+      <span id="v-oab"></span><br>
+      <span class="sutil" id="v-cli"></span>
+    </div>
+    <p class="sutil">Faça isso somente se recebeu o QR Code do seu advogado pessoalmente ou em videochamada. Se o link chegou por mensagem de alguém que você não confirmou, cancele.</p>
+    <div class="acoes">
+      <button class="botao" type="button" id="b-confirmar">Confirmar vínculo</button>
+      <button class="botao secundario" type="button" id="b-cancelar">Cancelar</button>
+    </div>
+  </section>
+
+  <section class="alerta erro">
+    <strong>Regra de ouro</strong>
+    Quem diz o código é o advogado. Você só confere. Nunca leia o seu código para ninguém.
+  </section>
+
+  <div id="lista"></div>
+
+  <section id="tela-vazia" class="cartao oculto">
+    <h2>Nenhum advogado vinculado</h2>
+    <ol class="passos">
+      <li>Peça ao seu advogado o QR Code do Token Anti-Golpe.</li>
+      <li>Aponte a câmera do celular para o QR Code e abra o link.</li>
+      <li>Confira o nome e a OAB do advogado e toque em <b>Confirmar vínculo</b>.</li>
+    </ol>
+    <details>
+      <summary>Recebi um link em vez de QR Code</summary>
+      <p>Cole o link abaixo. Faça isso apenas se tiver certeza de que foi o seu advogado quem enviou.</p>
+      <textarea id="colar" rows="3" placeholder="Cole aqui o link recebido"></textarea>
+      <div class="acoes"><button class="botao secundario" type="button" id="b-colar">Usar este link</button></div>
+    </details>
+  </section>
+
+</main>
+
+<footer class="rodape-site">
+  O código é calculado neste celular e nada é enviado pela internet. Mantenha o relógio do celular no horário automático.
+</footer>
+
+<script src="assets/qrcode.js"></script>
+<script src="assets/token.js"></script>
+<script>
+(function () {
+  "use strict";
+  var T = window.Token;
+  var CHAVE = "tag.cliente.v1";
+  var dados = T.carregar(CHAVE, { vinculos: [] });
+  var $ = function (id) { return document.getElementById(id); };
+  var pendente = null;
+  var ANEL = 2 * Math.PI * 24;
+
+  if (!T.salvar("tag.teste", 1)) $("sem-armazenamento").classList.remove("oculto");
+
+  function gravar() {
+    if (!T.salvar(CHAVE, dados)) $("sem-armazenamento").classList.remove("oculto");
+  }
+
+  function limparEndereco() {
+    try { history.replaceState(null, "", location.pathname); } catch (e) { location.hash = ""; }
+  }
+
+  // ------------------------------------------------ vínculo recebido
+
+  function receber(texto) {
+    var v = T.lerVinculo(texto);
+    if (!v) return false;
+    var existe = dados.vinculos.some(function (x) { return x.segredo === v.segredo; });
+    if (existe) {
+      limparEndereco();
+      alert("Este vínculo já está salvo neste celular.");
+      return true;
+    }
+    pendente = v;
+    $("v-adv").textContent = v.advogado;
+    $("v-oab").textContent = v.oab;
+    $("v-cli").textContent = v.cliente ? "Cliente: " + v.cliente : "";
+    $("tela-vinculo").classList.remove("oculto");
+    $("tela-vinculo").scrollIntoView({ behavior: "smooth" });
+    return true;
+  }
+
+  $("b-confirmar").addEventListener("click", function () {
+    if (!pendente) return;
+    dados.vinculos.push({
+      id: T.id(), advogado: pendente.advogado, oab: pendente.oab,
+      cliente: pendente.cliente, segredo: pendente.segredo, criado: new Date().toISOString()
+    });
+    gravar();
+    pendente = null;
+    $("tela-vinculo").classList.add("oculto");
+    limparEndereco();
+    desenhar();
+    alert("Vínculo confirmado. Confira agora, junto com o advogado, se o código é igual nas duas telas.");
+  });
+
+  $("b-cancelar").addEventListener("click", function () {
+    pendente = null;
+    $("tela-vinculo").classList.add("oculto");
+    limparEndereco();
+  });
+
+  $("b-colar").addEventListener("click", function () {
+    if (!receber($("colar").value)) alert("Link inválido. Confira com o seu advogado.");
+    $("colar").value = "";
+  });
+
+  // ------------------------------------------------ tokens
+
+  function desenhar() {
+    $("tela-vazia").classList.toggle("oculto", dados.vinculos.length > 0);
+    $("lista").innerHTML = dados.vinculos.map(function (v) {
+      return '<article class="token" data-id="' + v.id + '">' +
+        '<div class="quem">Advogado(a) <b>' + T.esc(v.advogado) + '</b><br>' + T.esc(v.oab) + '</div>' +
+        '<div class="linha"><div class="numero" data-codigo>··· ···</div>' +
+        '<div class="tempo"><svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="24" fill="none" stroke="#123a66" stroke-width="5"/>' +
+        '<circle data-anel cx="28" cy="28" r="24" fill="none" stroke="#99cdfc" stroke-width="5" stroke-linecap="round" stroke-dasharray="' + ANEL + '"/></svg>' +
+        '<span data-seg></span></div></div>' +
+        '<form class="conferir" data-conferir>' +
+        '<input inputmode="numeric" autocomplete="off" maxlength="7" placeholder="Código dito" aria-label="Código informado pelo advogado">' +
+        '<button class="botao" type="submit">Conferir</button></form>' +
+        '<div class="resultado" data-resultado></div>' +
+        '<div class="rodape"><button class="botao secundario" type="button" data-excluir>Remover deste celular</button></div>' +
+        '</article>';
+    }).join("");
+    tique(T.segundosRestantes());
+  }
+
+  function buscar(id) {
+    for (var i = 0; i < dados.vinculos.length; i++) if (dados.vinculos[i].id === id) return dados.vinculos[i];
+    return null;
+  }
+
+  function tique(restantes) {
+    Array.prototype.forEach.call(document.querySelectorAll("#lista .token"), function (el) {
+      var v = buscar(el.getAttribute("data-id"));
+      if (!v) return;
+      T.codigo(v.segredo).then(function (cod) {
+        el.querySelector("[data-codigo]").textContent = T.formatar(cod);
+      });
+      var seg = el.querySelector("[data-seg]");
+      seg.textContent = restantes;
+      seg.classList.toggle("fim", restantes <= 5);
+      el.querySelector("[data-anel]").setAttribute("stroke-dashoffset", ANEL * (1 - restantes / T.PERIODO));
+    });
+  }
+
+  $("lista").addEventListener("submit", function (e) {
+    var f = e.target.closest("[data-conferir]");
+    if (!f) return;
+    e.preventDefault();
+    var el = f.closest(".token");
+    var v = buscar(el.getAttribute("data-id"));
+    var r = el.querySelector("[data-resultado]");
+    T.confere(v.segredo, f.querySelector("input").value).then(function (ok) {
+      r.className = "resultado " + (ok ? "ok" : "erro");
+      r.textContent = ok
+        ? "Código confere. O contato é de " + v.advogado + "."
+        : "Código NÃO confere. Encerre o contato e ligue para o escritório pelo número que você já conhecia.";
+      f.querySelector("input").value = "";
+      clearTimeout(r._t);
+      r._t = setTimeout(function () { r.className = "resultado"; }, 60000);
+    });
+  });
+
+  $("lista").addEventListener("click", function (e) {
+    if (!e.target.closest("[data-excluir]")) return;
+    var v = buscar(e.target.closest(".token").getAttribute("data-id"));
+    if (v && confirm("Remover o token de " + v.advogado + " deste celular? Para voltar a usar, será preciso um novo vínculo com o advogado.")) {
+      dados.vinculos = dados.vinculos.filter(function (x) { return x.id !== v.id; });
+      gravar();
+      desenhar();
+    }
+  });
+
+  // ------------------------------------------------ início
+
+  desenhar();
+  if (location.hash) receber(location.hash);
+  window.addEventListener("hashchange", function () { if (location.hash) receber(location.hash); });
+  T.relogio(tique);
+})();
+</script>
+</body>
+</html>
