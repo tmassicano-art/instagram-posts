@@ -157,7 +157,7 @@ def seta(draw, x, y, direcao):
 
 
 def rodape(draw, W, H, completo):
-    y = H - px(205 if completo else 150)
+    y = H - px(150)
     cx = W / 2
     m = px(150)
     draw.line([(m, y), (cx - px(48), y)], fill=DOURADO, width=px(3))
@@ -169,14 +169,10 @@ def rodape(draw, W, H, completo):
     draw.text((cx, y), "OAB TATUAPÉ", font=fonte("sans_black", px(30)), fill=NAVY, anchor="ma")
     y += px(40)
     draw.text((cx, y), "JUNTOS, SOMOS MAIS FORTES!", font=fonte("sans", px(25)), fill=NAVY, anchor="ma")
-    if completo:
-        y += px(38)
-        draw.text((cx, y), "Presidente OAB Tatuapé: Thiago Massicano", font=fonte("sans", px(25)),
-                  fill=NAVY, anchor="ma")
 
 
 def logo(img, cx, y, largura):
-    lg = Image.open(os.path.join(AQUI, "img", "logo-oab-tatuape-navy.png"))
+    lg = Image.open(os.path.join(AQUI, "img", "logo-colegio-presidentes-navy.png"))
     h = int(lg.height * largura / lg.width)
     lg = lg.resize((int(largura), h), Image.LANCZOS)
     img.paste(lg, (int(cx - largura / 2), int(y)), lg)
@@ -226,7 +222,7 @@ def novo(W, H, com_canto=True):
 def card_capa(c, W, H, i, n):
     img, d = novo(W, H)
     contador(d, W, i, n)
-    y = logo(img, W / 2, px(46), px(340)) + px(44)
+    y = logo(img, W / 2, px(40), px(460)) + px(44)
     m = px(90)
     if c.get("chamada"):
         y, _ = bloco_texto(d, c["chamada"].upper(), "serif_bold", NAVY, W / 2, y, W - 2 * m, px(130),
@@ -241,7 +237,7 @@ def card_capa(c, W, H, i, n):
     y += px(38)
     apoio = c.get("apoio", "")
     if apoio:
-        y2 = H - px(260)
+        y2 = H - px(200)
         caixa(d, px(70), y, W - px(70), y2)
         bloco_texto(d, apoio, "sans_bold", BRANCO, W / 2, y + px(30), W - px(220), y2 - y - px(60),
                     px(40), px(26), entre=1.3, centralizar_v=True)
@@ -251,7 +247,7 @@ def card_capa(c, W, H, i, n):
 
 def cabecalho(img, d, c, W, H, i, n):
     contador(d, W, i, n)
-    y = logo(img, W / 2, px(46), px(250)) + px(40)
+    y = logo(img, W / 2, px(40), px(380)) + px(40)
     if c.get("etiqueta"):
         f = fonte("sans_black", px(26))
         d.text((W / 2, y), " ".join(c["etiqueta"].upper()).replace("   ", "  "), font=f,
@@ -284,7 +280,7 @@ def card_conteudo(c, W, H, i, n):
 def card_destaque(c, W, H, i, n):
     img, d = novo(W, H)
     contador(d, W, i, n)
-    y = logo(img, W / 2, px(46), px(250)) + px(70)
+    y = logo(img, W / 2, px(40), px(380)) + px(70)
     regua(d, px(170), W - px(170), y)
     y += px(20)
     if c.get("numero"):
@@ -305,14 +301,14 @@ def card_destaque(c, W, H, i, n):
 def card_cta(c, W, H, i, n):
     img, d = novo(W, H)
     contador(d, W, i, n)
-    y = logo(img, W / 2, px(46), px(300)) + px(50)
+    y = logo(img, W / 2, px(40), px(420)) + px(50)
     y, _ = bloco_texto(d, c.get("titulo", "").upper(), "serif", NAVY, W / 2, y, W - px(120), px(220),
                        px(92), px(54), entre=1.04, max_linhas=2)
     y += px(28)
     regua(d, px(170), W - px(170), y)
     y += px(40)
     acoes = c.get("acoes") or ["Siga a OAB Tatuapé", "Compartilhe com quem precisa", "Salve para consultar depois"]
-    linhas_na_caixa(d, acoes, px(64), y, W - px(64), H - px(260))
+    linhas_na_caixa(d, acoes, px(64), y, W - px(64), H - px(200))
     rodape(d, W, H, completo=True)
     return img
 
