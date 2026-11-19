@@ -1,4 +1,4 @@
-# Token Anti-Golpe | OAB Tatuapé
+# Token Anti-Golpe | Colégio de Presidentes da Capital
 
 Ferramenta gratuita para o cliente confirmar que um contato vem mesmo do seu advogado, por meio de um código de 6 dígitos que muda a cada 30 segundos.
 
@@ -20,7 +20,7 @@ Ferramenta gratuita para o cliente confirmar que um contato vem mesmo do seu adv
 
 ## Publicar
 
-São arquivos estáticos e não exigem servidor de aplicação. Qualquer hospedagem com HTTPS serve: GitHub Pages, Netlify, Cloudflare Pages ou o próprio site da Subseção. HTTPS é obrigatório, porque o navegador só libera a criptografia (`crypto.subtle`) em conexão segura.
+São arquivos estáticos e não exigem servidor de aplicação. Qualquer hospedagem com HTTPS serve: GitHub Pages, Netlify, Cloudflare Pages ou o site institucional. HTTPS é obrigatório, porque o navegador só libera a criptografia (`crypto.subtle`) em conexão segura.
 
 Para testar no computador:
 
@@ -36,12 +36,12 @@ python3 -m http.server 8000
 - O advogado deve fazer a cópia de segurança do painel. O arquivo contém as chaves dos clientes e deve ser guardado como uma senha.
 - A proteção depende da regra de ouro: quem diz o código é o advogado, e o cliente nunca lê o próprio código para ninguém. Sem isso, um golpista pode pedir o código ao cliente e repeti-lo.
 
-## Antes de divulgar como serviço da Subseção
+## Antes de divulgar como serviço do Colégio
 
-- Aprovação da diretoria da Subseção e, se for o caso, ciência da Seccional (OAB SP).
+- Aprovação do Colégio de Presidentes e, se for o caso, ciência da Seccional (OAB SP).
 - Domínio institucional para hospedar as páginas.
 - Revisão de LGPD (a ferramenta não coleta dados, mas a política de privacidade deve dizer isso).
-- Um contato oficial da Subseção para dúvidas, a incluir no rodapé de `index.html`.
+- Um contato oficial do Colégio para dúvidas, a incluir no rodapé de `index.html`.
 
 ## Licenças
 
@@ -49,4 +49,4 @@ python3 -m http.server 8000
 
 ## Identidade visual
 
-As páginas seguem a identidade da OAB Tatuapé descrita em `../identidade-oab-tatuape/README.md`: fundo claro, azul-marinho `#0B2B49`, dourado `#D9A354`, Playfair Display nos títulos e Montserrat no texto. Fontes e logo ficam em `assets/` para as páginas funcionarem sem depender de serviços externos.
+As páginas seguem a identidade do Colégio de Presidentes da Capital descrita em `../identidade-colegio-capital/README.md`: fundo claro, azul-marinho `#0B2B49`, dourado `#D9A354`, Playfair Display nos títulos e Montserrat no texto. Fontes e logo ficam em `assets/` para as páginas funcionarem sem depender de serviços externos.

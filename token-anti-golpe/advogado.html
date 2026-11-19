@@ -106,7 +106,7 @@
 
 <footer class="rodape-site">
   Os dados deste painel ficam somente neste navegador. Faça a cópia de segurança com frequência e guarde o arquivo como guarda uma senha.
-  <div class="assina"><b>OAB TATUAPÉ</b>JUNTOS, SOMOS MAIS FORTES!</div>
+  <div class="assina"><b>COLÉGIO DE PRESIDENTES DA CAPITAL</b>JUNTOS, SOMOS MAIS FORTES!</div>
 </footer>
 
 <script src="assets/qrcode.js"></script>
@@ -287,7 +287,7 @@
     var p = dados.perfil;
     $("folha").innerHTML =
       '<h1>Token Anti-Golpe</h1>' +
-      '<p>Iniciativa da Subseção Tatuapé da OAB SP</p>' +
+      '<p>Iniciativa do Colégio de Presidentes da Capital, OAB SP</p>' +
       '<div class="caixa"><b>Seu advogado:</b> ' + T.esc(p.nome) + ' (' + T.esc(p.oab) + ')<br><b>Cliente:</b> ' + T.esc(atual.nome) + '</div>' +
       '<div class="qr">' + T.qrSvg(T.linkVinculo(p, atual), 4) + '</div>' +
       '<p style="text-align:center">Aponte a câmera do celular para o código acima e toque em <b>Confirmar vínculo</b>.</p>' +
@@ -306,7 +306,7 @@
   // ------------------------------------------------ cópia de segurança
 
   $("b-backup").addEventListener("click", function () {
-    var blob = new Blob([JSON.stringify({ tipo: "token-anti-golpe-oab-tatuape", versao: 1, gerado: new Date().toISOString(), dados: dados }, null, 2)], { type: "application/json" });
+    var blob = new Blob([JSON.stringify({ tipo: "token-anti-golpe-colegio-capital", versao: 1, gerado: new Date().toISOString(), dados: dados }, null, 2)], { type: "application/json" });
     var a = document.createElement("a");
     a.href = URL.createObjectURL(blob);
     a.download = "token-anti-golpe-copia-" + new Date().toISOString().slice(0, 10) + ".json";
@@ -324,7 +324,7 @@
     if (!f) return;
     f.text().then(function (txt) {
       var j = JSON.parse(txt);
-      if (!j || j.tipo !== "token-anti-golpe-oab-tatuape" || !j.dados || !Array.isArray(j.dados.clientes)) throw new Error();
+      if (!j || ["token-anti-golpe-colegio-capital", "token-anti-golpe-oab-tatuape"].indexOf(j.tipo) === -1 || !j.dados || !Array.isArray(j.dados.clientes)) throw new Error();
       var novos = j.dados.clientes.filter(function (c) {
         return c && c.id && c.nome && T.segredoValido(c.segredo) && !buscar(c.id);
       });

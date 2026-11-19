@@ -4,7 +4,7 @@
 @font-face { font-family: "Montserrat"; font-weight: 700; font-display: swap; src: url(fonts/Montserrat-Bold.woff2) format("woff2"); }
 @font-face { font-family: "Montserrat"; font-weight: 800; font-display: swap; src: url(fonts/Montserrat-ExtraBold.woff2) format("woff2"); }
 
-/* Identidade OAB Tatuapé: fundo claro, azul-marinho, dourado */
+/* Identidade Colégio de Presidentes da Capital: fundo claro, azul-marinho, dourado */
 :root {
   --navy: #0b2b49;
   --navy-2: #0b2038;

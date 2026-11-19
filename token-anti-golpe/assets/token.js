@@ -1,5 +1,5 @@
 /*
- * Token Anti-Golpe | OAB Tatuapé
+ * Token Anti-Golpe | Colégio de Presidentes da Capital (OAB SP)
  * Núcleo comum: TOTP (RFC 6238, HMAC-SHA1, 6 dígitos, 30 segundos),
  * base32, links de vínculo e armazenamento local.
  *
@@ -11,7 +11,7 @@
 
   var PERIODO = 30;
   var DIGITOS = 6;
-  var EMISSOR = "OAB Tatuapé";
+  var EMISSOR = "OAB SP Colégio da Capital";
   var B32 = "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
 
   // ------------------------------------------------------------ base32

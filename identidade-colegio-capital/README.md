@@ -1,6 +1,6 @@
-# Identidade visual | OAB Tatuapé
+# Identidade visual | Colégio de Presidentes da Capital
 
-Padrão extraído da arte de referência da Subseção ("The Veredict Experience | Júri Simulado"). Vale para carrosséis, posts, páginas web e materiais impressos da OAB Tatuapé.
+Padrão visual extraído da arte "The Veredict Experience | Júri Simulado", com o logo do Colégio de Presidentes da Capital (OAB SP). Vale para carrosséis, posts, páginas web e materiais impressos do Colégio.
 
 ## Cores
 
@@ -26,12 +26,12 @@ As fontes estão em `fonts/` (licença SIL Open Font License).
 2. **Canto curvo** azul-marinho no alto à esquerda, com filete dourado acompanhando a curva.
 3. **Filete dourado com "×" central** separando o título do conteúdo.
 4. **Caixa azul com borda dourada e cantos arredondados** para as informações. Em listas, cada faixa traz um número dourado, uma divisória branca e o texto, separadas por filetes dourados.
-5. **Rodapé:** filete dourado com setas apontando para a balança central, "OAB TATUAPÉ" e "JUNTOS, SOMOS MAIS FORTES!". Sem nome de pessoa na assinatura.
+5. **Rodapé:** filete dourado com setas apontando para a balança central, "COLÉGIO DE PRESIDENTES DA CAPITAL" e "JUNTOS, SOMOS MAIS FORTES!". Sem nome de pessoa na assinatura.
 
 ## Gerar um carrossel
 
 ```bash
-python3 identidade-oab-tatuape/render_oab_tatuape.py roteiro.json -o 2026-WXX/NN --jpg
+python3 identidade-colegio-capital/render_colegio_capital.py roteiro.json -o 2026-WXX/NN --jpg
 ```
 
 Tipos de card e campos:

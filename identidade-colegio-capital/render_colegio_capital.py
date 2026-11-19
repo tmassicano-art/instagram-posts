@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 """
-Gerador de carrossel na identidade visual da OAB Tatuapé.
+Gerador de carrossel na identidade visual do Colégio de Presidentes da Capital (OAB SP).
 
 Uso:
-    python3 render_oab_tatuape.py roteiro.json -o pasta/saida [--jpg]
+    python3 render_colegio_capital.py roteiro.json -o pasta/saida [--jpg]
 
 Lê um roteiro em JSON e gera um arquivo 1080x1350 por card.
-Paleta, tipografia e ornamentos seguem a arte de referência da Subseção
+Paleta, tipografia e ornamentos seguem a arte de referência
 (fundo claro, azul-marinho, dourado, títulos serifados).
 """
 
@@ -166,7 +166,7 @@ def rodape(draw, W, H, completo):
     seta(draw, cx + px(48), y, -1)
     balanca(draw, cx, y, px(56))
     y += px(52)
-    draw.text((cx, y), "OAB TATUAPÉ", font=fonte("sans_black", px(30)), fill=NAVY, anchor="ma")
+    draw.text((cx, y), "COLÉGIO DE PRESIDENTES DA CAPITAL", font=fonte("sans_black", px(28)), fill=NAVY, anchor="ma")
     y += px(40)
     draw.text((cx, y), "JUNTOS, SOMOS MAIS FORTES!", font=fonte("sans", px(25)), fill=NAVY, anchor="ma")
 
@@ -307,7 +307,7 @@ def card_cta(c, W, H, i, n):
     y += px(28)
     regua(d, px(170), W - px(170), y)
     y += px(40)
-    acoes = c.get("acoes") or ["Siga a OAB Tatuapé", "Compartilhe com quem precisa", "Salve para consultar depois"]
+    acoes = c.get("acoes") or ["Siga o Colégio de Presidentes da Capital", "Compartilhe com quem precisa", "Salve para consultar depois"]
     linhas_na_caixa(d, acoes, px(64), y, W - px(64), H - px(200))
     rodape(d, W, H, completo=True)
     return img
@@ -336,7 +336,7 @@ def gerar(roteiro, saida, jpg=False):
 
 
 def main():
-    ap = argparse.ArgumentParser(description="Carrossel na identidade da OAB Tatuapé")
+    ap = argparse.ArgumentParser(description="Carrossel na identidade do Colégio de Presidentes da Capital")
     ap.add_argument("roteiro")
     ap.add_argument("-o", "--saida", required=True)
     ap.add_argument("--jpg", action="store_true", help="salvar em JPG em vez de PNG")
