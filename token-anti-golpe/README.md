@@ -46,3 +46,7 @@ python3 -m http.server 8000
 ## Licenças
 
 `assets/qrcode.js`: QR Code Generator for JavaScript, Kazuhiko Arase, licença MIT.
+
+## Identidade visual
+
+As páginas seguem a identidade da OAB Tatuapé descrita em `../identidade-oab-tatuape/README.md`: fundo claro, azul-marinho `#0B2B49`, dourado `#D9A354`, Playfair Display nos títulos e Montserrat no texto. Fontes e logo ficam em `assets/` para as páginas funcionarem sem depender de serviços externos.

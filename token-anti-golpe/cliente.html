@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="referrer" content="no-referrer">
-<meta name="theme-color" content="#000d21">
+<meta name="theme-color" content="#0b2b49">
 <title>Meu Token | Token Anti-Golpe</title>
 <link rel="stylesheet" href="assets/app.css">
 </head>
@@ -12,11 +12,13 @@
 
 <header class="topo">
   <div class="marca">
-    <a class="nome" href="index.html">TOKEN ANTI-GOLPE <span>| OAB TATUAPÉ</span></a>
+    <a href="index.html"><img class="logo" src="assets/img/logo-oab-tatuape-navy.png" alt="OAB São Paulo, Subseção Tatuapé" width="493" height="159"></a>
     <nav><a href="index.html#clientes">Instruções</a></nav>
   </div>
   <div class="chamada">
+    <p class="kicker">Token Anti-Golpe</p>
     <h1>Meu token</h1>
+    <div class="regua"></div>
     <p>Antes de pagar, enviar documentos ou trocar dados bancários, peça ao advogado o código e confira com o da sua tela.</p>
   </div>
 </header>
@@ -70,6 +72,7 @@
 
 <footer class="rodape-site">
   O código é calculado neste celular e nada é enviado pela internet. Mantenha o relógio do celular no horário automático.
+  <div class="assina"><b>OAB TATUAPÉ</b>JUNTOS, SOMOS MAIS FORTES!<br>Presidente OAB Tatuapé: Thiago Massicano</div>
 </footer>
 
 <script src="assets/qrcode.js"></script>
@@ -147,11 +150,11 @@
       return '<article class="token" data-id="' + v.id + '">' +
         '<div class="quem">Advogado(a) <b>' + T.esc(v.advogado) + '</b><br>' + T.esc(v.oab) + '</div>' +
         '<div class="linha"><div class="numero" data-codigo>··· ···</div>' +
-        '<div class="tempo"><svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="24" fill="none" stroke="#123a66" stroke-width="5"/>' +
-        '<circle data-anel cx="28" cy="28" r="24" fill="none" stroke="#99cdfc" stroke-width="5" stroke-linecap="round" stroke-dasharray="' + ANEL + '"/></svg>' +
+        '<div class="tempo"><svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="24" fill="none" stroke="#24476b" stroke-width="5"/>' +
+        '<circle data-anel cx="28" cy="28" r="24" fill="none" stroke="#d9a354" stroke-width="5" stroke-linecap="round" stroke-dasharray="' + ANEL + '"/></svg>' +
         '<span data-seg></span></div></div>' +
         '<form class="conferir" data-conferir>' +
-        '<input inputmode="numeric" autocomplete="off" maxlength="7" placeholder="Código dito" aria-label="Código informado pelo advogado">' +
+        '<input inputmode="numeric" autocomplete="off" maxlength="7" placeholder="Código" aria-label="Código informado pelo advogado">' +
         '<button class="botao" type="submit">Conferir</button></form>' +
         '<div class="resultado" data-resultado></div>' +
         '<div class="rodape"><button class="botao secundario" type="button" data-excluir>Remover deste celular</button></div>' +

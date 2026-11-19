@@ -10,11 +10,13 @@
 
 <header class="topo">
   <div class="marca">
-    <a class="nome" href="index.html">TOKEN ANTI-GOLPE <span>| OAB TATUAPÉ</span></a>
+    <a href="index.html"><img class="logo" src="assets/img/logo-oab-tatuape-navy.png" alt="OAB São Paulo, Subseção Tatuapé" width="493" height="159"></a>
     <nav><a href="index.html#advogados">Instruções</a><a href="cliente.html">Sou cliente</a></nav>
   </div>
   <div class="chamada">
+    <p class="kicker">Token Anti-Golpe</p>
     <h1>Painel do advogado</h1>
+    <div class="regua"></div>
     <p id="saudacao">Cadastre seus clientes e informe o código a cada contato importante.</p>
   </div>
 </header>
@@ -104,6 +106,7 @@
 
 <footer class="rodape-site">
   Os dados deste painel ficam somente neste navegador. Faça a cópia de segurança com frequência e guarde o arquivo como guarda uma senha.
+  <div class="assina"><b>OAB TATUAPÉ</b>JUNTOS, SOMOS MAIS FORTES!<br>Presidente OAB Tatuapé: Thiago Massicano</div>
 </footer>
 
 <script src="assets/qrcode.js"></script>
@@ -174,8 +177,8 @@
       return '<article class="token" data-id="' + c.id + '">' +
         '<div class="quem">Cliente <b>' + T.esc(c.nome) + '</b></div>' +
         '<div class="linha"><div class="numero" data-codigo>··· ···</div>' +
-        '<div class="tempo"><svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="24" fill="none" stroke="#123a66" stroke-width="5"/>' +
-        '<circle data-anel cx="28" cy="28" r="24" fill="none" stroke="#99cdfc" stroke-width="5" stroke-linecap="round" stroke-dasharray="' + ANEL + '"/></svg>' +
+        '<div class="tempo"><svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="24" fill="none" stroke="#24476b" stroke-width="5"/>' +
+        '<circle data-anel cx="28" cy="28" r="24" fill="none" stroke="#d9a354" stroke-width="5" stroke-linecap="round" stroke-dasharray="' + ANEL + '"/></svg>' +
         '<span data-seg></span></div></div>' +
         '<div class="rodape">' +
         '<button class="botao secundario" type="button" data-acao="qr">Entregar ao cliente</button>' +
