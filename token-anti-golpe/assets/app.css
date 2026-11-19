@@ -189,3 +189,10 @@ dialog .cartao { margin: 0; border: 0; }
   .topo { padding-top: 24px; }
   .topo .logo { width: min(250px, 62vw); }
 }
+
+.mt0 { margin-top: 0 !important; }
+.mt8 { margin-top: 8px !important; }
+.mt12 { margin-top: 12px !important; }
+.my10 { margin: 10px 0 !important; }
+.centro { text-align: center; }
+.alerta.neutro { background: #fff; border-color: var(--linha); color: var(--tinta); }

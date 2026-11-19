@@ -129,25 +129,57 @@
   }
 
   /* O segredo vai no fragmento (#) do link, que o navegador nunca envia
-     ao servidor que hospeda as páginas. */
-  function linkVinculo(perfil, cliente) {
-    var dados = { v: 1, a: perfil.nome, o: perfil.oab, c: cliente.nome, s: cliente.segredo };
+     ao servidor que hospeda as páginas. O link vale por VALIDADE_HORAS:
+     um QR Code fotografado ou encaminhado depois disso não cria vínculo. */
+  var VALIDADE_HORAS = 72;
+
+  function linkVinculo(perfil, cliente, agoraMs) {
+    var dados = {
+      v: 2, a: perfil.nome, o: perfil.oab, c: cliente.nome, s: cliente.segredo,
+      t: Math.floor((agoraMs === undefined ? Date.now() : agoraMs) / 1000)
+    };
     var url = new URL("cliente.html", global.location.href);
     url.search = "";
     url.hash = "v=" + b64url(JSON.stringify(dados));
     return url.toString();
   }
 
-  function lerVinculo(texto) {
+  function validadeAte(criadoSeg) {
+    return new Date((criadoSeg + VALIDADE_HORAS * 3600) * 1000);
+  }
+
+  /* Devolve {vinculo} ou {erro: "invalido" | "expirado"}. */
+  function lerVinculo(texto, agoraMs) {
+    var d;
     try {
       var m = String(texto).match(/[#&]v=([A-Za-z0-9_-]+)/);
-      if (!m) return null;
-      var d = JSON.parse(deb64url(m[1]));
-      if (d.v !== 1 || !segredoValido(d.s) || !d.a || !d.o) return null;
-      return { advogado: String(d.a), oab: String(d.o), cliente: String(d.c || ""), segredo: d.s.toUpperCase() };
+      if (!m) return { erro: "invalido" };
+      d = JSON.parse(deb64url(m[1]));
     } catch (e) {
-      return null;
+      return { erro: "invalido" };
     }
+    if (!d || d.v !== 2 || !segredoValido(d.s) || typeof d.a !== "string" || typeof d.o !== "string" ||
+        !d.a.trim() || !d.o.trim() || typeof d.t !== "number") {
+      return { erro: "invalido" };
+    }
+    var agora = (agoraMs === undefined ? Date.now() : agoraMs) / 1000;
+    if (agora - d.t > VALIDADE_HORAS * 3600 || d.t - agora > 3600) {
+      return { erro: "expirado", validade: validadeAte(d.t) };
+    }
+    return {
+      vinculo: {
+        advogado: d.a.slice(0, 80), oab: d.o.slice(0, 30), cliente: String(d.c || "").slice(0, 80),
+        segredo: d.s.toUpperCase().replace(/\s/g, ""), criado: d.t
+      }
+    };
+  }
+
+  /* "OAB/SP 123.456" e "123456 SP" viram "SP123456", para comparar inscrições. */
+  function normalizarOab(oab) {
+    var s = String(oab).toUpperCase();
+    var uf = (s.match(/\b(AC|AL|AP|AM|BA|CE|DF|ES|GO|MA|MT|MS|MG|PA|PB|PR|PE|PI|RJ|RN|RS|RO|RR|SC|SP|SE|TO)\b/) || [""])[0];
+    var num = s.replace(/\D/g, "").replace(/^0+/, "");
+    return uf + num;
   }
 
   function uriAutenticador(perfil, cliente) {
@@ -176,6 +208,10 @@
     } catch (e) {
       return false;
     }
+  }
+
+  function idValido(x) {
+    return typeof x === "string" && /^[A-Z2-7]{4,16}$/.test(x);
   }
 
   function id() {
@@ -221,8 +257,12 @@
     confere: confere,
     formatar: formatar,
     segundosRestantes: segundosRestantes,
+    VALIDADE_HORAS: VALIDADE_HORAS,
     linkVinculo: linkVinculo,
     lerVinculo: lerVinculo,
+    validadeAte: validadeAte,
+    normalizarOab: normalizarOab,
+    idValido: idValido,
     uriAutenticador: uriAutenticador,
     carregar: carregar,
     salvar: salvar,

@@ -3,8 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'none'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
 <meta name="referrer" content="no-referrer">
 <meta name="theme-color" content="#0b2b49">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="assets/img/icone-192.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <title>Meu Token | Token Anti-Golpe</title>
 <link rel="stylesheet" href="assets/app.css">
 </head>
@@ -34,12 +38,20 @@
   <section id="tela-vinculo" class="cartao oculto">
     <h2>Confirmar vínculo</h2>
     <p>Você está vinculando este celular ao token de:</p>
-    <div class="alerta ok" style="margin:10px 0">
+    <div class="alerta neutro my10">
       <strong id="v-adv"></strong>
       <span id="v-oab"></span><br>
       <span class="sutil" id="v-cli"></span>
     </div>
-    <p class="sutil">Faça isso somente se recebeu o QR Code do seu advogado pessoalmente ou em videochamada. Se o link chegou por mensagem de alguém que você não confirmou, cancele.</p>
+    <p class="sutil" id="v-validade"></p>
+    <div id="v-duplicado" class="alerta erro oculto">
+      <strong>Atenção: você já tem um token deste advogado.</strong>
+      O seu advogado não precisa enviar outro. Golpistas mandam um novo QR Code ou link por mensagem para trocar o seu token e passar a "acertar" o código. Só substitua se estiver frente a frente ou em videochamada com ele.
+    </div>
+    <div class="alerta aviso">
+      <strong>Só confirme se recebeu o QR Code do seu advogado pessoalmente ou em videochamada.</strong>
+      Se o link chegou por WhatsApp, e-mail ou SMS sem que você tenha combinado antes com o advogado pelo telefone que você já conhecia, toque em Cancelar.
+    </div>
     <div class="acoes">
       <button class="botao" type="button" id="b-confirmar">Confirmar vínculo</button>
       <button class="botao secundario" type="button" id="b-cancelar">Cancelar</button>
@@ -77,146 +89,7 @@
 
 <script src="assets/qrcode.js"></script>
 <script src="assets/token.js"></script>
-<script>
-(function () {
-  "use strict";
-  var T = window.Token;
-  var CHAVE = "tag.cliente.v1";
-  var dados = T.carregar(CHAVE, { vinculos: [] });
-  var $ = function (id) { return document.getElementById(id); };
-  var pendente = null;
-  var ANEL = 2 * Math.PI * 24;
-
-  if (!T.salvar("tag.teste", 1)) $("sem-armazenamento").classList.remove("oculto");
-
-  function gravar() {
-    if (!T.salvar(CHAVE, dados)) $("sem-armazenamento").classList.remove("oculto");
-  }
-
-  function limparEndereco() {
-    try { history.replaceState(null, "", location.pathname); } catch (e) { location.hash = ""; }
-  }
-
-  // ------------------------------------------------ vínculo recebido
-
-  function receber(texto) {
-    var v = T.lerVinculo(texto);
-    if (!v) return false;
-    var existe = dados.vinculos.some(function (x) { return x.segredo === v.segredo; });
-    if (existe) {
-      limparEndereco();
-      alert("Este vínculo já está salvo neste celular.");
-      return true;
-    }
-    pendente = v;
-    $("v-adv").textContent = v.advogado;
-    $("v-oab").textContent = v.oab;
-    $("v-cli").textContent = v.cliente ? "Cliente: " + v.cliente : "";
-    $("tela-vinculo").classList.remove("oculto");
-    $("tela-vinculo").scrollIntoView({ behavior: "smooth" });
-    return true;
-  }
-
-  $("b-confirmar").addEventListener("click", function () {
-    if (!pendente) return;
-    dados.vinculos.push({
-      id: T.id(), advogado: pendente.advogado, oab: pendente.oab,
-      cliente: pendente.cliente, segredo: pendente.segredo, criado: new Date().toISOString()
-    });
-    gravar();
-    pendente = null;
-    $("tela-vinculo").classList.add("oculto");
-    limparEndereco();
-    desenhar();
-    alert("Vínculo confirmado. Confira agora, junto com o advogado, se o código é igual nas duas telas.");
-  });
-
-  $("b-cancelar").addEventListener("click", function () {
-    pendente = null;
-    $("tela-vinculo").classList.add("oculto");
-    limparEndereco();
-  });
-
-  $("b-colar").addEventListener("click", function () {
-    if (!receber($("colar").value)) alert("Link inválido. Confira com o seu advogado.");
-    $("colar").value = "";
-  });
-
-  // ------------------------------------------------ tokens
-
-  function desenhar() {
-    $("tela-vazia").classList.toggle("oculto", dados.vinculos.length > 0);
-    $("lista").innerHTML = dados.vinculos.map(function (v) {
-      return '<article class="token" data-id="' + v.id + '">' +
-        '<div class="quem">Advogado(a) <b>' + T.esc(v.advogado) + '</b><br>' + T.esc(v.oab) + '</div>' +
-        '<div class="linha"><div class="numero" data-codigo>··· ···</div>' +
-        '<div class="tempo"><svg viewBox="0 0 56 56"><circle cx="28" cy="28" r="24" fill="none" stroke="#24476b" stroke-width="5"/>' +
-        '<circle data-anel cx="28" cy="28" r="24" fill="none" stroke="#d9a354" stroke-width="5" stroke-linecap="round" stroke-dasharray="' + ANEL + '"/></svg>' +
-        '<span data-seg></span></div></div>' +
-        '<form class="conferir" data-conferir>' +
-        '<input inputmode="numeric" autocomplete="off" maxlength="7" placeholder="Código" aria-label="Código informado pelo advogado">' +
-        '<button class="botao" type="submit">Conferir</button></form>' +
-        '<div class="resultado" data-resultado></div>' +
-        '<div class="rodape"><button class="botao secundario" type="button" data-excluir>Remover deste celular</button></div>' +
-        '</article>';
-    }).join("");
-    tique(T.segundosRestantes());
-  }
-
-  function buscar(id) {
-    for (var i = 0; i < dados.vinculos.length; i++) if (dados.vinculos[i].id === id) return dados.vinculos[i];
-    return null;
-  }
-
-  function tique(restantes) {
-    Array.prototype.forEach.call(document.querySelectorAll("#lista .token"), function (el) {
-      var v = buscar(el.getAttribute("data-id"));
-      if (!v) return;
-      T.codigo(v.segredo).then(function (cod) {
-        el.querySelector("[data-codigo]").textContent = T.formatar(cod);
-      });
-      var seg = el.querySelector("[data-seg]");
-      seg.textContent = restantes;
-      seg.classList.toggle("fim", restantes <= 5);
-      el.querySelector("[data-anel]").setAttribute("stroke-dashoffset", ANEL * (1 - restantes / T.PERIODO));
-    });
-  }
-
-  $("lista").addEventListener("submit", function (e) {
-    var f = e.target.closest("[data-conferir]");
-    if (!f) return;
-    e.preventDefault();
-    var el = f.closest(".token");
-    var v = buscar(el.getAttribute("data-id"));
-    var r = el.querySelector("[data-resultado]");
-    T.confere(v.segredo, f.querySelector("input").value).then(function (ok) {
-      r.className = "resultado " + (ok ? "ok" : "erro");
-      r.textContent = ok
-        ? "Código confere. O contato é de " + v.advogado + "."
-        : "Código NÃO confere. Encerre o contato e ligue para o escritório pelo número que você já conhecia.";
-      f.querySelector("input").value = "";
-      clearTimeout(r._t);
-      r._t = setTimeout(function () { r.className = "resultado"; }, 60000);
-    });
-  });
-
-  $("lista").addEventListener("click", function (e) {
-    if (!e.target.closest("[data-excluir]")) return;
-    var v = buscar(e.target.closest(".token").getAttribute("data-id"));
-    if (v && confirm("Remover o token de " + v.advogado + " deste celular? Para voltar a usar, será preciso um novo vínculo com o advogado.")) {
-      dados.vinculos = dados.vinculos.filter(function (x) { return x.id !== v.id; });
-      gravar();
-      desenhar();
-    }
-  });
-
-  // ------------------------------------------------ início
-
-  desenhar();
-  if (location.hash) receber(location.hash);
-  window.addEventListener("hashchange", function () { if (location.hash) receber(location.hash); });
-  T.relogio(tique);
-})();
-</script>
+<script src="assets/cliente.js"></script>
+<script src="assets/pwa.js"></script>
 </body>
 </html>

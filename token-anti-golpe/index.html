@@ -3,6 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'none'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#0b2b49">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="assets/img/icone-192.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
 <title>Token Anti-Golpe | Colégio de Presidentes da Capital</title>
 <meta name="description" content="Ferramenta gratuita do Colégio de Presidentes da Capital (OAB SP) para o cliente confirmar que o contato vem mesmo do seu advogado, com um código de segurança que muda a cada 30 segundos.">
 <link rel="stylesheet" href="assets/app.css">
@@ -58,9 +64,9 @@
     <ol class="passos">
       <li>Abra o <a href="advogado.html">painel do advogado</a> no computador ou no celular do escritório e informe seu nome e número de inscrição na OAB.</li>
       <li>Clique em <b>Novo cliente</b> e digite o nome do cliente. Use um nome que você reconheça, como "Maria Souza, inventário".</li>
-      <li>Mostre o QR Code para o cliente escanear com a câmera do celular. Se ele preferir, pode escanear o QR Code do aplicativo autenticador (Google Authenticator ou Microsoft Authenticator).</li>
+      <li>Mostre o QR Code para o cliente escanear com a câmera do celular. Se ele preferir, pode escanear o QR Code do aplicativo autenticador (Google Authenticator ou Microsoft Authenticator). O QR Code vale por 72 horas.</li>
       <li>Peça ao cliente para tocar em <b>Confirmar vínculo</b> e conferir junto com você se o código das duas telas é o mesmo.</li>
-      <li>Se quiser, imprima a folha de instruções e entregue ao cliente.</li>
+      <li>Se quiser, imprima a folha de instruções e entregue ao cliente. Ela traz o QR Code e a data de validade.</li>
       <li>A cada ligação ou mensagem que envolva pagamento, documentos ou mudança de conta bancária, informe espontaneamente o código atual.</li>
       <li>Faça a cópia de segurança do painel e guarde em local protegido. Ela permite usar o painel em outro computador do escritório.</li>
     </ol>
@@ -86,11 +92,11 @@
     </details>
     <details>
       <summary>Preciso instalar algum aplicativo?</summary>
-      <p>Não. Funciona no navegador do celular ou do computador. Quem já usa Google Authenticator ou Microsoft Authenticator pode guardar o token lá, pelo segundo QR Code do painel.</p>
+      <p>Não. Funciona no navegador do celular ou do computador e pode ser adicionado à tela inicial como um aplicativo, que abre mesmo sem internet. Quem já usa Google Authenticator ou Microsoft Authenticator pode guardar o token lá, pelo segundo QR Code do painel.</p>
     </details>
     <details>
       <summary>Meus dados vão para algum servidor?</summary>
-      <p>Não. Os nomes, os números de OAB e as chaves secretas ficam guardados somente no navegador do aparelho onde foram cadastrados. O código é calculado no próprio aparelho, sem internet, depois que a página carrega.</p>
+      <p>Não. Os nomes, os números de OAB e as chaves secretas ficam guardados somente no navegador do aparelho onde foram cadastrados. O código é calculado no próprio aparelho, e as páginas são configuradas para bloquear qualquer envio de dados pela internet.</p>
     </details>
     <details>
       <summary>O código não confere. E agora?</summary>
@@ -99,6 +105,14 @@
     <details>
       <summary>Troquei de celular ou apaguei os dados do navegador.</summary>
       <p>O vínculo se perde junto. Peça ao advogado um novo vínculo, presencialmente ou em videochamada. Desconfie de qualquer novo QR Code ou link enviado por mensagem sem conversa prévia.</p>
+    </details>
+    <details>
+      <summary>Recebi um novo QR Code ou link "do meu advogado" por mensagem.</summary>
+      <p>Não confirme. Se você já tem o token do seu advogado, ele não precisa mandar outro. Trocar o token do cliente é exatamente o que o golpista tenta fazer, para que o código dele passe a "conferir". O sistema avisa quando você já tem token daquele número de OAB. Ligue para o escritório pelo número que você já conhecia.</p>
+    </details>
+    <details>
+      <summary>Por que o QR Code expira?</summary>
+      <p>Para que uma foto ou um encaminhamento do QR Code feito depois da entrega não sirva para criar um token. Ele vale por 72 horas. Depois do vínculo, o código continua funcionando normalmente.</p>
     </details>
     <details>
       <summary>O advogado tem mais de um computador ou uma equipe.</summary>
@@ -126,5 +140,6 @@
   <div class="assina"><b>COLÉGIO DE PRESIDENTES DA CAPITAL</b>JUNTOS, SOMOS MAIS FORTES!</div>
 </footer>
 
+<script src="assets/pwa.js"></script>
 </body>
 </html>
