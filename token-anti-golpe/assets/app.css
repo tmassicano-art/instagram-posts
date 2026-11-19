@@ -1,0 +1,198 @@
+@font-face { font-family: "Playfair Display"; font-weight: 900; font-display: swap; src: url(fonts/PlayfairDisplay-Black.woff2) format("woff2"); }
+@font-face { font-family: "Playfair Display"; font-weight: 700; font-display: swap; src: url(fonts/PlayfairDisplay-Bold.woff2) format("woff2"); }
+@font-face { font-family: "Montserrat"; font-weight: 500; font-display: swap; src: url(fonts/Montserrat-Medium.woff2) format("woff2"); }
+@font-face { font-family: "Montserrat"; font-weight: 700; font-display: swap; src: url(fonts/Montserrat-Bold.woff2) format("woff2"); }
+@font-face { font-family: "Montserrat"; font-weight: 800; font-display: swap; src: url(fonts/Montserrat-ExtraBold.woff2) format("woff2"); }
+
+/* Identidade Colégio de Presidentes da Capital: fundo claro, azul-marinho, dourado */
+:root {
+  --navy: #0b2b49;
+  --navy-2: #0b2038;
+  --azul: #0b2b49;
+  --azul-claro: #d9a354;
+  --dourado: #d9a354;
+  --tinta: #0b2038;
+  --tinta-2: #4f5f73;
+  --linha: #ddd6c8;
+  --fundo: #f2f2f2;
+  --cartao: #ffffff;
+  --ok: #127a3e;
+  --ok-fundo: #e6f5ec;
+  --erro: #b42318;
+  --erro-fundo: #fdecea;
+  --aviso-fundo: #fff6e0;
+  --aviso: #8a5a00;
+  --raio: 14px;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--fundo);
+  color: var(--tinta);
+  font: 500 17px/1.55 "Montserrat", system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+h1, h2, .serif { font-family: "Playfair Display", Georgia, "Times New Roman", serif; font-weight: 900; color: var(--navy); }
+h2 { text-transform: uppercase; letter-spacing: .01em; }
+b, strong, summary, label { font-weight: 700; }
+
+a { color: var(--azul); }
+
+.topo {
+  position: relative; overflow: hidden;
+  background: var(--fundo); color: var(--navy);
+  padding: 18px 16px 6px; text-align: center;
+}
+.topo::before {
+  content: ""; position: absolute; left: -160px; top: -160px; width: 300px; height: 300px;
+  border-radius: 50%; background: var(--navy); box-shadow: 0 0 0 10px var(--fundo), 0 0 0 13px var(--dourado);
+}
+.topo .marca {
+  position: relative; max-width: 880px; margin: 0 auto;
+  display: flex; flex-direction: column; align-items: center; gap: 10px;
+}
+.topo .logo { display: block; width: min(300px, 72vw); height: auto; }
+.topo nav a { color: var(--navy); font-weight: 700; text-decoration: none; margin: 0 9px; font-size: 14px; border-bottom: 2px solid var(--dourado); }
+.topo .chamada { position: relative; max-width: 760px; margin: 18px auto 0; }
+.topo .kicker { font: 800 13px/1 "Montserrat", sans-serif; letter-spacing: .3em; text-transform: uppercase; color: var(--dourado); margin: 0 0 10px; }
+.topo h1 { font-size: clamp(28px, 6.4vw, 46px); line-height: 1.08; margin: 0; text-transform: uppercase; }
+.topo p { color: var(--tinta-2); margin: 0 auto; max-width: 640px; }
+.regua { position: relative; height: 3px; background: var(--dourado); margin: 16px auto 18px; max-width: 520px; }
+.regua::after {
+  content: "\00d7"; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -54%);
+  background: var(--fundo); color: var(--dourado); padding: 0 8px; font: 700 22px/1 "Montserrat", sans-serif;
+}
+
+main { max-width: 880px; margin: 0 auto; padding: 20px 16px 48px; }
+
+.cartao {
+  background: var(--cartao);
+  border: 1px solid var(--linha); border-top: 4px solid var(--dourado);
+  border-radius: var(--raio);
+  padding: 20px;
+  margin: 0 0 16px;
+}
+.cartao h2 { margin: 0 0 8px; font-size: 22px; }
+.cartao h3 { margin: 18px 0 6px; font-size: 18px; }
+.cartao p { margin: 0 0 10px; }
+.sutil { color: var(--tinta-2); font-size: 15px; }
+
+.grade { display: grid; gap: 16px; grid-template-columns: 1fr; }
+@media (min-width: 720px) { .grade.dupla { grid-template-columns: 1fr 1fr; } }
+
+.botao {
+  display: inline-flex; align-items: center; justify-content: center;
+  min-height: 48px; padding: 10px 20px; text-transform: uppercase; letter-spacing: .04em; font-size: 15px;
+  border-radius: 10px; border: 2px solid var(--azul);
+  background: var(--azul); color: #fff;
+  font: inherit; font-weight: 700; text-decoration: none; cursor: pointer;
+}
+.botao.secundario { background: #fff; color: var(--azul); }
+.botao.perigo { background: #fff; color: var(--erro); border-color: #f1b8b2; }
+.botao.grande { width: 100%; font-size: 19px; min-height: 56px; }
+.botao:disabled { opacity: .5; cursor: default; }
+.acoes { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+
+label { display: block; font-weight: 600; margin: 12px 0 6px; }
+input[type=text], input[type=search], input[inputmode], textarea {
+  width: 100%; font: inherit; padding: 12px 14px;
+  border: 1px solid #b9c6d8; border-radius: 10px; background: #fff; color: var(--tinta);
+}
+input:focus, textarea:focus, .botao:focus-visible { outline: 3px solid var(--azul-claro); outline-offset: 1px; }
+
+.passos { counter-reset: p; list-style: none; padding: 0; margin: 8px 0 0; }
+.passos li { counter-increment: p; position: relative; padding: 0 0 14px 48px; }
+.passos li::before {
+  content: counter(p, decimal-leading-zero); position: absolute; left: 0; top: -4px;
+  font: 900 26px/1 "Playfair Display", Georgia, serif; font-variant-numeric: lining-nums;
+  color: var(--dourado);
+}
+
+.alerta { border-radius: var(--raio); padding: 16px 18px; margin: 0 0 16px; border: 1px solid; }
+.alerta strong { display: block; margin-bottom: 4px; }
+.alerta.aviso { background: var(--aviso-fundo); border-color: #f0d48a; color: #4d3500; }
+.alerta.erro { background: var(--erro-fundo); border-color: #f1b8b2; color: #6b130c; }
+.alerta.ok { background: var(--ok-fundo); border-color: #a9dcbc; color: #0b4a26; }
+
+/* ---------- código ---------- */
+.token {
+  background: var(--navy); color: #fafafb; border: 3px solid var(--dourado);
+  border-radius: var(--raio); padding: 18px 18px 16px; margin: 0 0 16px;
+}
+.token .quem { color: var(--azul-claro); font-size: 15px; margin-bottom: 2px; }
+.token .quem b { color: #fafafb; font-size: 17px; }
+.token .linha { display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+.token .numero {
+  font: 800 clamp(40px, 12vw, 58px)/1.1 ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  letter-spacing: .06em; font-variant-numeric: tabular-nums;
+}
+.token .tempo { width: 56px; height: 56px; flex: none; position: relative; }
+.token .tempo svg { width: 56px; height: 56px; transform: rotate(-90deg); }
+.token .tempo span {
+  position: absolute; inset: 0; display: grid; place-items: center;
+  font-weight: 800; font-variant-numeric: tabular-nums; color: var(--azul-claro);
+}
+.token .tempo .fim { color: #ffb4a8; }
+.token .rodape { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 10px; }
+.token .rodape .botao { min-height: 40px; padding: 6px 14px; font-size: 15px; }
+.token .rodape .botao.secundario { background: transparent; color: var(--azul-claro); border-color: #2c4a72; }
+
+.conferir { display: flex; gap: 10px; margin-top: 10px; }
+.conferir input { font-size: 22px; letter-spacing: .15em; text-align: center; font-variant-numeric: tabular-nums; }
+.resultado { margin-top: 10px; border-radius: 10px; padding: 12px 14px; font-weight: 700; display: none; }
+.resultado.ok { display: block; background: var(--ok-fundo); color: var(--ok); }
+.resultado.erro { display: block; background: var(--erro-fundo); color: var(--erro); }
+
+.qr { background: #fff; border: 1px solid var(--linha); border-radius: 12px; padding: 8px; width: min(280px, 100%); margin: 8px auto; }
+.qr svg { display: block; width: 100%; height: auto; }
+
+.vazio { text-align: center; color: var(--tinta-2); padding: 24px 12px; }
+
+details { border-top: 1px solid var(--linha); padding: 12px 0; }
+details:first-of-type { border-top: 0; }
+summary { cursor: pointer; font-weight: 700; }
+details p { margin: 8px 0 0; }
+
+.rodape-site { max-width: 880px; margin: 0 auto; padding: 0 16px 40px; color: var(--tinta-2); font-size: 14px; text-align: center; }
+.rodape-site .assina { border-top: 3px solid var(--dourado); padding-top: 16px; margin-top: 8px; color: var(--navy); }
+.rodape-site .assina b { display: block; font-weight: 800; letter-spacing: .04em; }
+
+dialog {
+  border: 0; border-radius: var(--raio); padding: 0;
+  width: min(560px, calc(100vw - 32px)); max-height: calc(100vh - 32px);
+}
+dialog::backdrop { background: rgba(11, 32, 56, .65); }
+dialog .cartao { margin: 0; border: 0; }
+
+.oculto { display: none !important; }
+
+/* ---------- impressão: folha de instruções para o cliente ---------- */
+#folha { display: none; }
+@media print {
+  body { background: #fff; font-size: 13pt; }
+  body > *:not(#folha) { display: none !important; }
+  #folha { display: block; }
+  #folha .qr { width: 6cm; border: 0; }
+  #folha h1 { font-size: 20pt; margin: 0 0 4pt; }
+  #folha .passos li::before { background: #000; color: #fff; }
+  #folha .caixa { border: 1.5pt solid #000; border-radius: 8pt; padding: 10pt 14pt; margin: 12pt 0; }
+}
+
+/* ajustes da identidade */
+.token .botao:not(.secundario) { background: var(--dourado); border-color: var(--dourado); color: var(--navy); }
+@media (max-width: 600px) {
+  .topo::before { left: -130px; top: -130px; width: 200px; height: 200px; box-shadow: 0 0 0 7px var(--fundo), 0 0 0 10px var(--dourado); }
+  .topo { padding-top: 24px; }
+  .topo .logo { width: min(250px, 62vw); }
+}
+
+.mt0 { margin-top: 0 !important; }
+.mt8 { margin-top: 8px !important; }
+.mt12 { margin-top: 12px !important; }
+.my10 { margin: 10px 0 !important; }
+.centro { text-align: center; }
+.alerta.neutro { background: #fff; border-color: var(--linha); color: var(--tinta); }

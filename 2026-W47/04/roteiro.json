@@ -1,0 +1,11 @@
+{
+  "tema": "Token Anti-Golpe Colégio de Presidentes da Capital",
+  "cards": [
+    { "tipo": "capa", "chamada": "Atenção, advocacia", "titulo": "O golpe que usa o seu nome", "apoio": "O Colégio de Presidentes da Capital disponibiliza gratuitamente o Token Anti-Golpe: um código que muda a cada 30 segundos para o cliente confirmar que é você." },
+    { "tipo": "conteudo", "etiqueta": "Por que importa", "titulo": "O golpista já sabe tudo sobre o processo", "texto": "Nome do advogado, foto, número dos autos e fase da ação estão ao alcance de qualquer um. Com isso, o criminoso procura o cliente pedindo pagamento para \"liberar valores\". Quem cai perde dinheiro, e a confiança na advocacia sai ferida junto." },
+    { "tipo": "conteudo", "etiqueta": "Token Anti-Golpe", "titulo": "O que o Colégio de Presidentes oferece", "itens": ["Ferramenta gratuita para advogados e clientes", "Código de segurança que muda a cada 30 segundos", "Só o advogado e o cliente veem o mesmo código", "Funciona no navegador, sem instalar aplicativo"] },
+    { "tipo": "conteudo", "etiqueta": "No escritório", "titulo": "Como colocar em prática", "itens": ["Vincule cada cliente pelo QR Code, no escritório", "Informe o código em todo contato que envolva dinheiro", "Quem diz o código é o advogado, o cliente só confere", "Sem código válido, a conversa termina ali"] },
+    { "tipo": "destaque", "numero": "30", "titulo": "Segundos de validade", "texto": "Um código que expira em 30 segundos não se copia de rede social nem dos autos. Na dúvida, o cliente confere antes de pagar." },
+    { "tipo": "cta", "titulo": "Proteja quem confia em você", "acoes": ["Acesse o Token Anti-Golpe pelo link da bio", "Compartilhe com colegas e com seus clientes", "Salve para orientar sua equipe"] }
+  ]
+}

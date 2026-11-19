@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self'; img-src 'self' data: blob:; font-src 'self'; connect-src 'none'; worker-src 'self'; manifest-src 'self'; object-src 'none'; base-uri 'none'; form-action 'none'">
+<meta name="referrer" content="no-referrer">
+<meta name="theme-color" content="#0b2b49">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" type="image/png" href="assets/img/icone-192.png">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<title>Meu Token | Token Anti-Golpe</title>
+<link rel="stylesheet" href="assets/app.css">
+</head>
+<body>
+
+<header class="topo">
+  <div class="marca">
+    <a href="index.html"><img class="logo" src="assets/img/logo-colegio-presidentes-navy.png" alt="OAB São Paulo, Colégio de Presidentes da Capital" width="1074" height="297"></a>
+    <nav><a href="index.html#clientes">Instruções</a></nav>
+  </div>
+  <div class="chamada">
+    <p class="kicker">Token Anti-Golpe</p>
+    <h1>Meu token</h1>
+    <div class="regua"></div>
+    <p>Antes de pagar, enviar documentos ou trocar dados bancários, peça ao advogado o código e confira com o da sua tela.</p>
+  </div>
+</header>
+
+<main>
+
+  <div id="sem-armazenamento" class="alerta erro oculto">
+    <strong>Este navegador não está guardando dados.</strong>
+    Saia da aba anônima ou use o navegador normal do celular, senão o vínculo se perde ao fechar a página.
+  </div>
+
+  <!-- confirmação de vínculo recebido -->
+  <section id="tela-vinculo" class="cartao oculto">
+    <h2>Confirmar vínculo</h2>
+    <p>Você está vinculando este celular ao token de:</p>
+    <div class="alerta neutro my10">
+      <strong id="v-adv"></strong>
+      <span id="v-oab"></span><br>
+      <span class="sutil" id="v-cli"></span>
+    </div>
+    <p class="sutil" id="v-validade"></p>
+    <div id="v-duplicado" class="alerta erro oculto">
+      <strong>Atenção: você já tem um token deste advogado.</strong>
+      O seu advogado não precisa enviar outro. Golpistas mandam um novo QR Code ou link por mensagem para trocar o seu token e passar a "acertar" o código. Só substitua se estiver frente a frente ou em videochamada com ele.
+    </div>
+    <div class="alerta aviso">
+      <strong>Só confirme se recebeu o QR Code do seu advogado pessoalmente ou em videochamada.</strong>
+      Se o link chegou por WhatsApp, e-mail ou SMS sem que você tenha combinado antes com o advogado pelo telefone que você já conhecia, toque em Cancelar.
+    </div>
+    <div class="acoes">
+      <button class="botao" type="button" id="b-confirmar">Confirmar vínculo</button>
+      <button class="botao secundario" type="button" id="b-cancelar">Cancelar</button>
+    </div>
+  </section>
+
+  <section class="alerta erro">
+    <strong>Regra de ouro</strong>
+    Quem diz o código é o advogado. Você só confere. Nunca leia o seu código para ninguém.
+  </section>
+
+  <div id="lista"></div>
+
+  <section id="tela-vazia" class="cartao oculto">
+    <h2>Nenhum advogado vinculado</h2>
+    <ol class="passos">
+      <li>Peça ao seu advogado o QR Code do Token Anti-Golpe.</li>
+      <li>Aponte a câmera do celular para o QR Code e abra o link.</li>
+      <li>Confira o nome e a OAB do advogado e toque em <b>Confirmar vínculo</b>.</li>
+    </ol>
+    <details>
+      <summary>Recebi um link em vez de QR Code</summary>
+      <p>Cole o link abaixo. Faça isso apenas se tiver certeza de que foi o seu advogado quem enviou.</p>
+      <textarea id="colar" rows="3" placeholder="Cole aqui o link recebido"></textarea>
+      <div class="acoes"><button class="botao secundario" type="button" id="b-colar">Usar este link</button></div>
+    </details>
+  </section>
+
+</main>
+
+<footer class="rodape-site">
+  O código é calculado neste celular e nada é enviado pela internet. Mantenha o relógio do celular no horário automático.
+  <div class="assina"><b>COLÉGIO DE PRESIDENTES DA CAPITAL</b>JUNTOS, SOMOS MAIS FORTES!</div>
+</footer>
+
+<script src="assets/qrcode.js"></script>
+<script src="assets/token.js"></script>
+<script src="assets/cliente.js"></script>
+<script src="assets/pwa.js"></script>
+</body>
+</html>
