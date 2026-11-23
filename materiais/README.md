@@ -4,6 +4,11 @@ IA na advocacia, com ética. Material informativo, sem caráter de consultoria. 
 
 <!-- NOVOS MATERIAIS ENTRAM AQUI, NO TOPO -->
 
+## A IA pode fazer serviço jurídico?
+Checklist com 10 perguntas antes de contratar uma IA jurídica: supervisão, sigilo e dados, e o que a ferramenta promete.
+👉 [Abrir o material](05-checklist-contratar-ia-juridica.md)
+
+
 ## 8 pedidos ao Claude que poupam horas
 Prompts prontos para processos, contratos e peças. Funcionam também no ChatGPT e no Gemini.
 👉 [Abrir os 8 prompts (PDF)](8-prompts-claude.pdf)
