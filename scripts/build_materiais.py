@@ -58,16 +58,17 @@ def md_to_html(md: str):
         if line.strip().startswith("<!--"):
             continue
         m_ul = re.match(r"^\s*[-*]\s+(.*)", line)
-        m_ol = re.match(r"^\s*\d+[.)]\s+(.*)", line)
+        m_ol = re.match(r"^\s*(\d+)[.)]\s+(.*)", line)
         kind = "ul" if m_ul else "ol" if m_ol else None
         if in_list and kind != in_list:
             out.append(f"</{in_list}>")
             in_list = None
         if kind:
             if not in_list:
-                out.append(f"<{kind}>")
+                start = f' start="{m_ol.group(1)}"' if m_ol and m_ol.group(1) != "1" else ""
+                out.append(f"<{kind}{start}>")
                 in_list = kind
-            out.append(f"<li>{inline((m_ul or m_ol).group(1))}</li>")
+            out.append(f"<li>{inline(m_ul.group(1) if m_ul else m_ol.group(2))}</li>")
             continue
         if not line.strip() or line.strip() == "---":
             continue
@@ -105,6 +106,10 @@ def build_index():
     intro = [l for l in head.splitlines()[1:] if l.strip() and not l.startswith("<!--")]
     sub = inline(" ".join(intro))
     cards = []
+    if (MAT / "kit-ia-na-advocacia.pdf").exists():
+        cards.append('<section class="card"><h2>Kit completo em PDF</h2><p>Todos os materiais abaixo em um só '
+                     'arquivo, para salvar no celular ou imprimir.</p>'
+                     '<a class="btn" href="kit-ia-na-advocacia.pdf">Baixar o kit (PDF)</a></section>')
     for b in blocos:
         b = b.split("\n---")[0]
         titulo, *resto = b.split("\n", 1)
