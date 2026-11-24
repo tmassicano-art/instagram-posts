@@ -4,6 +4,10 @@ IA na advocacia, com ética. Material informativo, sem caráter de consultoria. 
 
 <!-- NOVOS MATERIAIS ENTRAM AQUI, NO TOPO -->
 
+## O TJSP já usa 5 IAs
+Checklist da petição que o tribunal lê com IA: PDF pesquisável, tese e pedido no início e precedentes conferidos na fonte.
+👉 [Abrir o material](04-checklist-peticao-lida-por-ia.md)
+
 ## Antes de colar a peça na IA, apague isto
 Prompt pronto que anonimiza a peça (nomes, CPF, endereço, número do processo e valores) antes de usar a IA.
 👉 [Abrir o material](01-prompt-anonimizacao.md)
