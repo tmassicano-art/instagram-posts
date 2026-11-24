@@ -115,6 +115,9 @@ def build_index():
         titulo, *resto = b.split("\n", 1)
         _, corpo = md_to_html("# x\n" + (resto[0] if resto else ""))
         corpo = corpo.replace("👉 ", "")
+        m = re.search(r'href="([^"/:]+)\.html"', corpo)
+        if m and (MAT / f"{m.group(1)}.pdf").exists():
+            corpo += f'<p><a class="btn" href="{m.group(1)}.pdf">Baixar em PDF</a></p>'
         cards.append(f'<section class="card"><h2>{inline(titulo.strip())}</h2>{corpo}</section>')
     (MAT / "index.html").write_text(
         page("Materiais gratuitos", sub, "\n".join(cards), back=False), encoding="utf-8")

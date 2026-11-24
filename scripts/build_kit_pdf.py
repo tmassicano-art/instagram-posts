@@ -124,16 +124,33 @@ def montar() -> str:
             + capa + "".join(s for _, s in itens) + "</body></html>")
 
 
-def imprimir():
+def imprimir(origem: Path, destino: Path):
     nav = next((n for n in NAVEGADORES if Path(n).exists()), None)
     if not nav:
         raise SystemExit("Edge/Chrome nao encontrado para gerar o PDF")
     subprocess.run([nav, "--headless=new", "--disable-gpu", "--no-pdf-header-footer",
-                    f"--print-to-pdf={SAIDA_PDF}", SAIDA_HTML.as_uri()],
+                    f"--print-to-pdf={destino}", origem.as_uri()],
                    check=True, capture_output=True, timeout=120)
+
+
+def pdfs_individuais():
+    """Cada material .md do README ganha o proprio PDF (materiais/<nome>.pdf), no mesmo visual."""
+    for titulo, desc, alvo in blocos_readme():
+        if not (alvo.endswith(".md") and "://" not in alvo):
+            continue
+        s = secao(titulo, desc, alvo)
+        if not s:
+            continue
+        tmp = FONTES / (Path(alvo).stem + ".html")
+        tmp.write_text(f'<!doctype html><html lang="pt-br"><head><meta charset="utf-8">'
+                       f'<title>{html.escape(titulo)}</title><style>{CSS}</style></head><body>{s}</body></html>',
+                       encoding="utf-8")
+        imprimir(tmp, MAT / (Path(alvo).stem + ".pdf"))
+        print("pdf:", Path(alvo).stem + ".pdf")
 
 
 if __name__ == "__main__":
     SAIDA_HTML.write_text(montar(), encoding="utf-8")
-    imprimir()
+    imprimir(SAIDA_HTML, SAIDA_PDF)
+    pdfs_individuais()
     print("ok:", SAIDA_PDF, SAIDA_PDF.stat().st_size, "bytes")
