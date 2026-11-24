@@ -4,6 +4,10 @@ IA na advocacia, com ética. Material informativo, sem caráter de consultoria. 
 
 <!-- NOVOS MATERIAIS ENTRAM AQUI, NO TOPO -->
 
+## Antes de colar a peça na IA, apague isto
+Prompt pronto que anonimiza a peça (nomes, CPF, endereço, número do processo e valores) antes de usar a IA.
+👉 [Abrir o material](01-prompt-anonimizacao.md)
+
 ## A IA pode fazer serviço jurídico?
 Checklist com 10 perguntas antes de contratar uma IA jurídica: supervisão, sigilo e dados, e o que a ferramenta promete.
 👉 [Abrir o material](05-checklist-contratar-ia-juridica.md)
