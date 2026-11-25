@@ -149,7 +149,31 @@ def pdfs_individuais():
         print("pdf:", Path(alvo).stem + ".pdf")
 
 
+def pdf_avulso(md_path: Path, desc: str = "") -> Path:
+    """PDF independente de um material .md (mesmo de fora do README): materiais/<nome>.pdf.
+    Usado para publicar o PDF de um post antes da publicacao (o ManyChat ja aponta para ele)."""
+    md_path = Path(md_path).resolve()
+    titulo, corpo = md_to_html(md_path.read_text(encoding="utf-8"))
+    corpo = corpo.replace("<p><em>Material informativo", '<p class="f"><em>Material informativo')
+    cab = '<div class="h">@thiago.massicano · IA na advocacia</div>'
+    s = (f'<div class="p md">{cab}<h1>{html.escape(titulo)}</h1>'
+         f'<div class="sub">{inline(desc)}</div>{corpo}</div>')
+    FONTES.mkdir(exist_ok=True)
+    tmp = FONTES / (md_path.stem + ".html")
+    tmp.write_text(f'<!doctype html><html lang="pt-br"><head><meta charset="utf-8">'
+                   f'<title>{html.escape(titulo)}</title><style>{CSS}</style></head><body>{s}</body></html>',
+                   encoding="utf-8")
+    destino = MAT / (md_path.stem + ".pdf")
+    imprimir(tmp, destino)
+    return destino
+
+
 if __name__ == "__main__":
+    import sys
+    if len(sys.argv) >= 3 and sys.argv[1] == "--material":
+        # uso: python scripts/build_kit_pdf.py --material <caminho.md> ["descricao curta"]
+        print("pdf:", pdf_avulso(Path(sys.argv[2]), sys.argv[3] if len(sys.argv) > 3 else ""))
+        raise SystemExit
     SAIDA_HTML.write_text(montar(), encoding="utf-8")
     imprimir(SAIDA_HTML, SAIDA_PDF)
     pdfs_individuais()
