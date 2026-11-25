@@ -4,6 +4,10 @@ IA na advocacia, com ética. Material informativo, sem caráter de consultoria. 
 
 <!-- NOVOS MATERIAIS ENTRAM AQUI, NO TOPO -->
 
+## STJ barrou recurso que era conversa com IA
+Checklist dos embargos de declaração com apoio de IA: vício do acórdão, trecho embargado, revisão humana e prazo de 5 dias.
+👉 [Abrir o material](14-checklist-embargos-com-ia.md)
+
 ## O TJSP já usa 5 IAs
 Checklist da petição que o tribunal lê com IA: PDF pesquisável, tese e pedido no início e precedentes conferidos na fonte.
 👉 [Abrir o material](04-checklist-peticao-lida-por-ia.md)
