@@ -4,6 +4,10 @@ IA na advocacia, com ética. Material informativo, sem caráter de consultoria. 
 
 <!-- NOVOS MATERIAIS ENTRAM AQUI, NO TOPO -->
 
+## O STJ avisou: IA é instrumento
+Protocolo de revisão humana em 4 passos: ler a peça inteira, conferir lei e julgado na fonte oficial, testar datas e valores e registrar quem revisou.
+👉 [Abrir o material](08-protocolo-revisao-humana.md)
+
 ## STJ barrou recurso que era conversa com IA
 Checklist dos embargos de declaração com apoio de IA: vício do acórdão, trecho embargado, revisão humana e prazo de 5 dias.
 👉 [Abrir o material](14-checklist-embargos-com-ia.md)
