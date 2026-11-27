@@ -4,6 +4,10 @@ IA na advocacia, com ética. Material informativo, sem caráter de consultoria. 
 
 <!-- NOVOS MATERIAIS ENTRAM AQUI, NO TOPO -->
 
+## Jurisprudência inventada por IA chegou ao CNJ
+Prompt e checklist para conferir cada citação no site oficial do tribunal antes de protocolar, com a pesquisa na web do Claude.
+👉 [Abrir o material](03-conferencia-de-citacoes-com-claude.md)
+
 ## O STJ avisou: IA é instrumento
 Protocolo de revisão humana em 4 passos: ler a peça inteira, conferir lei e julgado na fonte oficial, testar datas e valores e registrar quem revisou.
 👉 [Abrir o material](08-protocolo-revisao-humana.md)
