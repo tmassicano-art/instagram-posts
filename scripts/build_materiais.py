@@ -124,13 +124,19 @@ def build_index():
 
 
 def build_materiais():
+    """Pagina de cada material no mesmo visual do PDF (material_pdf.py), adaptada ao celular (desde 28/11/2026)."""
+    from material_pdf import bloco_material, converter, documento
+    tela = ("<style>@media screen{body{max-width:820px;margin:0 auto;padding:0 14px 30px}"
+            ".capa{margin:0 -14px 18px;padding:24px 18px 18px;flex-wrap:wrap}.capa h1{font-size:22pt}"
+            ".meta{flex-direction:column}.rodape{display:none}table{display:block;overflow-x:auto}}</style>"
+            '<p style="margin:10px 0"><a href="index.html">&larr; Todos os materiais</a></p>')
     for f in sorted(MAT.glob("*.md")):
         if f.name == "README.md":
             continue
-        title, body = md_to_html(f.read_text(encoding="utf-8"))
-        (MAT / (f.stem + ".html")).write_text(
-            page(title, "IA na advocacia, com ética", f'<section class="card">{body}</section>', back=True),
-            encoding="utf-8")
+        md = f.read_text(encoding="utf-8")
+        doc = documento(converter(md)[0], tela + bloco_material(md, f.stem))
+        doc = doc.replace("<head>", '<head><meta name="viewport" content="width=device-width,initial-scale=1">', 1)
+        (MAT / (f.stem + ".html")).write_text(doc, encoding="utf-8")
 
 
 if __name__ == "__main__":

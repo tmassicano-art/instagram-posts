@@ -1,70 +1,108 @@
-<!doctype html>
-<html lang="pt-BR"><head><meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>A petição que o tribunal lê com IA</title><style>
-:root{--azul:#0b2a5b;--azul2:#1f5fbf;--fundo:#f4f6fa;--texto:#1b2333;--card:#fff}
-*{box-sizing:border-box}
-body{margin:0;background:var(--fundo);color:var(--texto);font:17px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
-header{background:var(--azul);color:#fff;padding:22px 16px 18px}
-header a{color:#fff}
-main{max-width:680px;margin:0 auto;padding:16px}
-h1{font-size:1.45rem;margin:0 0 6px;line-height:1.25}
-h2{font-size:1.15rem;margin:0 0 6px;color:var(--azul)}
-h3{font-size:1.02rem;margin:18px 0 6px;color:var(--azul)}
-.sub{opacity:.85;font-size:.95rem;margin:0}
-section.card{background:var(--card);border-radius:14px;padding:16px;margin:14px 0;box-shadow:0 1px 4px rgba(11,42,91,.08)}
-a{color:var(--azul2)}
-a.btn{display:inline-block;margin-top:8px;background:var(--azul2);color:#fff;text-decoration:none;padding:11px 16px;border-radius:10px;font-weight:600}
-ul,ol{padding-left:22px}
-li{margin:4px 0}
-footer{max-width:680px;margin:0 auto;padding:8px 16px 32px;font-size:.9rem;opacity:.8}
-</style></head>
-<body><header><main style="padding:0"><p class="sub"><a href="index.html">&larr; Todos os materiais</a></p><h1>A petição que o tribunal lê com IA</h1><p class="sub">IA na advocacia, com ética</p></main></header>
-<main><section class="card"><p><em>O que o TJSP já usa e o checklist para a sua peça ser bem lida por pessoas e por máquinas</em></p>
-<p>Base: Resolução CNJ 615/2025 · Projeto IA-TJSP · CPC, art. 77 · Estatuto da OAB, art. 34, XIV</p>
-<h3>O cenário</h3>
-<p>&gt; <strong>Fundamento:</strong> a Resolução CNJ 615/2025 estabelece diretrizes para o desenvolvimento, a utilização e a governança de soluções de inteligência artificial no Poder Judiciário. A IA no tribunal é regulada e veio para ficar.</p>
+<!doctype html><html lang="pt-br"><head><meta name="viewport" content="width=device-width,initial-scale=1"><meta charset="utf-8"><title>A petição que o tribunal lê com IA</title><style>
+@page{size:A4;margin:16mm 15mm 20mm}
+@page:first{margin-top:0}
+*{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+html,body{margin:0;background:#fff}
+body{font-family:"Segoe UI",Arial,sans-serif;color:#1d2a3f;font-size:10.5pt;line-height:1.5}
+.capa{background:linear-gradient(135deg,#061226 0%,#0b2350 60%,#123a7a 100%);color:#fff;
+  margin:0 -15mm 18px;padding:15mm 15mm 12mm;display:flex;gap:22px;align-items:center;position:relative}
+.capa .txt{flex:1}
+.kick{font-size:8.5pt;letter-spacing:2.2px;text-transform:uppercase;color:#7fb6ff;font-weight:700}
+.capa h1{font-size:25pt;line-height:1.08;margin:8px 0 8px;font-weight:900;letter-spacing:-.3px}
+.capa .sub{font-size:11.5pt;color:#c9dcff;margin:0}
+.capa .foto{width:118px;height:148px;border-radius:12px;background-size:cover;background-position:center 20%;
+  border:3px solid #3d8bff;flex:none;box-shadow:0 6px 20px rgba(0,0,0,.35)}
+.capa .barra{position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,#3d8bff,#7fb6ff)}
+.meta{display:flex;gap:18px;margin:0 0 14px}
+.meta .bloco{flex:1;background:#f3f7fe;border:1px solid #dbe6fa;border-radius:10px;padding:10px 14px}
+.meta .rot{font-size:7.5pt;letter-spacing:1.6px;text-transform:uppercase;color:#2f6fe0;font-weight:800;margin-bottom:6px}
+.chip{display:inline-block;background:#fff;border:1px solid #b9cff5;color:#0b2350;border-radius:20px;
+  padding:2px 10px;margin:0 5px 5px 0;font-size:8.5pt;font-weight:600}
+.sum{margin:0;padding:0;list-style:none;counter-reset:s}
+.sum li{font-size:9pt;margin:0 0 3px;color:#24365a}
+.sum li b{color:#2f6fe0;margin-right:6px}
+h2{font-size:14pt;color:#0b2350;margin:20px 0 8px;padding-bottom:5px;border-bottom:2px solid #e2ebfb;
+  display:flex;align-items:center;gap:10px;break-after:avoid;page-break-after:avoid}
+h2 .n{background:#2f6fe0;color:#fff;border-radius:8px;min-width:28px;height:28px;display:inline-flex;
+  align-items:center;justify-content:center;font-size:11pt;font-weight:900}
+h3{font-size:11pt;color:#2f6fe0;margin:14px 0 4px;break-after:avoid}
+p{margin:6px 0}
+ul,ol{margin:6px 0 8px;padding-left:20px}
+li{margin:0 0 4px}
+strong{color:#0b2350}
+a{color:#2f6fe0;text-decoration:none;word-break:break-all}
+.call{border-radius:10px;padding:10px 14px 10px 50px;margin:10px 0;position:relative;break-inside:avoid}
+.call .ic{position:absolute;left:12px;top:10px;width:26px;height:26px;border-radius:50%;color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12pt}
+.call .lb{font-size:7.5pt;letter-spacing:1.5px;text-transform:uppercase;font-weight:800;margin-bottom:2px}
+.fund{background:#eef4ff;border-left:4px solid #2f6fe0}.fund .ic{background:#2f6fe0}.fund .lb{color:#2f6fe0}
+.alerta{background:#fff4ec;border-left:4px solid #e2701d}.alerta .ic{background:#e2701d}.alerta .lb{color:#c25a10}
+.dica{background:#ecf9f1;border-left:4px solid #1f9d55}.dica .ic{background:#1f9d55}.dica .lb{color:#1a8048}
+.ex{background:#f4f1fd;border-left:4px solid #6d4fd6}.ex .ic{background:#6d4fd6}.ex .lb{color:#5a3ec0}
+.quote{border-left:4px solid #b9cff5;background:#f7f9fd;padding:8px 14px;margin:10px 0;font-style:italic;color:#33466b}
+.prompt{background:#0b1830;border-radius:10px;margin:10px 0 12px;break-inside:avoid;overflow:hidden}
+.prompt .lb{background:#16305e;color:#9cc4ff;font-size:7.5pt;letter-spacing:1.6px;font-weight:800;padding:6px 14px;
+  text-transform:uppercase}
+.prompt pre{margin:0;padding:10px 14px 12px;color:#e3ecff;font-family:Consolas,"Cascadia Mono",monospace;
+  font-size:8.8pt;line-height:1.45;white-space:pre-wrap}
+ul.check{list-style:none;padding-left:0}
+ul.check li{position:relative;padding:5px 8px 5px 30px;margin:0 0 4px;background:#f7f9fd;border-radius:6px;break-inside:avoid}
+ul.check li:before{content:"";position:absolute;left:9px;top:8px;width:12px;height:12px;border:2px solid #2f6fe0;border-radius:3px;background:#fff}
+ol.passos{list-style:none;padding-left:0;counter-reset:p}
+ol.passos li{counter-increment:p;position:relative;padding:6px 10px 6px 42px;margin:0 0 6px;background:#f7f9fd;
+  border-radius:8px;break-inside:avoid}
+ol.passos li:before{content:counter(p);position:absolute;left:10px;top:6px;width:22px;height:22px;border-radius:6px;
+  background:#0b2350;color:#fff;font-weight:900;font-size:9.5pt;display:flex;align-items:center;justify-content:center}
+table{width:100%;border-collapse:collapse;margin:8px 0 12px;font-size:9.3pt;break-inside:avoid}
+th{background:#0b2350;color:#fff;text-align:left;padding:6px 9px;font-weight:700}
+td{padding:6px 9px;border-bottom:1px solid #e2ebfb;vertical-align:top}
+tr:nth-child(even) td{background:#f7f9fd}
+.fontes{font-size:8.5pt;color:#4a5b7c}
+.fontes li{margin-bottom:3px}
+.rodape{position:fixed;bottom:-12mm;left:0;right:0;font-size:7.5pt;color:#7d8daa;display:flex;justify-content:space-between;
+  border-top:1px solid #e2ebfb;padding-top:4px}
+.fim{margin-top:16px;background:#0b2350;color:#fff;border-radius:10px;padding:12px 16px;display:flex;
+  justify-content:space-between;align-items:center;break-inside:avoid}
+.fim b{color:#7fb6ff}
+.fim .s{font-size:8.5pt;color:#c9dcff}
+.kitcapa{min-height:250mm;display:flex;flex-direction:column}
+.quebra{break-before:page;page-break-before:always}
+</style></head><body><div class="rodape"><span>Thiago Massicano · Advogado · @thiago.massicano</span><span>Material informativo, sem caráter de consultoria</span></div><style>@media screen{body{max-width:820px;margin:0 auto;padding:0 14px 30px}.capa{margin:0 -14px 18px;padding:24px 18px 18px;flex-wrap:wrap}.capa h1{font-size:22pt}.meta{flex-direction:column}.rodape{display:none}table{display:block;overflow-x:auto}}</style><p style="margin:10px 0"><a href="index.html">&larr; Todos os materiais</a></p><div class="capa"><div class="txt"><div class="kick">@thiago.massicano · IA na advocacia</div><h1>A petição que o tribunal lê com IA</h1><p class="sub">O que o TJSP já usa e o checklist para a sua peça ser bem lida por pessoas e por máquinas</p></div><div class="foto" style="background-image:url('file:///C:/Users/Dr.Thiago/OneDrive/Instagram%20-%20IA%20na%20Advocacia/Fotos/10-mesa-estante-blazer-serio.jpg')"></div><div class="barra"></div></div><div class="meta"><div class="bloco"><div class="rot">Fundamentado em</div><span class="chip">Resolução CNJ 615/2025</span><span class="chip">Projeto IA-TJSP</span><span class="chip">CPC, art. 77</span><span class="chip">Estatuto da OAB, art. 34, XIV</span></div><div class="bloco"><div class="rot">Neste material</div><ol class="sum"><li><b>01</b>O cenário</li><li><b>02</b>Arquivo</li><li><b>03</b>Estrutura</li><li><b>04</b>Dados</li></ol></div></div><h2><span class="n">1</span>O cenário</h2>
+<div class="call fund"><div class="ic">§</div><div class="lb">Fundamento</div>A Resolução CNJ 615/2025 estabelece diretrizes para o desenvolvimento, a utilização e a governança de soluções de inteligência artificial no Poder Judiciário. A IA no tribunal é regulada e veio para ficar.</div>
 <p>O TJSP usa 5 ferramentas no projeto "IA-TJSP: julgar rápido, julgar muito, julgar bem", desde março de 2026:</p>
-<p>| Ferramenta | O que faz | O que muda para a sua peça |</p>
-<p>|---|---|---|</p>
-<p>| Transcreve TJSP | Transcreve gravações de audiência | Cite o minuto da gravação com precisão |</p>
-<p>| Gerador de Ementas | Sugere ementas | Tese clara rende ementa fiel |</p>
-<p>| Jurisprudência GPT | Pesquisa precedentes dos tribunais superiores | Precedente errado será notado |</p>
-<p>| Robô TJSP | Baixa documentos processuais | Anexos legíveis e bem nomeados |</p>
-<p>| ProtejAI | Anonimiza dados pessoais sensíveis | Não exponha além do necessário |</p>
-<h3>Arquivo</h3>
-<ul>
-<li>[ ] PDF gerado do editor de texto (Word &gt; Salvar como PDF), com texto selecionável.</li>
-<li>[ ] Anexos digitalizados com OCR: teste com Ctrl+F se o texto é encontrado.</li>
-<li>[ ] Nada oculto: sem texto em fonte branca ou microscópica (Ctrl+A no PDF para conferir).</li>
-<li>[ ] Anexos nomeados pelo conteúdo ("Contrato 2024", "Notificação 10-03") e não "doc1".</li>
+<table><tr><th>Ferramenta</th><th>O que faz</th><th>O que muda para a sua peça</th></tr><tr><td>Transcreve TJSP</td><td>Transcreve gravações de audiência</td><td>Cite o minuto da gravação com precisão</td></tr><tr><td>Gerador de Ementas</td><td>Sugere ementas</td><td>Tese clara rende ementa fiel</td></tr><tr><td>Jurisprudência GPT</td><td>Pesquisa precedentes dos tribunais superiores</td><td>Precedente errado será notado</td></tr><tr><td>Robô TJSP</td><td>Baixa documentos processuais</td><td>Anexos legíveis e bem nomeados</td></tr><tr><td>ProtejAI</td><td>Anonimiza dados pessoais sensíveis</td><td>Não exponha além do necessário</td></tr></table>
+<h2><span class="n">2</span>Arquivo</h2>
+<ul class="check">
+<li>PDF gerado do editor de texto (Word &gt; Salvar como PDF), com texto selecionável.</li>
+<li>Anexos digitalizados com OCR: teste com Ctrl+F se o texto é encontrado.</li>
+<li>Nada oculto: sem texto em fonte branca ou microscópica (Ctrl+A no PDF para conferir).</li>
+<li>Anexos nomeados pelo conteúdo ("Contrato 2024", "Notificação 10-03") e não "doc1".</li>
 </ul>
-<p>&gt; <strong>Atenção:</strong> texto escondido com instruções para a IA do tribunal já foi detectado e comunicado à OAB. Além do risco disciplinar, é dever processual expor os fatos conforme a verdade (CPC, art. 77, I).</p>
-<h3>Estrutura</h3>
-<ul>
-<li>[ ] Tese e pedido principal no primeiro parágrafo, em linguagem direta.</li>
-<li>[ ] Títulos que descrevem o argumento ("Prescrição: termo inicial em 2021"), e não só "Do direito".</li>
-<li>[ ] Um argumento por tópico, com a prova indicada (ID ou folha).</li>
-<li>[ ] Pedidos numerados no final, com valores e prazos claros.</li>
+<div class="call alerta"><div class="ic">!</div><div class="lb">Atenção</div>Texto escondido com instruções para a IA do tribunal já foi detectado e comunicado à OAB. Além do risco disciplinar, é dever processual expor os fatos conforme a verdade (CPC, art. 77, I).</div>
+<h2><span class="n">3</span>Estrutura</h2>
+<ul class="check">
+<li>Tese e pedido principal no primeiro parágrafo, em linguagem direta.</li>
+<li>Títulos que descrevem o argumento ("Prescrição: termo inicial em 2021"), e não só "Do direito".</li>
+<li>Um argumento por tópico, com a prova indicada (ID ou folha).</li>
+<li>Pedidos numerados no final, com valores e prazos claros.</li>
 </ul>
-<h3>Fontes da peça</h3>
-<ul>
-<li>[ ] Todo precedente conferido no site oficial: tribunal, classe, número, relator, data e trecho exato.</li>
-<li>[ ] Lei citada com artigo certo e redação vigente.</li>
-<li>[ ] Nada colado da IA sem leitura: a IA sugere, quem assina responde.</li>
+<h2>Fontes da peça</h2><div class="fontes">
+<!--fontes-->
+<ul class="check">
+<li>Todo precedente conferido no site oficial: tribunal, classe, número, relator, data e trecho exato.</li>
+<li>Lei citada com artigo certo e redação vigente.</li>
+<li>Nada colado da IA sem leitura: a IA sugere, quem assina responde.</li>
 </ul>
-<p>&gt; <strong>Na prática:</strong> antes de protocolar, peça a uma IA (com o texto anonimizado): "Resuma esta petição em 5 linhas: tese, fatos essenciais e pedidos". Se o resumo sair errado, o problema é de clareza da peça, e a IA do tribunal vai tropeçar no mesmo ponto.</p>
-<h3>Dados</h3>
-<ul>
-<li>[ ] Dados do cliente só os necessários ao pedido; dados sensíveis só se indispensáveis.</li>
+<div class="call dica"><div class="ic">✓</div><div class="lb">Na prática</div>Antes de protocolar, peça a uma IA (com o texto anonimizado): "Resuma esta petição em 5 linhas: tese, fatos essenciais e pedidos". Se o resumo sair errado, o problema é de clareza da peça, e a IA do tribunal vai tropeçar no mesmo ponto.</div>
+<h2><span class="n">4</span>Dados</h2>
+<ul class="check">
+<li>Dados do cliente só os necessários ao pedido; dados sensíveis só se indispensáveis.</li>
 </ul>
-<h3>Fontes</h3>
+<h2>Fontes</h2><div class="fontes">
+<!--fontes-->
 <ul>
-<li>CNJ, Resolução 615/2025: https://atos.cnj.jus.br/atos/detalhar/6001</li>
+<li>CNJ, Resolução 615/2025: <a href="https://atos.cnj.jus.br/atos/detalhar/6001">https://atos.cnj.jus.br/atos/detalhar/6001</a></li>
 <li>ConJur / Anuário da Justiça São Paulo 2026, "A inteligência artificial chega à Justiça de São Paulo", 17/11/2026.</li>
-<li>Lei 13.105/2015 (CPC), art. 77: https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm</li>
-<li>Lei 8.906/1994 (Estatuto da OAB), art. 34: https://www.planalto.gov.br/ccivil_03/leis/l8906.htm</li>
-</ul>
-<p><em>Material informativo, sem caráter de consultoria.</em></p></section></main>
-<footer>Thiago Massicano · Advogado · <a href="https://instagram.com/thiago.massicano">@thiago.massicano</a><br>
-Material informativo, sem caráter de consultoria.</footer></body></html>
+<li>Lei 13.105/2015 (CPC), art. 77: <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm">https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm</a></li>
+<li>Lei 8.906/1994 (Estatuto da OAB), art. 34: <a href="https://www.planalto.gov.br/ccivil_03/leis/l8906.htm">https://www.planalto.gov.br/ccivil_03/leis/l8906.htm</a></li>
+</ul></div><div class="fim"><div><b>Gostou?</b> Salve este PDF e compartilhe com um colega.<div class="s">Mais conteúdo prático de IA na advocacia em @thiago.massicano</div></div><div class="s">Material informativo,<br>sem caráter de consultoria.</div></div></body></html>
