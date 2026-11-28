@@ -1,69 +1,114 @@
-<!doctype html><html lang="pt-br"><head><meta charset="utf-8"><title>STJ barrou recurso que era conversa com IA</title><style>
-@page{size:A4;margin:0}
+<!doctype html><html lang="pt-br"><head><meta charset="utf-8"><title>Embargos de declaração com apoio de IA</title><style>
+@page{size:A4;margin:16mm 15mm 20mm}
+@page:first{margin-top:0}
 *{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-html,body{margin:0;background:#071226}
-body{font-family:"Segoe UI",Arial,sans-serif;color:#e8eefc}
-.p{padding:52px 60px 40px;page-break-after:always;break-after:page}
-.p:last-child{page-break-after:auto;break-after:auto}
-.h{font-size:13px;letter-spacing:2px;color:#7fb2ff;text-transform:uppercase}
-h1{font-size:38px;line-height:1.08;margin:10px 0 6px;color:#fff;font-weight:900;text-transform:uppercase}
-h2{color:#7fb2ff;font-size:19px;margin:26px 0 8px}
-h3{color:#7fb2ff;font-size:16px;margin:20px 0 6px}
-.sub{color:#a9c4f5;font-size:17px;margin-bottom:24px}
-p{font-size:15px;line-height:1.5;margin:8px 0}
-ol,ul{padding-left:22px}
-li{margin:0 0 12px;font-size:15px;line-height:1.5}
-.box{background:#0d1f3d;border-left:4px solid #3d8bff;padding:14px 18px;margin:10px 0 16px;border-radius:6px;font-size:14.5px;line-height:1.5}
-.q{font-family:Consolas,monospace;font-size:13.5px;color:#d6e4ff}
-.f{margin-top:30px;border-top:1px solid #23406e;padding-top:14px;font-size:12.5px;color:#8fa9d6}
-b,strong{color:#fff}
-a{color:#7fb2ff}
-.capa{min-height:1120px;display:flex;flex-direction:column;justify-content:center}
-.capa h1{font-size:58px}
-.sumario li{font-size:17px;margin-bottom:14px}
-.num{display:inline-block;min-width:34px;color:#3d8bff;font-weight:900}
-.p .box{margin:6px 0 8px;padding:9px 14px;line-height:1.4}
-.p .q{font-size:13px}
-.p{padding:34px 56px 16px}
-.p .f{margin-top:14px;padding-top:8px}
-.p h2{margin:14px 0 4px}
-.p h1{font-size:34px}
-.p .sub{margin-bottom:16px;font-size:16px}
-.capa h1{font-size:58px}
-.p h2{margin:20px 0 6px}
-.md li{margin:0 0 6px;font-size:14.5px}
-.md h1{font-size:34px}
-</style></head><body><div class="p md"><div class="h">@thiago.massicano · IA na advocacia</div><h1>Checklist: embargos de declaração com apoio de IA</h1><div class="sub">Checklist dos embargos de declaração com apoio de IA: vício do acórdão, trecho embargado, revisão humana e prazo de 5 dias.</div><p><em>Material do post "STJ barrou recurso que era conversa com IA" · @thiago.massicano</em></p>
-<p>&gt; O STJ não conheceu de embargos cuja petição "apenas transcreve a conversa do causídico com a ferramenta de inteligência artificial" (Súmula 284/STF, por analogia). Fonte: STJ, 3ª Turma, EDcl no REsp 2.046.822/RJ, DJEN de 19/11/2026.</p>
-<h3>1. Antes de abrir a IA</h3>
-<ul>
-<li>[ ] Anotei a data da intimação e o fim do prazo de 5 dias (art. 1.023 do CPC).</li>
-<li>[ ] Li o acórdão inteiro e marquei o trecho que quero embargar.</li>
+html,body{margin:0;background:#fff}
+body{font-family:"Segoe UI",Arial,sans-serif;color:#1d2a3f;font-size:10.5pt;line-height:1.5}
+.capa{background:linear-gradient(135deg,#061226 0%,#0b2350 60%,#123a7a 100%);color:#fff;
+  margin:0 -15mm 18px;padding:15mm 15mm 12mm;display:flex;gap:22px;align-items:center;position:relative}
+.capa .txt{flex:1}
+.kick{font-size:8.5pt;letter-spacing:2.2px;text-transform:uppercase;color:#7fb6ff;font-weight:700}
+.capa h1{font-size:25pt;line-height:1.08;margin:8px 0 8px;font-weight:900;letter-spacing:-.3px}
+.capa .sub{font-size:11.5pt;color:#c9dcff;margin:0}
+.capa .foto{width:118px;height:148px;border-radius:12px;background-size:cover;background-position:center 20%;
+  border:3px solid #3d8bff;flex:none;box-shadow:0 6px 20px rgba(0,0,0,.35)}
+.capa .barra{position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,#3d8bff,#7fb6ff)}
+.meta{display:flex;gap:18px;margin:0 0 14px}
+.meta .bloco{flex:1;background:#f3f7fe;border:1px solid #dbe6fa;border-radius:10px;padding:10px 14px}
+.meta .rot{font-size:7.5pt;letter-spacing:1.6px;text-transform:uppercase;color:#2f6fe0;font-weight:800;margin-bottom:6px}
+.chip{display:inline-block;background:#fff;border:1px solid #b9cff5;color:#0b2350;border-radius:20px;
+  padding:2px 10px;margin:0 5px 5px 0;font-size:8.5pt;font-weight:600}
+.sum{margin:0;padding:0;list-style:none;counter-reset:s}
+.sum li{font-size:9pt;margin:0 0 3px;color:#24365a}
+.sum li b{color:#2f6fe0;margin-right:6px}
+h2{font-size:14pt;color:#0b2350;margin:20px 0 8px;padding-bottom:5px;border-bottom:2px solid #e2ebfb;
+  display:flex;align-items:center;gap:10px;break-after:avoid;page-break-after:avoid}
+h2 .n{background:#2f6fe0;color:#fff;border-radius:8px;min-width:28px;height:28px;display:inline-flex;
+  align-items:center;justify-content:center;font-size:11pt;font-weight:900}
+h3{font-size:11pt;color:#2f6fe0;margin:14px 0 4px;break-after:avoid}
+p{margin:6px 0}
+ul,ol{margin:6px 0 8px;padding-left:20px}
+li{margin:0 0 4px}
+strong{color:#0b2350}
+a{color:#2f6fe0;text-decoration:none;word-break:break-all}
+.call{border-radius:10px;padding:10px 14px 10px 50px;margin:10px 0;position:relative;break-inside:avoid}
+.call .ic{position:absolute;left:12px;top:10px;width:26px;height:26px;border-radius:50%;color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12pt}
+.call .lb{font-size:7.5pt;letter-spacing:1.5px;text-transform:uppercase;font-weight:800;margin-bottom:2px}
+.fund{background:#eef4ff;border-left:4px solid #2f6fe0}.fund .ic{background:#2f6fe0}.fund .lb{color:#2f6fe0}
+.alerta{background:#fff4ec;border-left:4px solid #e2701d}.alerta .ic{background:#e2701d}.alerta .lb{color:#c25a10}
+.dica{background:#ecf9f1;border-left:4px solid #1f9d55}.dica .ic{background:#1f9d55}.dica .lb{color:#1a8048}
+.ex{background:#f4f1fd;border-left:4px solid #6d4fd6}.ex .ic{background:#6d4fd6}.ex .lb{color:#5a3ec0}
+.quote{border-left:4px solid #b9cff5;background:#f7f9fd;padding:8px 14px;margin:10px 0;font-style:italic;color:#33466b}
+.prompt{background:#0b1830;border-radius:10px;margin:10px 0 12px;break-inside:avoid;overflow:hidden}
+.prompt .lb{background:#16305e;color:#9cc4ff;font-size:7.5pt;letter-spacing:1.6px;font-weight:800;padding:6px 14px;
+  text-transform:uppercase}
+.prompt pre{margin:0;padding:10px 14px 12px;color:#e3ecff;font-family:Consolas,"Cascadia Mono",monospace;
+  font-size:8.8pt;line-height:1.45;white-space:pre-wrap}
+ul.check{list-style:none;padding-left:0}
+ul.check li{position:relative;padding:5px 8px 5px 30px;margin:0 0 4px;background:#f7f9fd;border-radius:6px;break-inside:avoid}
+ul.check li:before{content:"";position:absolute;left:9px;top:8px;width:12px;height:12px;border:2px solid #2f6fe0;border-radius:3px;background:#fff}
+ol.passos{list-style:none;padding-left:0;counter-reset:p}
+ol.passos li{counter-increment:p;position:relative;padding:6px 10px 6px 42px;margin:0 0 6px;background:#f7f9fd;
+  border-radius:8px;break-inside:avoid}
+ol.passos li:before{content:counter(p);position:absolute;left:10px;top:6px;width:22px;height:22px;border-radius:6px;
+  background:#0b2350;color:#fff;font-weight:900;font-size:9.5pt;display:flex;align-items:center;justify-content:center}
+table{width:100%;border-collapse:collapse;margin:8px 0 12px;font-size:9.3pt;break-inside:avoid}
+th{background:#0b2350;color:#fff;text-align:left;padding:6px 9px;font-weight:700}
+td{padding:6px 9px;border-bottom:1px solid #e2ebfb;vertical-align:top}
+tr:nth-child(even) td{background:#f7f9fd}
+.fontes{font-size:8.5pt;color:#4a5b7c}
+.fontes li{margin-bottom:3px}
+.rodape{position:fixed;bottom:-12mm;left:0;right:0;font-size:7.5pt;color:#7d8daa;display:flex;justify-content:space-between;
+  border-top:1px solid #e2ebfb;padding-top:4px}
+.fim{margin-top:16px;background:#0b2350;color:#fff;border-radius:10px;padding:12px 16px;display:flex;
+  justify-content:space-between;align-items:center;break-inside:avoid}
+.fim b{color:#7fb6ff}
+.fim .s{font-size:8.5pt;color:#c9dcff}
+.kitcapa{min-height:250mm;display:flex;flex-direction:column}
+.quebra{break-before:page;page-break-before:always}
+</style></head><body><div class="rodape"><span>Thiago Massicano · Advogado · @thiago.massicano</span><span>Material informativo, sem caráter de consultoria</span></div><div class="capa"><div class="txt"><div class="kick">@thiago.massicano · IA na advocacia</div><h1>Embargos de declaração com apoio de IA</h1><p class="sub">Checklist para usar a IA como apoio sem levar a conversa com ela ao tribunal</p></div><div class="foto" style="background-image:url('file:///C:/Users/Dr.Thiago/OneDrive/Instagram%20-%20IA%20na%20Advocacia/Fotos/08-sueter-maos-no-queixo-sorrindo.jpg')"></div><div class="barra"></div></div><div class="meta"><div class="bloco"><div class="rot">Fundamentado em</div><span class="chip">CPC, arts. 1.022, 1.023 e 1.026</span><span class="chip">STJ, EDcl no REsp 2.046.822/RJ</span><span class="chip">Súmula 284/STF</span><span class="chip">Estatuto da OAB, art. 32</span></div><div class="bloco"><div class="rot">Neste material</div><ol class="sum"><li><b>01</b>O caso que acendeu o alerta</li><li><b>02</b>Antes de abrir a IA</li><li><b>03</b>Com a IA (só como apoio)</li><li><b>04</b>A peça (escrita por você)</li><li><b>05</b>Limpeza antes de protocolar</li></ol></div></div><h2><span class="n">1</span>O caso que acendeu o alerta</h2>
+<div class="call fund"><div class="ic">§</div><div class="lb">Fundamento</div>A 3ª Turma do STJ não conheceu de embargos cuja petição "apenas transcreve a conversa do causídico com a ferramenta de inteligência artificial", aplicando por analogia a Súmula 284/STF (fundamentação deficiente). STJ, EDcl no REsp 2.046.822/RJ, DJEN de 19/11/2026.</div>
+<table><tr><th>Regra do CPC</th><th>O que diz</th><th>Consequência prática</th></tr><tr><td>Art. 1.022</td><td>Cabem embargos contra omissão, contradição, obscuridade ou erro material</td><td>Sem um desses vícios, os embargos não servem</td></tr><tr><td>Art. 1.023</td><td>Prazo de 5 dias, com indicação do erro, obscuridade, contradição ou omissão</td><td>A petição precisa apontar o vício de forma expressa</td></tr><tr><td>Art. 1.026, § 2º</td><td>Embargos manifestamente protelatórios: multa de até 2% do valor atualizado da causa</td><td>Não use embargos para rediscutir o mérito</td></tr><tr><td>Art. 1.026, § 3º</td><td>Na reiteração, multa de até 10% e depósito prévio para recorrer</td><td>O erro custa caro e trava o recurso seguinte</td></tr><tr><td>Art. 1.026, § 4º</td><td>Não se admitem novos embargos se os 2 anteriores foram protelatórios</td><td>Terceira tentativa não é conhecida</td></tr></table>
+<h2><span class="n">2</span>Antes de abrir a IA</h2>
+<ul class="check">
+<li>Anotei a data da intimação e o fim do prazo de 5 dias úteis.</li>
+<li>Li o acórdão inteiro e marquei o trecho que quero embargar.</li>
+<li>Identifiquei qual vício existe: omissão, contradição, obscuridade ou erro material.</li>
 </ul>
-<h3>2. Com a IA (só como apoio)</h3>
-<ul>
-<li>[ ] Usei a IA para listar possíveis omissões, contradições, obscuridades ou erros materiais.</li>
-<li>[ ] Conferi cada sugestão contra o texto do acórdão; descartei o que não está lá.</li>
-<li>[ ] Nenhum dado de cliente além do necessário; documentos anonimizados.</li>
+<h2><span class="n">3</span>Com a IA (só como apoio)</h2>
+<div class="prompt"><div class="lb">Prompt · copie e cole</div><pre>Leia o acórdão abaixo e a lista de argumentos que apresentei no
+recurso. Para cada argumento, diga se o acórdão: (a) enfrentou,
+indicando o parágrafo; (b) não enfrentou (possível omissão); ou
+(c) enfrentou de forma contraditória com outro trecho (indique os
+dois trechos). Não invente trechos: cite literalmente. Não sugira
+rediscussão do mérito.
+Acórdão: [cole, anonimizado]
+Meus argumentos: [liste]</pre></div>
+<ul class="check">
+<li>Conferi cada sugestão contra o texto do acórdão e descartei o que não está lá.</li>
+<li>Nenhum dado de cliente além do necessário; documentos anonimizados.</li>
 </ul>
-<h3>3. A peça (escrita por mim)</h3>
-<ul>
-<li>[ ] Indiquei o vício de forma expressa: omissão, contradição, obscuridade ou erro material (art. 1.022).</li>
-<li>[ ] Transcrevi o trecho exato do acórdão embargado e liguei as razões aos fundamentos dele.</li>
-<li>[ ] Pedido claro: o que deve ser suprido, esclarecido ou corrigido.</li>
-<li>[ ] Se houver tese repetitiva ou IAC não enfrentada, citei o tema conferido no site oficial.</li>
+<h2><span class="n">4</span>A peça (escrita por você)</h2>
+<ul class="check">
+<li>O vício está indicado de forma expressa (art. 1.022) e ligado ao trecho exato do acórdão.</li>
+<li>Transcrevi o trecho embargado e mostrei por que ele é omisso, contraditório ou obscuro.</li>
+<li>Pedido claro: o que deve ser suprido, esclarecido ou corrigido.</li>
+<li>Se há precedente obrigatório não enfrentado, citei o tema conferido no site oficial.</li>
 </ul>
-<h3>4. Limpeza antes de protocolar</h3>
-<ul>
-<li>[ ] Apaguei todo prompt, pergunta e resposta da IA ("como modelo de IA...", "aqui está...").</li>
-<li>[ ] Nenhuma conversa transcrita no lugar da fundamentação.</li>
-<li>[ ] Toda lei e todo julgado citado conferido na fonte oficial.</li>
-<li>[ ] Reli a peça inteira e gerei o PDF do meu próprio arquivo.</li>
+<h2><span class="n">5</span>Limpeza antes de protocolar</h2>
+<ul class="check">
+<li>Apaguei todo resto de conversa ("como modelo de linguagem...", "aqui está...", "claro!").</li>
+<li>Nenhuma transcrição de chat no lugar da fundamentação.</li>
+<li>Toda lei e todo julgado conferidos na fonte oficial.</li>
+<li>Reli a peça inteira e gerei o PDF do meu próprio arquivo.</li>
 </ul>
-<h3>5. Atenção</h3>
+<div class="call alerta"><div class="ic">!</div><div class="lb">Atenção</div>A conversa com a IA é rascunho. Ao tribunal vai a peça, assinada por quem responde por ela (Estatuto da OAB, art. 32).</div>
+<h2>Fontes</h2><div class="fontes">
+<!--fontes-->
 <ul>
-<li>[ ] Embargos não servem para rediscutir o mérito: reiteração protelatória gera multa de até 2% e, na reiteração, até 10% do valor atualizado da causa (art. 1.026, §§ 2º e 3º).</li>
-</ul>
-<p><strong>Regra de ouro:</strong> a conversa com a IA é rascunho. Ao tribunal vai a peça.</p>
-<p>Fontes: STJ, EDcl no REsp 2.046.822/RJ (DJEN 19/11/2026); CPC, arts. 1.022, 1.023 e 1.026 (Planalto).</p>
-<p class="f"><em>Material informativo, sem caráter de consultoria.</em> · Thiago Massicano · Advogado</p></div></body></html>
+<li>STJ, 3ª Turma, EDcl no REsp 2.046.822/RJ, DJEN de 19/11/2026.</li>
+<li>Lei 13.105/2015 (CPC), arts. 1.022, 1.023 e 1.026: <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm">https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm</a></li>
+<li>Súmula 284 do STF: portal.stf.jus.br (pesquisa de súmulas).</li>
+<li>Lei 8.906/1994 (Estatuto da OAB), art. 32: <a href="https://www.planalto.gov.br/ccivil_03/leis/l8906.htm">https://www.planalto.gov.br/ccivil_03/leis/l8906.htm</a></li>
+</ul></div><div class="fim"><div><b>Gostou?</b> Salve este PDF e compartilhe com um colega.<div class="s">Mais conteúdo prático de IA na advocacia em @thiago.massicano</div></div><div class="s">Material informativo,<br>sem caráter de consultoria.</div></div></body></html>

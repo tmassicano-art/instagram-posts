@@ -1,277 +1,394 @@
 <!doctype html><html lang="pt-br"><head><meta charset="utf-8"><title>Kit IA na Advocacia · @thiago.massicano</title><style>
-@page{size:A4;margin:0}
+@page{size:A4;margin:16mm 15mm 20mm}
+@page:first{margin-top:0}
 *{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-html,body{margin:0;background:#071226}
-body{font-family:"Segoe UI",Arial,sans-serif;color:#e8eefc}
-.p{padding:52px 60px 40px;page-break-after:always;break-after:page}
-.p:last-child{page-break-after:auto;break-after:auto}
-.h{font-size:13px;letter-spacing:2px;color:#7fb2ff;text-transform:uppercase}
-h1{font-size:38px;line-height:1.08;margin:10px 0 6px;color:#fff;font-weight:900;text-transform:uppercase}
-h2{color:#7fb2ff;font-size:19px;margin:26px 0 8px}
-h3{color:#7fb2ff;font-size:16px;margin:20px 0 6px}
-.sub{color:#a9c4f5;font-size:17px;margin-bottom:24px}
-p{font-size:15px;line-height:1.5;margin:8px 0}
-ol,ul{padding-left:22px}
-li{margin:0 0 12px;font-size:15px;line-height:1.5}
-.box{background:#0d1f3d;border-left:4px solid #3d8bff;padding:14px 18px;margin:10px 0 16px;border-radius:6px;font-size:14.5px;line-height:1.5}
-.q{font-family:Consolas,monospace;font-size:13.5px;color:#d6e4ff}
-.f{margin-top:30px;border-top:1px solid #23406e;padding-top:14px;font-size:12.5px;color:#8fa9d6}
-b,strong{color:#fff}
-a{color:#7fb2ff}
-.capa{min-height:1120px;display:flex;flex-direction:column;justify-content:center}
-.capa h1{font-size:58px}
-.sumario li{font-size:17px;margin-bottom:14px}
-.num{display:inline-block;min-width:34px;color:#3d8bff;font-weight:900}
-.p .box{margin:6px 0 8px;padding:9px 14px;line-height:1.4}
-.p .q{font-size:13px}
-.p{padding:34px 56px 16px}
-.p .f{margin-top:14px;padding-top:8px}
-.p h2{margin:14px 0 4px}
-.p h1{font-size:34px}
-.p .sub{margin-bottom:16px;font-size:16px}
-.capa h1{font-size:58px}
-.p h2{margin:20px 0 6px}
-.md li{margin:0 0 6px;font-size:14.5px}
-.md h1{font-size:34px}
-</style></head><body><div class="p capa"><div class="h">@thiago.massicano · IA na advocacia</div><h1>Kit IA na Advocacia</h1><div class="sub">Todos os materiais gratuitos do perfil em um só arquivo. Prompts, checklists e ferramentas para usar a IA com ética no dia a dia do escritório.</div><h2>Neste kit</h2><ol class="sumario" style="list-style:none;padding:0"><li><span class="num">01</span>Jurisprudência inventada por IA chegou ao CNJ</li><li><span class="num">02</span>O STJ avisou: IA é instrumento</li><li><span class="num">03</span>STJ barrou recurso que era conversa com IA</li><li><span class="num">04</span>O TJSP já usa 5 IAs</li><li><span class="num">05</span>Antes de colar a peça na IA, apague isto</li><li><span class="num">06</span>A IA pode fazer serviço jurídico?</li><li><span class="num">07</span>8 pedidos ao Claude que poupam horas</li><li><span class="num">08</span>Jus IA Monitora: IA gratuita que lê suas intimações</li><li><span class="num">09</span>Checklist do PDF antes de protocolar</li></ol><div class="f">Atualizado em 28/11/2026. Comente <b>KIT</b> em qualquer post do @thiago.massicano para receber a versão mais recente. Material informativo, sem caráter de consultoria. Thiago Massicano · Advogado</div></div><div class="p md"><div class="h">@thiago.massicano · IA na advocacia</div><h1>Conferência de citações com o Claude antes de protocolar</h1><div class="sub">Prompt e checklist para conferir cada citação no site oficial do tribunal antes de protocolar, com a pesquisa na web do Claude.</div><p><em>Material do Reels de 27/11/2026 · @thiago.massicano</em></p>
-<h3>Por que agora</h3>
-<ul>
-<li>A pauta da 18ª Sessão do Plenário Virtual do CNJ (27/11 a 04/12/2026) traz um recurso que pede recomendação sobre a apuração individualizada da responsabilidade de advogados que apresentam jurisprudência inexistente gerada por IA generativa, sem caracterização automática de litigância de má-fé. Fonte: CNJ, pauta publicada no DJe nº 277/2026, de 19/11/2026.</li>
-<li>Os tribunais já aplicam sanção: a 9ª Câmara Cível do TJPR, em acórdão de 16/05/2026, aplicou multa por litigância de má-fé "pelo uso de inteligência artificial sem o devido zelo e cautela" e determinou ofício à OAB/PR (TJPR, 0108267-74.2025.8.16.0000).</li>
+html,body{margin:0;background:#fff}
+body{font-family:"Segoe UI",Arial,sans-serif;color:#1d2a3f;font-size:10.5pt;line-height:1.5}
+.capa{background:linear-gradient(135deg,#061226 0%,#0b2350 60%,#123a7a 100%);color:#fff;
+  margin:0 -15mm 18px;padding:15mm 15mm 12mm;display:flex;gap:22px;align-items:center;position:relative}
+.capa .txt{flex:1}
+.kick{font-size:8.5pt;letter-spacing:2.2px;text-transform:uppercase;color:#7fb6ff;font-weight:700}
+.capa h1{font-size:25pt;line-height:1.08;margin:8px 0 8px;font-weight:900;letter-spacing:-.3px}
+.capa .sub{font-size:11.5pt;color:#c9dcff;margin:0}
+.capa .foto{width:118px;height:148px;border-radius:12px;background-size:cover;background-position:center 20%;
+  border:3px solid #3d8bff;flex:none;box-shadow:0 6px 20px rgba(0,0,0,.35)}
+.capa .barra{position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,#3d8bff,#7fb6ff)}
+.meta{display:flex;gap:18px;margin:0 0 14px}
+.meta .bloco{flex:1;background:#f3f7fe;border:1px solid #dbe6fa;border-radius:10px;padding:10px 14px}
+.meta .rot{font-size:7.5pt;letter-spacing:1.6px;text-transform:uppercase;color:#2f6fe0;font-weight:800;margin-bottom:6px}
+.chip{display:inline-block;background:#fff;border:1px solid #b9cff5;color:#0b2350;border-radius:20px;
+  padding:2px 10px;margin:0 5px 5px 0;font-size:8.5pt;font-weight:600}
+.sum{margin:0;padding:0;list-style:none;counter-reset:s}
+.sum li{font-size:9pt;margin:0 0 3px;color:#24365a}
+.sum li b{color:#2f6fe0;margin-right:6px}
+h2{font-size:14pt;color:#0b2350;margin:20px 0 8px;padding-bottom:5px;border-bottom:2px solid #e2ebfb;
+  display:flex;align-items:center;gap:10px;break-after:avoid;page-break-after:avoid}
+h2 .n{background:#2f6fe0;color:#fff;border-radius:8px;min-width:28px;height:28px;display:inline-flex;
+  align-items:center;justify-content:center;font-size:11pt;font-weight:900}
+h3{font-size:11pt;color:#2f6fe0;margin:14px 0 4px;break-after:avoid}
+p{margin:6px 0}
+ul,ol{margin:6px 0 8px;padding-left:20px}
+li{margin:0 0 4px}
+strong{color:#0b2350}
+a{color:#2f6fe0;text-decoration:none;word-break:break-all}
+.call{border-radius:10px;padding:10px 14px 10px 50px;margin:10px 0;position:relative;break-inside:avoid}
+.call .ic{position:absolute;left:12px;top:10px;width:26px;height:26px;border-radius:50%;color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12pt}
+.call .lb{font-size:7.5pt;letter-spacing:1.5px;text-transform:uppercase;font-weight:800;margin-bottom:2px}
+.fund{background:#eef4ff;border-left:4px solid #2f6fe0}.fund .ic{background:#2f6fe0}.fund .lb{color:#2f6fe0}
+.alerta{background:#fff4ec;border-left:4px solid #e2701d}.alerta .ic{background:#e2701d}.alerta .lb{color:#c25a10}
+.dica{background:#ecf9f1;border-left:4px solid #1f9d55}.dica .ic{background:#1f9d55}.dica .lb{color:#1a8048}
+.ex{background:#f4f1fd;border-left:4px solid #6d4fd6}.ex .ic{background:#6d4fd6}.ex .lb{color:#5a3ec0}
+.quote{border-left:4px solid #b9cff5;background:#f7f9fd;padding:8px 14px;margin:10px 0;font-style:italic;color:#33466b}
+.prompt{background:#0b1830;border-radius:10px;margin:10px 0 12px;break-inside:avoid;overflow:hidden}
+.prompt .lb{background:#16305e;color:#9cc4ff;font-size:7.5pt;letter-spacing:1.6px;font-weight:800;padding:6px 14px;
+  text-transform:uppercase}
+.prompt pre{margin:0;padding:10px 14px 12px;color:#e3ecff;font-family:Consolas,"Cascadia Mono",monospace;
+  font-size:8.8pt;line-height:1.45;white-space:pre-wrap}
+ul.check{list-style:none;padding-left:0}
+ul.check li{position:relative;padding:5px 8px 5px 30px;margin:0 0 4px;background:#f7f9fd;border-radius:6px;break-inside:avoid}
+ul.check li:before{content:"";position:absolute;left:9px;top:8px;width:12px;height:12px;border:2px solid #2f6fe0;border-radius:3px;background:#fff}
+ol.passos{list-style:none;padding-left:0;counter-reset:p}
+ol.passos li{counter-increment:p;position:relative;padding:6px 10px 6px 42px;margin:0 0 6px;background:#f7f9fd;
+  border-radius:8px;break-inside:avoid}
+ol.passos li:before{content:counter(p);position:absolute;left:10px;top:6px;width:22px;height:22px;border-radius:6px;
+  background:#0b2350;color:#fff;font-weight:900;font-size:9.5pt;display:flex;align-items:center;justify-content:center}
+table{width:100%;border-collapse:collapse;margin:8px 0 12px;font-size:9.3pt;break-inside:avoid}
+th{background:#0b2350;color:#fff;text-align:left;padding:6px 9px;font-weight:700}
+td{padding:6px 9px;border-bottom:1px solid #e2ebfb;vertical-align:top}
+tr:nth-child(even) td{background:#f7f9fd}
+.fontes{font-size:8.5pt;color:#4a5b7c}
+.fontes li{margin-bottom:3px}
+.rodape{position:fixed;bottom:-12mm;left:0;right:0;font-size:7.5pt;color:#7d8daa;display:flex;justify-content:space-between;
+  border-top:1px solid #e2ebfb;padding-top:4px}
+.fim{margin-top:16px;background:#0b2350;color:#fff;border-radius:10px;padding:12px 16px;display:flex;
+  justify-content:space-between;align-items:center;break-inside:avoid}
+.fim b{color:#7fb6ff}
+.fim .s{font-size:8.5pt;color:#c9dcff}
+.kitcapa{min-height:250mm;display:flex;flex-direction:column}
+.quebra{break-before:page;page-break-before:always}
+</style></head><body><div class="rodape"><span>Thiago Massicano · Advogado · @thiago.massicano</span><span>Material informativo, sem caráter de consultoria</span></div><div class="capa"><div class="txt"><div class="kick">@thiago.massicano · IA na advocacia</div><h1>Kit IA na Advocacia</h1><p class="sub">Todos os materiais gratuitos do perfil em um só arquivo: prompts, checklists e protocolos, cada um com a base legal conferida na fonte oficial.</p></div><div class="barra"></div></div><div class="meta"><div class="bloco"><div class="rot">Neste kit</div><ol class="sum"><li><b>01</b>Jurisprudência inventada por IA chegou ao CNJ</li><li><b>02</b>O STJ avisou: IA é instrumento</li><li><b>03</b>STJ barrou recurso que era conversa com IA</li><li><b>04</b>O TJSP já usa 5 IAs</li><li><b>05</b>Antes de colar a peça na IA, apague isto</li><li><b>06</b>A IA pode fazer serviço jurídico?</li><li><b>07</b>8 pedidos ao Claude que poupam horas</li><li><b>08</b>Jus IA Monitora: IA gratuita que lê suas intimações</li><li><b>09</b>Checklist do PDF antes de protocolar</li></ol></div></div><p style="font-size:9pt;color:#4a5b7c">Atualizado em 28/11/2026. Comente <b>KIT</b> em qualquer post do @thiago.massicano para receber a versão mais recente.</p><div class="quebra"></div><div class="capa"><div class="txt"><div class="kick">@thiago.massicano · IA na advocacia</div><h1>Conferência de citações com IA antes de protocolar</h1><p class="sub">O método em 4 passos para nenhuma jurisprudência inventada chegar ao processo</p></div><div class="foto" style="background-image:url('file:///C:/Users/Dr.Thiago/OneDrive/Instagram%20-%20IA%20na%20Advocacia/Fotos/03-retrato-mao-no-queixo.jpg')"></div><div class="barra"></div></div><div class="meta"><div class="bloco"><div class="rot">Fundamentado em</div><span class="chip">CPC, arts. 77, 80 e 81</span><span class="chip">Estatuto da OAB, arts. 32 e 34, XIV</span><span class="chip">CNJ, pauta do Plenário Virtual (DJe 277/2026)</span><span class="chip">TJPR, 9ª Câmara Cível</span></div><div class="bloco"><div class="rot">Neste material</div><ol class="sum"><li><b>01</b>Por que agora</li><li><b>02</b>Passo 1 · Anonimize</li><li><b>03</b>Passo 2 · Ligue a pesquisa na web</li><li><b>04</b>Passo 3 · Cole o prompt revisor</li><li><b>05</b>Passo 4 · Você confere (a parte que não se delega)</li><li><b>06</b>Como ler a tabela que a IA devolve</li></ol></div></div><h2><span class="n">1</span>Por que agora</h2>
+<div class="call fund"><div class="ic">§</div><div class="lb">Fundamento</div>É dever de partes e procuradores não formular pretensão ou defesa sabidamente sem fundamento (CPC, art. 77, II). Deturpar o teor de dispositivo de lei ou de julgado para iludir o juiz é infração disciplinar (Estatuto da OAB, art. 34, XIV).</div>
+<table><tr><th>Fato</th><th>Onde</th></tr><tr><td>O CNJ pautou recurso que pede recomendação sobre a apuração individualizada da responsabilidade de advogados que apresentam jurisprudência inexistente gerada por IA, sem caracterizar automaticamente má-fé</td><td>18ª Sessão do Plenário Virtual (27/11 a 04/12/2026), DJe 277/2026</td></tr><tr><td>O TJPR aplicou multa por litigância de má-fé "pelo uso de inteligência artificial sem o devido zelo e cautela" e oficiou a OAB/PR</td><td>9ª Câmara Cível, 0108267-74.2025.8.16.0000, julgado em 16/05/2026</td></tr><tr><td>A multa por má-fé vai de mais de 1% a menos de 10% do valor corrigido da causa, além de indenização</td><td>CPC, art. 81</td></tr></table>
+<h2><span class="n">2</span>Passo 1 · Anonimize</h2>
+<p>Antes de colar, retire nome das partes, CPF, CNPJ, endereço, número do processo e qualquer dado do cliente. O sigilo profissional vale também na janela do chat.</p>
+<h2><span class="n">3</span>Passo 2 · Ligue a pesquisa na web</h2>
+<p>No Claude, a pesquisa na web fica no menu de ferramentas da conversa; em planos Team e Enterprise, o administrador precisa liberar o recurso. Sem pesquisa, a IA só "lembra" e pode inventar.</p>
+<h2><span class="n">4</span>Passo 3 · Cole o prompt revisor</h2>
+<div class="prompt"><div class="lb">Prompt · copie e cole</div><pre>Atue como revisor de citações de uma peça jurídica brasileira.
+1. Liste em tabela TODAS as referências do texto: leis e artigos,
+   súmulas, temas repetitivos, julgados e doutrina.
+2. Colunas: trecho citado | tipo | identificação informada
+   (tribunal, classe, número, relator, data) | link em site OFICIAL
+   (planalto.gov.br, stf.jus.br, stj.jus.br, site do tribunal) |
+   situação.
+3. Situação, só uma destas: LOCALIZADO NA FONTE OFICIAL,
+   NÃO LOCALIZADO ou DIVERGENTE (número, relator, data ou conteúdo
+   diferentes do citado).
+4. Blog, site de curso e agregador não provam existência: nesses
+   casos marque NÃO LOCALIZADO.
+5. Nunca complete dados que faltam: diga o que falta.
+6. Ao final, liste por prioridade o que devo abrir pessoalmente.
+Texto:
+[cole aqui a peça já anonimizada]</pre></div>
+<h2><span class="n">5</span>Passo 4 · Você confere (a parte que não se delega)</h2>
+<ul class="check">
+<li>Abri cada link LOCALIZADO e li a ementa no site do tribunal.</li>
+<li>Número, relator e data batem com o que está na peça.</li>
+<li>O trecho entre aspas está de fato na ementa ou no voto.</li>
+<li>Retirei ou substituí todo item NÃO LOCALIZADO ou DIVERGENTE.</li>
+<li>Artigos de lei conferidos no texto compilado do Planalto.</li>
+<li>Súmulas e temas conferidos como vigentes (não cancelados nem superados).</li>
 </ul>
-<h3>Passo 1 · Anonimize</h3>
-<p>Antes de colar, apague nome das partes, CPF, CNPJ, endereço, número do processo e qualquer dado do cliente. Sigilo profissional vale também na tela do chat.</p>
-<h3>Passo 2 · Ative a pesquisa na web</h3>
-<p>No Claude, a pesquisa na web fica no menu "+" da conversa (na interface nova, o Claude pesquisa sozinho quando precisa). Em planos Team e Enterprise, o administrador precisa liberar o recurso antes.</p>
-<h3>Passo 3 · Cole este prompt</h3>
-<p>```</p>
-<p>Atue como revisor de citações de uma peça jurídica brasileira.</p>
-<ol>
-<li>Liste em tabela TODAS as referências do texto abaixo: leis e artigos,</li>
-</ol>
-<p>súmulas, temas repetitivos, julgados e doutrina.</p>
-<ol start="2">
-<li>Colunas: trecho citado | tipo | identificação informada (tribunal,</li>
-</ol>
-<p>classe, número, relator, data) | link encontrado em site OFICIAL</p>
-<p>(planalto.gov.br, stf.jus.br, stj.jus.br, site do tribunal) |</p>
-<p>situação.</p>
-<ol start="3">
-<li>Na coluna "situação", use só: LOCALIZADO NA FONTE OFICIAL,</li>
-</ol>
-<p>NÃO LOCALIZADO ou DIVERGENTE (número, relator, data ou conteúdo</p>
-<p>diferentes do citado).</p>
-<ol start="4">
-<li>Não use blogs, sites de cursos nem agregadores como prova de</li>
-</ol>
-<p>existência. Se só achar a citação nesses sites, marque NÃO LOCALIZADO.</p>
-<ol start="5">
-<li>Nunca complete dados que faltam. Se faltar número ou relator, diga</li>
-</ol>
-<p>o que falta.</p>
-<ol start="6">
-<li>Ao final, liste em ordem de prioridade o que devo abrir pessoalmente</li>
-</ol>
-<p>antes de protocolar.</p>
-<p>Texto:</p>
-<p>[cole aqui a peça já anonimizada]</p>
-<p>```</p>
-<h3>Passo 4 · Você confere (a parte que não se delega)</h3>
+<div class="call alerta"><div class="ic">!</div><div class="lb">Atenção</div>A IA também erra na conferência. Um "LOCALIZADO" só vale depois que você abriu o link e leu.</div>
+<h2><span class="n">6</span>Como ler a tabela que a IA devolve</h2>
+<table><tr><th>Situação</th><th>O que fazer</th></tr><tr><td>LOCALIZADO NA FONTE OFICIAL</td><td>Abrir, ler e confirmar o trecho citado</td></tr><tr><td>DIVERGENTE</td><td>Corrigir o dado na peça ou trocar o precedente</td></tr><tr><td>NÃO LOCALIZADO</td><td>Procurar você mesmo no site do tribunal; não achou, retira</td></tr></table>
+<div class="call dica"><div class="ic">✓</div><div class="lb">Resumo</div>A IA mostra onde procurar. Quem assina é quem responde (Estatuto da OAB, art. 32).</div>
+<h2>Fontes</h2><div class="fontes">
+<!--fontes-->
 <ul>
-<li>[ ] Abri cada link marcado como LOCALIZADO e li a ementa no site do tribunal</li>
-<li>[ ] O número, o relator e a data batem com o que está na peça</li>
-<li>[ ] O trecho entre aspas está de fato na ementa ou no voto</li>
-<li>[ ] Removi ou substituí todo item NÃO LOCALIZADO ou DIVERGENTE</li>
-<li>[ ] Artigos de lei conferidos no texto compilado do Planalto</li>
-<li>[ ] Súmulas e temas conferidos como vigentes (não cancelados nem superados)</li>
+<li>CNJ, pauta da 18ª Sessão do Plenário Virtual de 2026 (DJe 277/2026, 19/11/2026): <a href="https://www.cnj.jus.br/pauta-de-julgamentos-18a-sessao-do-plenario-virtual-de-2026-27-11-2026-a-04-12-2026/">https://www.cnj.jus.br/pauta-de-julgamentos-18a-sessao-do-plenario-virtual-de-2026-27-11-2026-a-04-12-2026/</a></li>
+<li>TJPR, 9ª Câmara Cível, rel. Luis Sergio Swiech, 0108267-74.2025.8.16.0000, j. 16/05/2026: <a href="https://portal.tjpr.jus.br/jurisprudencia/j/4100000035214151/Ac%C3%B3rd%C3%A3o-0108267-74.2025.8.16.0000">https://portal.tjpr.jus.br/jurisprudencia/j/4100000035214151/Ac%C3%B3rd%C3%A3o-0108267-74.2025.8.16.0000</a></li>
+<li>Lei 13.105/2015 (CPC), arts. 77, 80 e 81: <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm">https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm</a></li>
+<li>Lei 8.906/1994 (Estatuto da OAB), arts. 32 e 34: <a href="https://www.planalto.gov.br/ccivil_03/leis/l8906.htm">https://www.planalto.gov.br/ccivil_03/leis/l8906.htm</a></li>
+<li>Central de Ajuda da Anthropic, pesquisa na web: <a href="https://support.claude.com/en/articles/10684626-enable-and-use-web-search">https://support.claude.com/en/articles/10684626-enable-and-use-web-search</a></li>
+</ul></div><div class="fim"><div><b>Gostou?</b> Salve este PDF e compartilhe com um colega.<div class="s">Mais conteúdo prático de IA na advocacia em @thiago.massicano</div></div><div class="s">Material informativo,<br>sem caráter de consultoria.</div></div><div class="quebra"></div><div class="capa"><div class="txt"><div class="kick">@thiago.massicano · IA na advocacia</div><h1>Protocolo de revisão humana da peça feita com IA</h1><p class="sub">O passo a passo para assinar com segurança uma peça que teve apoio de IA</p></div><div class="foto" style="background-image:url('file:///C:/Users/Dr.Thiago/OneDrive/Instagram%20-%20IA%20na%20Advocacia/Fotos/12-retrato-pb-close-serio.jpg')"></div><div class="barra"></div></div><div class="meta"><div class="bloco"><div class="rot">Fundamentado em</div><span class="chip">Estatuto da OAB, arts. 32 e 34</span><span class="chip">CPC, arts. 77, 80 e 81</span><span class="chip">Código de Ética da OAB, art. 35</span><span class="chip">Recomendação CFOAB 001/2024</span></div><div class="bloco"><div class="rot">Neste material</div><ol class="sum"><li><b>01</b>Por que revisar (e o que está em jogo)</li><li><b>02</b>Leitura integral</li><li><b>03</b>Conferência das citações</li><li><b>04</b>Fatos, datas e valores</li><li><b>05</b>Arquivo e sigilo</li><li><b>06</b>Registro interno</li></ol></div></div><h2><span class="n">1</span>Por que revisar (e o que está em jogo)</h2>
+<div class="call fund"><div class="ic">§</div><div class="lb">Fundamento</div>"O advogado é responsável pelos atos que, no exercício profissional, praticar com dolo ou culpa" (Estatuto da OAB, Lei 8.906/1994, art. 32). Usar IA não transfere essa responsabilidade para a ferramenta.</div>
+<table><tr><th>Se a peça sair com...</th><th>O risco</th><th>Base</th></tr><tr><td>Julgado inexistente ou com trecho deturpado</td><td>Infração disciplinar</td><td>Estatuto da OAB, art. 34, XIV</td></tr><tr><td>Fato que não corresponde aos documentos</td><td>Litigância de má-fé ("alterar a verdade dos fatos")</td><td>CPC, art. 80, II</td></tr><tr><td>Tese sabidamente sem fundamento</td><td>Violação do dever processual</td><td>CPC, art. 77, II</td></tr><tr><td>Má-fé reconhecida</td><td>Multa de mais de 1% e menos de 10% do valor corrigido da causa, além de indenização</td><td>CPC, art. 81</td></tr><tr><td>Dado do cliente colado em IA sem cuidado</td><td>Quebra de sigilo profissional</td><td>Estatuto, art. 34, VII; Código de Ética, art. 35</td></tr></table>
+<div class="call alerta"><div class="ic">!</div><div class="lb">Atenção</div>O STJ já resumiu a regra: "a tecnologia é instrumento, não substituto do ser humano" (Ministro Humberto Martins, 25ª Conferência Nacional da Advocacia, 23/11/2026, segundo o CFOAB).</div>
+<h2><span class="n">2</span>Leitura integral</h2>
+<ul class="check">
+<li>Li a peça inteira, do primeiro ao último parágrafo, antes de assinar.</li>
+<li>Cada tese está no lugar certo e serve à estratégia combinada com o cliente.</li>
+<li>Nenhum trecho genérico "de manual" ficou sem adaptação ao caso.</li>
+<li>Os pedidos decorrem dos fundamentos (nenhum pedido órfão, nenhum tópico sem pedido).</li>
 </ul>
-<h3>Cuidados</h3>
+<h2><span class="n">3</span>Conferência das citações</h2>
+<ul class="check">
+<li>Toda lei conferida no Planalto (ou no site oficial): número, artigo e redação vigente.</li>
+<li>Todo julgado aberto no site do tribunal: classe, número, relator, data e trecho exato.</li>
+<li>Súmula ou tema conferido na fonte oficial (STF, STJ ou tribunal de origem) e ainda vigente.</li>
+<li>O que não foi encontrado saiu da peça. Não achou, não cita.</li>
+</ul>
+<div class="call dica"><div class="ic">✓</div><div class="lb">Na prática</div>Peça à IA uma tabela com todas as citações da peça e marque CONFERIR em cada linha. A tabela mostra onde procurar; a conferência é sua, no site oficial.</div>
+<h2><span class="n">4</span>Fatos, datas e valores</h2>
+<ul class="check">
+<li>Datas, valores e nomes comparados com os documentos anexos.</li>
+<li>Cálculos refeitos fora da IA (planilha ou calculadora do tribunal).</li>
+<li>Pedidos numerados, com valores e prazos que batem com a fundamentação.</li>
+</ul>
+<h2><span class="n">5</span>Arquivo e sigilo</h2>
+<ul class="check">
+<li>PDF gerado do meu próprio arquivo, com texto selecionável.</li>
+<li>Nenhum texto oculto, comentário ou resto de prompt (Ctrl+A no PDF para conferir).</li>
+<li>Na IA, só dados anonimizados e só o necessário para a tarefa (LGPD, art. 6º, III: princípio da necessidade).</li>
+</ul>
+<h2><span class="n">6</span>Registro interno</h2>
+<ul class="check">
+<li>Anotei: ferramenta usada, para qual tarefa, data e quem revisou.</li>
+<li>Se o cliente perguntar, sei explicar como a IA foi usada (a Recomendação CFOAB 001/2024 orienta transparência com o cliente sobre o uso de IA generativa).</li>
+</ul>
+<div class="call dica"><div class="ic">✓</div><div class="lb">Resumo</div>A IA acelera o rascunho. A leitura, a conferência e a assinatura continuam sendo suas.</div>
+<h2>Fontes</h2><div class="fontes">
+<!--fontes-->
 <ul>
-<li>A IA ajuda a achar onde procurar. A responsabilidade pela citação continua sendo de quem assina a peça.</li>
-<li>Repita a conferência sempre que a peça mudar depois da revisão.</li>
+<li>Lei 8.906/1994 (Estatuto da OAB), arts. 32 e 34: <a href="https://www.planalto.gov.br/ccivil_03/leis/l8906.htm">https://www.planalto.gov.br/ccivil_03/leis/l8906.htm</a></li>
+<li>Lei 13.105/2015 (CPC), arts. 77, 80 e 81: <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm">https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm</a></li>
+<li>Lei 13.709/2018 (LGPD), art. 6º: <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm">https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm</a></li>
+<li>Código de Ética e Disciplina da OAB (Resolução CFOAB 02/2015), art. 35.</li>
+<li>CFOAB, recomendações para o uso de IA generativa na prática jurídica (Recomendação 001/2024): <a href="https://www.oab.org.br/noticia/62711/confira-versao-final-da-recomendacao-do-cfoab-sobre-o-uso-de-ia-na-pratica-juridica">https://www.oab.org.br/noticia/62711/confira-versao-final-da-recomendacao-do-cfoab-sobre-o-uso-de-ia-na-pratica-juridica</a></li>
+<li>CFOAB, cobertura do Painel 3 da 25ª Conferência Nacional da Advocacia Brasileira (24/11/2026).</li>
+</ul></div><div class="fim"><div><b>Gostou?</b> Salve este PDF e compartilhe com um colega.<div class="s">Mais conteúdo prático de IA na advocacia em @thiago.massicano</div></div><div class="s">Material informativo,<br>sem caráter de consultoria.</div></div><div class="quebra"></div><div class="capa"><div class="txt"><div class="kick">@thiago.massicano · IA na advocacia</div><h1>Embargos de declaração com apoio de IA</h1><p class="sub">Checklist para usar a IA como apoio sem levar a conversa com ela ao tribunal</p></div><div class="foto" style="background-image:url('file:///C:/Users/Dr.Thiago/OneDrive/Instagram%20-%20IA%20na%20Advocacia/Fotos/08-sueter-maos-no-queixo-sorrindo.jpg')"></div><div class="barra"></div></div><div class="meta"><div class="bloco"><div class="rot">Fundamentado em</div><span class="chip">CPC, arts. 1.022, 1.023 e 1.026</span><span class="chip">STJ, EDcl no REsp 2.046.822/RJ</span><span class="chip">Súmula 284/STF</span><span class="chip">Estatuto da OAB, art. 32</span></div><div class="bloco"><div class="rot">Neste material</div><ol class="sum"><li><b>01</b>O caso que acendeu o alerta</li><li><b>02</b>Antes de abrir a IA</li><li><b>03</b>Com a IA (só como apoio)</li><li><b>04</b>A peça (escrita por você)</li><li><b>05</b>Limpeza antes de protocolar</li></ol></div></div><h2><span class="n">1</span>O caso que acendeu o alerta</h2>
+<div class="call fund"><div class="ic">§</div><div class="lb">Fundamento</div>A 3ª Turma do STJ não conheceu de embargos cuja petição "apenas transcreve a conversa do causídico com a ferramenta de inteligência artificial", aplicando por analogia a Súmula 284/STF (fundamentação deficiente). STJ, EDcl no REsp 2.046.822/RJ, DJEN de 19/11/2026.</div>
+<table><tr><th>Regra do CPC</th><th>O que diz</th><th>Consequência prática</th></tr><tr><td>Art. 1.022</td><td>Cabem embargos contra omissão, contradição, obscuridade ou erro material</td><td>Sem um desses vícios, os embargos não servem</td></tr><tr><td>Art. 1.023</td><td>Prazo de 5 dias, com indicação do erro, obscuridade, contradição ou omissão</td><td>A petição precisa apontar o vício de forma expressa</td></tr><tr><td>Art. 1.026, § 2º</td><td>Embargos manifestamente protelatórios: multa de até 2% do valor atualizado da causa</td><td>Não use embargos para rediscutir o mérito</td></tr><tr><td>Art. 1.026, § 3º</td><td>Na reiteração, multa de até 10% e depósito prévio para recorrer</td><td>O erro custa caro e trava o recurso seguinte</td></tr><tr><td>Art. 1.026, § 4º</td><td>Não se admitem novos embargos se os 2 anteriores foram protelatórios</td><td>Terceira tentativa não é conhecida</td></tr></table>
+<h2><span class="n">2</span>Antes de abrir a IA</h2>
+<ul class="check">
+<li>Anotei a data da intimação e o fim do prazo de 5 dias úteis.</li>
+<li>Li o acórdão inteiro e marquei o trecho que quero embargar.</li>
+<li>Identifiquei qual vício existe: omissão, contradição, obscuridade ou erro material.</li>
 </ul>
-<p><strong>Fontes:</strong> CNJ, pauta de julgamentos da 18ª Sessão do Plenário Virtual de 2026 (DJe nº 277/2026, 19/11/2026): https://www.cnj.jus.br/pauta-de-julgamentos-18a-sessao-do-plenario-virtual-de-2026-27-11-2026-a-04-12-2026/ · TJPR, 9ª Câmara Cível, rel. Luis Sergio Swiech, julgado em 16/05/2026: https://portal.tjpr.jus.br/jurisprudencia/j/4100000035214151/Ac%C3%B3rd%C3%A3o-0108267-74.2025.8.16.0000 · Central de Ajuda da Anthropic, "Enable and use web search": https://support.claude.com/en/articles/10684626-enable-and-use-web-search</p>
-<p class="f"><em>Material informativo, sem caráter de consultoria.</em></p></div><div class="p md"><div class="h">@thiago.massicano · IA na advocacia</div><h1>Protocolo de revisão humana da peça feita com IA</h1><div class="sub">Protocolo de revisão humana em 4 passos: ler a peça inteira, conferir lei e julgado na fonte oficial, testar datas e valores e registrar quem revisou.</div><p><em>Material do carrossel "O STJ avisou: IA é instrumento" · @thiago.massicano</em></p>
-<p>&gt; "A tecnologia é instrumento, não substituto do ser humano." Ministro Humberto Martins (STJ), Painel 3 da 25ª Conferência Nacional da Advocacia Brasileira, 23/11/2026 (fonte: CFOAB, 24/11/2026).</p>
-<h3>1. Leitura</h3>
+<h2><span class="n">3</span>Com a IA (só como apoio)</h2>
+<div class="prompt"><div class="lb">Prompt · copie e cole</div><pre>Leia o acórdão abaixo e a lista de argumentos que apresentei no
+recurso. Para cada argumento, diga se o acórdão: (a) enfrentou,
+indicando o parágrafo; (b) não enfrentou (possível omissão); ou
+(c) enfrentou de forma contraditória com outro trecho (indique os
+dois trechos). Não invente trechos: cite literalmente. Não sugira
+rediscussão do mérito.
+Acórdão: [cole, anonimizado]
+Meus argumentos: [liste]</pre></div>
+<ul class="check">
+<li>Conferi cada sugestão contra o texto do acórdão e descartei o que não está lá.</li>
+<li>Nenhum dado de cliente além do necessário; documentos anonimizados.</li>
+</ul>
+<h2><span class="n">4</span>A peça (escrita por você)</h2>
+<ul class="check">
+<li>O vício está indicado de forma expressa (art. 1.022) e ligado ao trecho exato do acórdão.</li>
+<li>Transcrevi o trecho embargado e mostrei por que ele é omisso, contraditório ou obscuro.</li>
+<li>Pedido claro: o que deve ser suprido, esclarecido ou corrigido.</li>
+<li>Se há precedente obrigatório não enfrentado, citei o tema conferido no site oficial.</li>
+</ul>
+<h2><span class="n">5</span>Limpeza antes de protocolar</h2>
+<ul class="check">
+<li>Apaguei todo resto de conversa ("como modelo de linguagem...", "aqui está...", "claro!").</li>
+<li>Nenhuma transcrição de chat no lugar da fundamentação.</li>
+<li>Toda lei e todo julgado conferidos na fonte oficial.</li>
+<li>Reli a peça inteira e gerei o PDF do meu próprio arquivo.</li>
+</ul>
+<div class="call alerta"><div class="ic">!</div><div class="lb">Atenção</div>A conversa com a IA é rascunho. Ao tribunal vai a peça, assinada por quem responde por ela (Estatuto da OAB, art. 32).</div>
+<h2>Fontes</h2><div class="fontes">
+<!--fontes-->
 <ul>
-<li>[ ] Li a peça inteira, do primeiro ao último parágrafo, antes de assinar.</li>
-<li>[ ] Cada tese está no lugar certo e serve à estratégia combinada com o cliente.</li>
-<li>[ ] Nenhum trecho genérico "de manual" sobrou sem adaptação ao caso.</li>
+<li>STJ, 3ª Turma, EDcl no REsp 2.046.822/RJ, DJEN de 19/11/2026.</li>
+<li>Lei 13.105/2015 (CPC), arts. 1.022, 1.023 e 1.026: <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm">https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm</a></li>
+<li>Súmula 284 do STF: portal.stf.jus.br (pesquisa de súmulas).</li>
+<li>Lei 8.906/1994 (Estatuto da OAB), art. 32: <a href="https://www.planalto.gov.br/ccivil_03/leis/l8906.htm">https://www.planalto.gov.br/ccivil_03/leis/l8906.htm</a></li>
+</ul></div><div class="fim"><div><b>Gostou?</b> Salve este PDF e compartilhe com um colega.<div class="s">Mais conteúdo prático de IA na advocacia em @thiago.massicano</div></div><div class="s">Material informativo,<br>sem caráter de consultoria.</div></div><div class="quebra"></div><div class="capa"><div class="txt"><div class="kick">@thiago.massicano · IA na advocacia</div><h1>A petição que o tribunal lê com IA</h1><p class="sub">O que o TJSP já usa e o checklist para a sua peça ser bem lida por pessoas e por máquinas</p></div><div class="foto" style="background-image:url('file:///C:/Users/Dr.Thiago/OneDrive/Instagram%20-%20IA%20na%20Advocacia/Fotos/10-mesa-estante-blazer-serio.jpg')"></div><div class="barra"></div></div><div class="meta"><div class="bloco"><div class="rot">Fundamentado em</div><span class="chip">Resolução CNJ 615/2025</span><span class="chip">Projeto IA-TJSP</span><span class="chip">CPC, art. 77</span><span class="chip">Estatuto da OAB, art. 34, XIV</span></div><div class="bloco"><div class="rot">Neste material</div><ol class="sum"><li><b>01</b>O cenário</li><li><b>02</b>Arquivo</li><li><b>03</b>Estrutura</li><li><b>04</b>Dados</li></ol></div></div><h2><span class="n">1</span>O cenário</h2>
+<div class="call fund"><div class="ic">§</div><div class="lb">Fundamento</div>A Resolução CNJ 615/2025 estabelece diretrizes para o desenvolvimento, a utilização e a governança de soluções de inteligência artificial no Poder Judiciário. A IA no tribunal é regulada e veio para ficar.</div>
+<p>O TJSP usa 5 ferramentas no projeto "IA-TJSP: julgar rápido, julgar muito, julgar bem", desde março de 2026:</p>
+<table><tr><th>Ferramenta</th><th>O que faz</th><th>O que muda para a sua peça</th></tr><tr><td>Transcreve TJSP</td><td>Transcreve gravações de audiência</td><td>Cite o minuto da gravação com precisão</td></tr><tr><td>Gerador de Ementas</td><td>Sugere ementas</td><td>Tese clara rende ementa fiel</td></tr><tr><td>Jurisprudência GPT</td><td>Pesquisa precedentes dos tribunais superiores</td><td>Precedente errado será notado</td></tr><tr><td>Robô TJSP</td><td>Baixa documentos processuais</td><td>Anexos legíveis e bem nomeados</td></tr><tr><td>ProtejAI</td><td>Anonimiza dados pessoais sensíveis</td><td>Não exponha além do necessário</td></tr></table>
+<h2><span class="n">2</span>Arquivo</h2>
+<ul class="check">
+<li>PDF gerado do editor de texto (Word &gt; Salvar como PDF), com texto selecionável.</li>
+<li>Anexos digitalizados com OCR: teste com Ctrl+F se o texto é encontrado.</li>
+<li>Nada oculto: sem texto em fonte branca ou microscópica (Ctrl+A no PDF para conferir).</li>
+<li>Anexos nomeados pelo conteúdo ("Contrato 2024", "Notificação 10-03") e não "doc1".</li>
 </ul>
-<h3>2. Citações</h3>
+<div class="call alerta"><div class="ic">!</div><div class="lb">Atenção</div>Texto escondido com instruções para a IA do tribunal já foi detectado e comunicado à OAB. Além do risco disciplinar, é dever processual expor os fatos conforme a verdade (CPC, art. 77, I).</div>
+<h2><span class="n">3</span>Estrutura</h2>
+<ul class="check">
+<li>Tese e pedido principal no primeiro parágrafo, em linguagem direta.</li>
+<li>Títulos que descrevem o argumento ("Prescrição: termo inicial em 2021"), e não só "Do direito".</li>
+<li>Um argumento por tópico, com a prova indicada (ID ou folha).</li>
+<li>Pedidos numerados no final, com valores e prazos claros.</li>
+</ul>
+<h2>Fontes da peça</h2><div class="fontes">
+<!--fontes-->
+<ul class="check">
+<li>Todo precedente conferido no site oficial: tribunal, classe, número, relator, data e trecho exato.</li>
+<li>Lei citada com artigo certo e redação vigente.</li>
+<li>Nada colado da IA sem leitura: a IA sugere, quem assina responde.</li>
+</ul>
+<div class="call dica"><div class="ic">✓</div><div class="lb">Na prática</div>Antes de protocolar, peça a uma IA (com o texto anonimizado): "Resuma esta petição em 5 linhas: tese, fatos essenciais e pedidos". Se o resumo sair errado, o problema é de clareza da peça, e a IA do tribunal vai tropeçar no mesmo ponto.</div>
+<h2><span class="n">4</span>Dados</h2>
+<ul class="check">
+<li>Dados do cliente só os necessários ao pedido; dados sensíveis só se indispensáveis.</li>
+</ul>
+<h2>Fontes</h2><div class="fontes">
+<!--fontes-->
 <ul>
-<li>[ ] Toda lei conferida no Planalto (ou no site oficial): número, artigo e redação vigente.</li>
-<li>[ ] Todo julgado aberto no site do tribunal: classe, número, relator, data e trecho exato.</li>
-<li>[ ] Súmula ou tema conferido na fonte oficial (STF, STJ ou tribunal de origem).</li>
-<li>[ ] O que não foi encontrado foi retirado da peça.</li>
-</ul>
-<h3>3. Fatos</h3>
-<ul>
-<li>[ ] Datas, valores e nomes comparados com os documentos anexos.</li>
-<li>[ ] Pedidos numerados, com valores e prazos que batem com a fundamentação.</li>
-</ul>
-<h3>4. Arquivo</h3>
-<ul>
-<li>[ ] PDF gerado do meu próprio arquivo, com texto selecionável.</li>
-<li>[ ] Nenhum texto oculto ou comentário esquecido (Ctrl+A no PDF para conferir).</li>
-<li>[ ] Dados do cliente só os necessários; nada colado em IA sem anonimizar.</li>
-</ul>
-<h3>5. Registro</h3>
-<ul>
-<li>[ ] Anotei no controle interno: ferramenta usada, para quê, e quem revisou.</li>
-</ul>
-<p><strong>Regra de ouro:</strong> quem assina é quem responde.</p>
-<p class="f"><em>Material informativo, sem caráter de consultoria.</em> · Thiago Massicano · Advogado</p></div><div class="p md"><div class="h">@thiago.massicano · IA na advocacia</div><h1>Checklist: embargos de declaração com apoio de IA</h1><div class="sub">Checklist dos embargos de declaração com apoio de IA: vício do acórdão, trecho embargado, revisão humana e prazo de 5 dias.</div><p><em>Material do post "STJ barrou recurso que era conversa com IA" · @thiago.massicano</em></p>
-<p>&gt; O STJ não conheceu de embargos cuja petição "apenas transcreve a conversa do causídico com a ferramenta de inteligência artificial" (Súmula 284/STF, por analogia). Fonte: STJ, 3ª Turma, EDcl no REsp 2.046.822/RJ, DJEN de 19/11/2026.</p>
-<h3>1. Antes de abrir a IA</h3>
-<ul>
-<li>[ ] Anotei a data da intimação e o fim do prazo de 5 dias (art. 1.023 do CPC).</li>
-<li>[ ] Li o acórdão inteiro e marquei o trecho que quero embargar.</li>
-</ul>
-<h3>2. Com a IA (só como apoio)</h3>
-<ul>
-<li>[ ] Usei a IA para listar possíveis omissões, contradições, obscuridades ou erros materiais.</li>
-<li>[ ] Conferi cada sugestão contra o texto do acórdão; descartei o que não está lá.</li>
-<li>[ ] Nenhum dado de cliente além do necessário; documentos anonimizados.</li>
-</ul>
-<h3>3. A peça (escrita por mim)</h3>
-<ul>
-<li>[ ] Indiquei o vício de forma expressa: omissão, contradição, obscuridade ou erro material (art. 1.022).</li>
-<li>[ ] Transcrevi o trecho exato do acórdão embargado e liguei as razões aos fundamentos dele.</li>
-<li>[ ] Pedido claro: o que deve ser suprido, esclarecido ou corrigido.</li>
-<li>[ ] Se houver tese repetitiva ou IAC não enfrentada, citei o tema conferido no site oficial.</li>
-</ul>
-<h3>4. Limpeza antes de protocolar</h3>
-<ul>
-<li>[ ] Apaguei todo prompt, pergunta e resposta da IA ("como modelo de IA...", "aqui está...").</li>
-<li>[ ] Nenhuma conversa transcrita no lugar da fundamentação.</li>
-<li>[ ] Toda lei e todo julgado citado conferido na fonte oficial.</li>
-<li>[ ] Reli a peça inteira e gerei o PDF do meu próprio arquivo.</li>
-</ul>
-<h3>5. Atenção</h3>
-<ul>
-<li>[ ] Embargos não servem para rediscutir o mérito: reiteração protelatória gera multa de até 2% e, na reiteração, até 10% do valor atualizado da causa (art. 1.026, §§ 2º e 3º).</li>
-</ul>
-<p><strong>Regra de ouro:</strong> a conversa com a IA é rascunho. Ao tribunal vai a peça.</p>
-<p>Fontes: STJ, EDcl no REsp 2.046.822/RJ (DJEN 19/11/2026); CPC, arts. 1.022, 1.023 e 1.026 (Planalto).</p>
-<p class="f"><em>Material informativo, sem caráter de consultoria.</em> · Thiago Massicano · Advogado</p></div><div class="p md"><div class="h">@thiago.massicano · IA na advocacia</div><h1>Checklist: a petição que o tribunal lê com IA</h1><div class="sub">Checklist da petição que o tribunal lê com IA: PDF pesquisável, tese e pedido no início e precedentes conferidos na fonte.</div><p><em>Material do carrossel "O TJSP já usa 5 IAs" · @thiago.massicano</em></p>
-<h3>O que o TJSP já usa (projeto "IA-TJSP: julgar rápido, julgar muito, julgar bem", desde março de 2026)</h3>
-<p>| Ferramenta | O que faz |</p>
-<p>|---|---|</p>
-<p>| Transcreve TJSP | Transcreve gravações de audiências |</p>
-<p>| Gerador de Ementas TJSP | Sugere ementas |</p>
-<p>| Jurisprudência GPT | Pesquisa precedentes nos tribunais superiores (integrado ao Microsoft Teams) |</p>
-<p>| Robô TJSP | Automatiza o download de documentos processuais |</p>
-<p>| ProtejAI | Anonimiza dados pessoais sensíveis em documentos |</p>
-<p>Fonte: ConJur / Anuário da Justiça São Paulo 2026, "A inteligência artificial chega à Justiça de São Paulo", 17/11/2026.</p>
-<h3>Checklist antes de protocolar</h3>
-<p><strong>Arquivo</strong></p>
-<ul>
-<li>[ ] PDF gerado a partir do editor de texto (Word &gt; Salvar como PDF), com texto selecionável.</li>
-<li>[ ] Documentos digitalizados com OCR: teste com Ctrl+F se o texto é encontrado.</li>
-<li>[ ] Nenhum texto oculto, em fonte branca ou microscópica (Ctrl+A no PDF para conferir).</li>
-</ul>
-<p><strong>Estrutura</strong></p>
-<ul>
-<li>[ ] Tese e pedido principal no primeiro parágrafo, em linguagem direta.</li>
-<li>[ ] Tópicos com títulos que descrevem o argumento ("Prescrição: termo inicial em 2021"), não só "Do direito".</li>
-<li>[ ] Pedidos numerados e objetivos no final, com valores e prazos claros.</li>
-</ul>
-<p><strong>Fontes</strong></p>
-<ul>
-<li>[ ] Todo precedente conferido no site oficial: tribunal, classe, número, relator, data e trecho exato.</li>
-<li>[ ] Lei citada com artigo correto e redação vigente.</li>
-<li>[ ] Nada colado da IA sem leitura: a IA sugere, quem assina responde.</li>
-</ul>
-<p><strong>Dados</strong></p>
-<ul>
-<li>[ ] Dados sensíveis do cliente só o necessário para o pedido.</li>
-</ul>
-<p class="f"><em>Material informativo, sem caráter de consultoria.</em> · Thiago Massicano · Advogado</p></div><div class="p md"><div class="h">@thiago.massicano · IA na advocacia</div><h1>Prompt de anonimização: antes de colar a peça na IA</h1><div class="sub">Prompt pronto que anonimiza a peça (nomes, CPF, endereço, número do processo e valores) antes de usar a IA.</div><p>Use este prompt numa ferramenta <strong>aprovada pelo escritório</strong> e confira o resultado antes de usar o texto anonimizado em outra IA.</p>
-<p>```</p>
-<p>Você vai anonimizar um texto jurídico antes do uso em ferramentas de IA.</p>
-<p>Substitua, de forma consistente em todo o texto:</p>
-<ul>
-<li>nomes de pessoas físicas por [PARTE 1], [PARTE 2], [TESTEMUNHA 1]...</li>
-<li>nomes de empresas por [EMPRESA 1], [EMPRESA 2]...</li>
-<li>CPF, CNPJ, RG, OAB, e-mail e telefone por [DOCUMENTO] ou [CONTATO]</li>
-<li>endereços completos por [ENDEREÇO] e cidades por [CIDADE] (se a cidade não for relevante para a tese)</li>
-<li>número do processo por [PROCESSO]</li>
-<li>valores exatos por faixas aproximadas ("cerca de R$ 50 mil")</li>
-<li>datas exatas por referências relativas ("três meses depois"), salvo prazos relevantes</li>
-</ul>
-<p>Não altere fundamentos jurídicos, artigos de lei nem a narrativa dos fatos.</p>
-<p>Ao final, entregue: (1) o texto anonimizado; (2) uma tabela de correspondência</p>
-<p>[marcador → dado original] para eu guardar fora da IA.</p>
-<p>```</p>
-<p><strong>Checklist rápido</strong></p>
-<ol>
+<li>CNJ, Resolução 615/2025: <a href="https://atos.cnj.jus.br/atos/detalhar/6001">https://atos.cnj.jus.br/atos/detalhar/6001</a></li>
+<li>ConJur / Anuário da Justiça São Paulo 2026, "A inteligência artificial chega à Justiça de São Paulo", 17/11/2026.</li>
+<li>Lei 13.105/2015 (CPC), art. 77: <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm">https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm</a></li>
+<li>Lei 8.906/1994 (Estatuto da OAB), art. 34: <a href="https://www.planalto.gov.br/ccivil_03/leis/l8906.htm">https://www.planalto.gov.br/ccivil_03/leis/l8906.htm</a></li>
+</ul></div><div class="fim"><div><b>Gostou?</b> Salve este PDF e compartilhe com um colega.<div class="s">Mais conteúdo prático de IA na advocacia em @thiago.massicano</div></div><div class="s">Material informativo,<br>sem caráter de consultoria.</div></div><div class="quebra"></div><div class="capa"><div class="txt"><div class="kick">@thiago.massicano · IA na advocacia</div><h1>Anonimize antes de colar a peça na IA</h1><p class="sub">Prompt pronto, checklist e a base legal para usar IA sem expor o cliente</p></div><div class="foto" style="background-image:url('file:///C:/Users/Dr.Thiago/OneDrive/Instagram%20-%20IA%20na%20Advocacia/Fotos/12-retrato-pb-close-serio.jpg')"></div><div class="barra"></div></div><div class="meta"><div class="bloco"><div class="rot">Fundamentado em</div><span class="chip">LGPD, arts. 5º e 6º</span><span class="chip">Estatuto da OAB, art. 34, VII</span><span class="chip">Código de Ética da OAB, art. 35</span><span class="chip">Recomendação CFOAB 001/2024</span></div><div class="bloco"><div class="rot">Neste material</div><ol class="sum"><li><b>01</b>Por que anonimizar</li><li><b>02</b>O prompt de anonimização</li><li><b>03</b>Exemplo fictício</li><li><b>04</b>Checklist antes de colar</li><li><b>05</b>Erros comuns</li></ol></div></div><h2><span class="n">1</span>Por que anonimizar</h2>
+<div class="call fund"><div class="ic">§</div><div class="lb">Fundamento</div>O advogado tem o dever de guardar sigilo dos fatos que conhece no exercício da profissão (Código de Ética e Disciplina da OAB, art. 35), e violar sigilo profissional sem justa causa é infração disciplinar (Estatuto da OAB, art. 34, VII).</div>
+<p>A LGPD reforça o mesmo caminho:</p>
+<table><tr><th>Conceito</th><th>O que a LGPD diz</th><th>Na prática</th></tr><tr><td>Dado pessoal</td><td>Informação de pessoa natural identificada ou identificável (art. 5º, I)</td><td>Nome, CPF, endereço, e-mail, telefone</td></tr><tr><td>Dado sensível</td><td>Saúde, vida sexual, religião, biometria, entre outros (art. 5º, II)</td><td>Laudos, atestados, prontuários: cuidado redobrado</td></tr><tr><td>Anonimização</td><td>Meios técnicos razoáveis que tiram a possibilidade de associar o dado ao titular (art. 5º, XI)</td><td>Trocar por marcadores e generalizar valores e datas</td></tr><tr><td>Necessidade</td><td>Tratar só o mínimo necessário para a finalidade (art. 6º, III)</td><td>A IA recebe só o que a tarefa exige</td></tr></table>
+<div class="call alerta"><div class="ic">!</div><div class="lb">Atenção</div>Trocar só o nome não basta. Número do processo, valor exato da causa e endereço permitem identificar o cliente com uma busca simples.</div>
+<h2><span class="n">2</span>O prompt de anonimização</h2>
+<p>Use numa ferramenta aprovada pelo escritório e confira o resultado antes de levar o texto a outra IA.</p>
+<div class="prompt"><div class="lb">Prompt · copie e cole</div><pre>Você vai anonimizar um texto jurídico antes do uso em ferramentas de IA.
+Substitua, de forma consistente em todo o texto:
+- nomes de pessoas físicas por [PARTE 1], [PARTE 2], [TESTEMUNHA 1]...
+- nomes de empresas por [EMPRESA 1], [EMPRESA 2]...
+- CPF, CNPJ, RG, OAB, e-mail e telefone por [DOCUMENTO] ou [CONTATO]
+- endereços por [ENDEREÇO] e cidades por [CIDADE] (se a cidade não
+  for relevante para a tese)
+- número do processo por [PROCESSO]
+- valores exatos por faixas (&quot;cerca de R$ 50 mil&quot;)
+- datas exatas por referências relativas (&quot;três meses depois&quot;),
+  salvo prazos relevantes para a tese
+- dados de saúde, religião ou vida sexual por [DADO SENSÍVEL]
+Não altere fundamentos jurídicos, artigos de lei nem a narrativa.
+Entregue: (1) o texto anonimizado; (2) a tabela
+[marcador -&gt; dado original] para eu guardar fora da IA.</pre></div>
+<div class="call dica"><div class="ic">✓</div><div class="lb">Na prática</div>A tabela de correspondência fica no sistema do escritório, nunca na conversa com a IA. Depois de usar a resposta, você troca os marcadores de volta.</div>
+<h2><span class="n">3</span>Exemplo fictício</h2>
+<div class="call ex"><div class="ic">→</div><div class="lb">Exemplo</div>"Maria Souza, CPF 123..., moradora da Rua X, 100, ajuizou em 03/02/2025 a ação 1000123-45.2025... cobrando R$ 48.317,22" vira "[PARTE 1], [DOCUMENTO], moradora de [ENDEREÇO], ajuizou a ação [PROCESSO] no início de 2025, cobrando cerca de R$ 50 mil".</div>
+<h2><span class="n">4</span>Checklist antes de colar</h2>
+<ul class="check">
 <li>Nomes, documentos e endereços trocados por marcadores.</li>
-<li>Número do processo e valores exatos generalizados.</li>
-<li>Ferramenta conferida: veja nos termos se os dados são usados para treinamento e se há opção de desativar.</li>
-<li>A tabela de correspondência fica <strong>fora</strong> da IA, no sistema do escritório.</li>
-</ol>
-<p>Fonte: CFOAB, recomendação sobre o uso de IA na prática jurídica (13/11/2024), pilar de confidencialidade e privacidade.</p>
-<p class="f"><em>Material informativo, sem caráter de consultoria.</em> · Thiago Massicano · Advogado</p></div><div class="p md"><div class="h">@thiago.massicano · IA na advocacia</div><h1>Checklist: antes de contratar uma IA jurídica</h1><div class="sub">Checklist com 10 perguntas antes de contratar uma IA jurídica: supervisão, sigilo e dados, e o que a ferramenta promete.</div><p><em>Material do carrossel "A IA pode fazer serviço jurídico?" · @thiago.massicano</em></p>
-<h3>O contexto</h3>
-<ul>
-<li><strong>TRF-3, 19/11/2026 (OAB-SP x Enter, AI 5034175-02.2026.4.03.0000):</strong> em decisão provisória do relator, os pedidos novos não foram conhecidos (supressão de instância) e a análise da suspensão ficou para depois da defesa da empresa. Por ora, não ficou provado que a empresa atue em funções privativas da advocacia. Não é decisão final. Fonte: ConJur, 19/11/2026.</li>
-<li><strong>CFOAB, Resolução 16/2026 (DEOAB, 13/10/2026):</strong> parâmetros para acordos (TACs) com empresas de IA jurídica: supervisão humana adequada, sigilo e proteção de dados, IA como apoio sem substituir o advogado, vedação de publicidade que sugira substituição de advogados ou aval da OAB. O acordo não significa que a OAB certifica, autoriza ou recomenda a ferramenta. Fonte: Migalhas, 15/10/2026.</li>
+<li>Número do processo, valores exatos e datas generalizados.</li>
+<li>Dados sensíveis (saúde, religião, biometria) retirados ou marcados.</li>
+<li>Anexos conferidos: metadados, assinaturas e cabeçalhos também identificam.</li>
+<li>Termos da ferramenta lidos: os dados são usados para treinamento? Dá para desativar?</li>
+<li>Tabela de correspondência guardada fora da IA.</li>
 </ul>
-<h3>As 10 perguntas antes de contratar</h3>
-<p><strong>Supervisão e responsabilidade</strong></p>
-<ol>
+<h2><span class="n">5</span>Erros comuns</h2>
+<div class="call alerta"><div class="ic">!</div><div class="lb">Erro comum</div>Colar o PDF inteiro dos autos "só para resumir". Recorte o trecho necessário e anonimize; a IA quase nunca precisa do processo todo.</div>
+<ul>
+<li>Esquecer o nome do cliente no nome do arquivo enviado.</li>
+<li>Deixar o número da OAB do colega ou o e-mail do cliente na assinatura.</li>
+<li>Usar conta pessoal gratuita para trabalho do escritório sem verificar a política de dados.</li>
+</ul>
+<h2>Fontes</h2><div class="fontes">
+<!--fontes-->
+<ul>
+<li>Lei 13.709/2018 (LGPD), arts. 5º e 6º: <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm">https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm</a></li>
+<li>Lei 8.906/1994 (Estatuto da OAB), art. 34: <a href="https://www.planalto.gov.br/ccivil_03/leis/l8906.htm">https://www.planalto.gov.br/ccivil_03/leis/l8906.htm</a></li>
+<li>Código de Ética e Disciplina da OAB (Resolução CFOAB 02/2015), art. 35.</li>
+<li>CFOAB, Recomendação 001/2024 sobre IA generativa na prática jurídica, pilar de confidencialidade e privacidade: <a href="https://www.oab.org.br/noticia/62711/confira-versao-final-da-recomendacao-do-cfoab-sobre-o-uso-de-ia-na-pratica-juridica">https://www.oab.org.br/noticia/62711/confira-versao-final-da-recomendacao-do-cfoab-sobre-o-uso-de-ia-na-pratica-juridica</a></li>
+</ul></div><div class="fim"><div><b>Gostou?</b> Salve este PDF e compartilhe com um colega.<div class="s">Mais conteúdo prático de IA na advocacia em @thiago.massicano</div></div><div class="s">Material informativo,<br>sem caráter de consultoria.</div></div><div class="quebra"></div><div class="capa"><div class="txt"><div class="kick">@thiago.massicano · IA na advocacia</div><h1>Antes de contratar uma IA jurídica</h1><p class="sub">As 12 perguntas que protegem o escritório, o cliente e o seu registro na OAB</p></div><div class="foto" style="background-image:url('file:///C:/Users/Dr.Thiago/OneDrive/Instagram%20-%20IA%20na%20Advocacia/Fotos/09-mesa-estante-blazer-sorrindo.jpg')"></div><div class="barra"></div></div><div class="meta"><div class="bloco"><div class="rot">Fundamentado em</div><span class="chip">LGPD, arts. 5º e 6º</span><span class="chip">Estatuto da OAB, arts. 32 e 34, VII</span><span class="chip">CFOAB, Resolução 16/2026</span><span class="chip">Recomendação CFOAB 001/2024</span></div><div class="bloco"><div class="rot">Neste material</div><ol class="sum"><li><b>01</b>O contexto</li><li><b>02</b>Supervisão e responsabilidade</li><li><b>03</b>Sigilo e dados</li><li><b>04</b>Publicidade e limites</li><li><b>05</b>Placar rápido</li></ol></div></div><h2><span class="n">1</span>O contexto</h2>
+<table><tr><th>Fato</th><th>Fonte</th></tr><tr><td>TRF-3 (OAB-SP x Enter, AI 5034175-02.2026.4.03.0000): em decisão provisória, o relator não conheceu dos pedidos novos e deixou a suspensão para depois da defesa. Não é decisão final</td><td>ConJur, 19/11/2026</td></tr><tr><td>CFOAB, Resolução 16/2026: parâmetros para acordos (TACs) com empresas de IA jurídica, com supervisão humana, sigilo, IA como apoio e vedação de publicidade que sugira substituir advogados ou aval da OAB</td><td>DEOAB, 13/10/2026; Migalhas, 15/10/2026</td></tr></table>
+<div class="call fund"><div class="ic">§</div><div class="lb">Fundamento</div>Quem responde pelo trabalho é o advogado (Estatuto da OAB, art. 32), e o sigilo profissional não admite exceção por conveniência tecnológica (art. 34, VII). Pela LGPD, o escritório que define como os dados são tratados é o controlador, e o fornecedor que trata os dados em nome dele é o operador (art. 5º, VI e VII).</div>
+<h2><span class="n">2</span>Supervisão e responsabilidade</h2>
+<ol class="passos" style="counter-reset:p 0">
 <li>Quem revisa cada resultado antes de chegar ao cliente ou ao processo?</li>
 <li>A ferramenta deixa claro que o texto é rascunho e que a decisão é do advogado?</li>
-<li>Ela mostra a fonte de cada lei, súmula e julgado que cita?</li>
+<li>Ela mostra a fonte de cada lei, súmula e julgado, com link oficial?</li>
 </ol>
-<p><strong>Sigilo e dados</strong></p>
-<ol start="4">
-<li>Os dados que você insere são usados para treinar o modelo? Dá para desativar?</li>
-<li>Onde os dados ficam armazenados e por quanto tempo?</li>
-<li>Há contrato com cláusula de confidencialidade e de proteção de dados (LGPD)?</li>
-<li>O escritório consegue apagar os dados quando encerrar o contrato?</li>
+<h2><span class="n">3</span>Sigilo e dados</h2>
+<ol class="passos" style="counter-reset:p 3">
+<li>Os dados inseridos são usados para treinar o modelo? Dá para desativar por contrato?</li>
+<li>Onde os dados ficam armazenados e por quanto tempo? Há transferência internacional?</li>
+<li>O contrato tem cláusula de confidencialidade e define o fornecedor como operador (LGPD)?</li>
+<li>O escritório consegue apagar todos os dados ao encerrar o contrato?</li>
+<li>Há medidas de segurança documentadas, como criptografia e controle de acesso (LGPD, art. 6º, VII)?</li>
 </ol>
-<p><strong>Publicidade e limites</strong></p>
-<ol start="8">
-<li>A empresa promete "substituir o advogado" ou diz ter aval da OAB? (sinal de alerta)</li>
-<li>A ferramenta oferece serviço jurídico diretamente ao cliente final, sem advogado?</li>
+<h2><span class="n">4</span>Publicidade e limites</h2>
+<ol class="passos" style="counter-reset:p 8">
+<li>A empresa promete "substituir o advogado" ou diz ter aval da OAB? Sinal vermelho.</li>
+<li>A ferramenta atende o cliente final diretamente, sem advogado?</li>
 <li>Há registro (log) do que foi feito, para auditoria interna?</li>
+<li>O fornecedor avisa o escritório em caso de incidente de segurança?</li>
 </ol>
-<p class="f"><em>Material informativo, sem caráter de consultoria.</em> · Thiago Massicano · Advogado</p></div><div class="p">
-<div class="h">@thiago.massicano · IA na advocacia</div>
-<h1>8 pedidos ao Claude que poupam horas</h1>
-<div class="sub">Funcionam no Claude, no ChatGPT e no Gemini. Anonimize os dados do cliente antes de colar e confira tudo na fonte oficial.</div>
-<h2>Processos</h2>
-<div class="box"><b>1. Linha do tempo dos autos</b><br><span class="q">Você é advogado(a) revisando um processo. Leia os autos abaixo e monte uma linha do tempo em tabela com: data, ato, quem praticou, folha/ID. Não invente datas: se não houver, escreva "não consta".</span></div>
-<div class="box"><b>2. Pedidos, valores e prazos</b><br><span class="q">Desta decisão, liste em tabela: cada pedido, o que foi deferido ou indeferido, valores, prazos e a quem cabe cumprir. Indique o trecho de onde tirou cada item.</span></div>
-<div class="box"><b>3. Contradições</b><br><span class="q">Compare a petição inicial com os documentos anexos. Aponte toda contradição de datas, valores, nomes e fatos, indicando onde está cada uma. Não presuma nada que não esteja escrito.</span></div>
-<div class="box"><b>4. Tabela de citações</b><br><span class="q">Liste todas as leis, súmulas e julgados citados neste texto, com tribunal, número, relator e data quando houver. Marque [CONFERIR] o que estiver incompleto. Não confirme a existência de nenhum julgado.</span></div>
-<h2>Contratos e peças</h2>
-<div class="box"><b>5. Contrato pela outra parte</b><br><span class="q">Você é advogado(a) da outra parte neste contrato. Aponte as cláusulas que você exploraria contra o meu cliente e por quê.</span></div>
-<div class="box"><b>6. Cláusulas de risco</b><br><span class="q">Classifique as cláusulas deste contrato por risco para o meu cliente (alto, médio, baixo), com um parágrafo de justificativa e uma sugestão de redação para cada risco alto.</span></div>
-<div class="box"><b>7. Objeções do juiz</b><br><span class="q">Esta é a tese que vou sustentar: [resumo]. Atue como um juiz cético e liste as 5 principais objeções que você faria, da mais forte para a mais fraca.</span></div>
-<div class="box"><b>8. Para o cliente entender</b><br><span class="q">Reescreva este trecho para um empresário sem formação jurídica entender, em até 5 frases, sem perder a precisão técnica.</span></div>
-<div class="f">A estrutura do bom prompt: papel, objetivo, formato e limite. Regra final: não invente fatos, leis ou julgados. Material informativo. Thiago Massicano · Advogado</div>
-</div><div class="p"><div class="h">@thiago.massicano · IA na advocacia</div><h1>Jus IA Monitora: IA gratuita que lê suas intimações</h1><div class="sub">Ferramenta do Jusbrasil que monitora o DJEN pelo seu número de OAB. Use como segunda camada; prazo fatal se confere no sistema do tribunal.</div><div class="box">Endereço oficial: <a href="https://ia.jusbrasil.com.br/jusia-monitora">https://ia.jusbrasil.com.br/jusia-monitora</a></div><div class="f">Material informativo, sem caráter de consultoria. Thiago Massicano · Advogado</div></div><div class="p">
-<div class="h">@thiago.massicano · IA na advocacia</div>
-<h1>Checklist do PDF antes de protocolar</h1>
-<div class="sub">1 minuto para garantir que a sua peça não carrega texto escondido.</div>
-<div class="box">Por que isso importa: em novembro de 2026, o TJ-BA detectou com a ferramenta Elos IA linhas em fonte branca numa petição, com instruções para a IA decidir a favor do réu. O relator registrou nos autos e oficiou a OAB-BA. Os tribunais já usam IA e já procuram esse tipo de manipulação.</div>
-<h2>Conferência do arquivo final</h2>
-<ol>
-<li><b>Ctrl+A no PDF.</b> Se aparecer seleção em área que parece vazia, há texto escondido.</li>
-<li><b>Ctrl+C e cole no Bloco de Notas.</b> Leia tudo o que aparece além do texto da peça.</li>
-<li><b>Procure fonte minúscula, texto atrás de imagens e comentários</b> no arquivo.</li>
-<li><b>Busque (Ctrl+F) termos como</b> "ignore", "instrução", "IA", "modelo", "decida".</li>
+<div class="call dica"><div class="ic">✓</div><div class="lb">Na prática</div>Mande as 12 perguntas por e-mail ao fornecedor e guarde as respostas. Elas viram prova da sua diligência na escolha.</div>
+<h2><span class="n">5</span>Placar rápido</h2>
+<table><tr><th>Respostas "sim" e documentadas</th><th>Leitura</th></tr><tr><td>11 ou 12</td><td>Fornecedor maduro: siga para o teste com dados fictícios</td></tr><tr><td>8 a 10</td><td>Negocie as lacunas antes de assinar</td></tr><tr><td>7 ou menos</td><td>Não use com dados de clientes</td></tr></table>
+<h2>Fontes</h2><div class="fontes">
+<!--fontes-->
+<ul>
+<li>ConJur, 19/11/2026, decisão do TRF-3 no AI 5034175-02.2026.4.03.0000.</li>
+<li>CFOAB, Resolução 16/2026 (DEOAB, 13/10/2026); Migalhas, 15/10/2026.</li>
+<li>Lei 13.709/2018 (LGPD), arts. 5º e 6º: <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm">https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm</a></li>
+<li>Lei 8.906/1994 (Estatuto da OAB), arts. 32 e 34: <a href="https://www.planalto.gov.br/ccivil_03/leis/l8906.htm">https://www.planalto.gov.br/ccivil_03/leis/l8906.htm</a></li>
+<li>CFOAB, Recomendação 001/2024: <a href="https://www.oab.org.br/noticia/62711/confira-versao-final-da-recomendacao-do-cfoab-sobre-o-uso-de-ia-na-pratica-juridica">https://www.oab.org.br/noticia/62711/confira-versao-final-da-recomendacao-do-cfoab-sobre-o-uso-de-ia-na-pratica-juridica</a></li>
+</ul></div><div class="fim"><div><b>Gostou?</b> Salve este PDF e compartilhe com um colega.<div class="s">Mais conteúdo prático de IA na advocacia em @thiago.massicano</div></div><div class="s">Material informativo,<br>sem caráter de consultoria.</div></div><div class="quebra"></div><div class="capa"><div class="txt"><div class="kick">@thiago.massicano · IA na advocacia</div><h1>8 pedidos ao Claude que poupam horas no escritório</h1><p class="sub">Prompts prontos para processos, contratos e peças, com o cuidado ético de cada um</p></div><div class="foto" style="background-image:url('file:///C:/Users/Dr.Thiago/OneDrive/Instagram%20-%20IA%20na%20Advocacia/Fotos/02-retrato-sentado-terno-cinza.jpg')"></div><div class="barra"></div></div><div class="meta"><div class="bloco"><div class="rot">Fundamentado em</div><span class="chip">Estatuto da OAB, art. 32</span><span class="chip">Código de Ética da OAB, art. 35</span><span class="chip">LGPD, art. 6º, III</span><span class="chip">Recomendação CFOAB 001/2024</span></div><div class="bloco"><div class="rot">Neste material</div><ol class="sum"><li><b>01</b>Antes de usar</li><li><b>02</b>Processos</li><li><b>03</b>Contratos e estratégia</li><li><b>04</b>O que cada pedido economiza (e o que você confere)</li></ol></div></div><h2><span class="n">1</span>Antes de usar</h2>
+<div class="call fund"><div class="ic">§</div><div class="lb">Fundamento</div>A Recomendação CFOAB 001/2024 trata a IA generativa como ferramenta de apoio, com sigilo, ética e transparência. Quem responde pelo resultado é o advogado (Estatuto da OAB, art. 32).</div>
+<ul>
+<li>Anonimize os dados do cliente antes de colar (CED, art. 35; LGPD, art. 6º, III).</li>
+<li>Use um pedido por vez e cole só o trecho necessário.</li>
+<li>Funcionam também no ChatGPT e no Gemini.</li>
+</ul>
+<h2><span class="n">2</span>Processos</h2>
+<div class="prompt"><div class="lb">1 · Linha do tempo dos autos</div><pre>Você é advogado(a) revisando um processo. Leia os autos abaixo e
+monte uma linha do tempo em tabela: data | ato | quem praticou |
+folha ou ID. Não invente datas: se não houver, escreva &quot;não consta&quot;.</pre></div>
+<div class="prompt"><div class="lb">2 · Pedidos, valores e prazos de uma decisão</div><pre>Desta decisão, liste em tabela: cada pedido, o que foi deferido ou
+indeferido, valores, prazos e a quem cabe cumprir. Indique o trecho
+de onde tirou cada item.</pre></div>
+<div class="prompt"><div class="lb">3 · Contradições entre inicial e documentos</div><pre>Compare a petição inicial com os documentos anexos. Aponte toda
+contradição de datas, valores, nomes e fatos, indicando onde está
+cada uma. Não presuma nada que não esteja escrito.</pre></div>
+<div class="prompt"><div class="lb">4 · Tabela de citações</div><pre>Liste todas as leis, súmulas e julgados citados neste texto, com
+tribunal, número, relator e data quando houver. Marque CONFERIR o
+que estiver incompleto. Não confirme a existência de nenhum julgado.</pre></div>
+<h2><span class="n">3</span>Contratos e estratégia</h2>
+<div class="prompt"><div class="lb">5 · O contrato pelos olhos da outra parte</div><pre>Você é advogado(a) da outra parte neste contrato. Aponte as
+cláusulas que você exploraria contra o meu cliente e por quê.</pre></div>
+<div class="prompt"><div class="lb">6 · Cláusulas por risco</div><pre>Classifique as cláusulas deste contrato por risco para o meu cliente
+(alto, médio, baixo), com um parágrafo de justificativa e uma
+sugestão de redação para cada risco alto.</pre></div>
+<div class="prompt"><div class="lb">7 · Objeções do juiz cético</div><pre>Esta é a tese que vou sustentar: [resuma]. Atue como um juiz cético
+e liste as 5 principais objeções que você faria, da mais forte para
+a mais fraca.</pre></div>
+<div class="prompt"><div class="lb">8 · Para o cliente entender</div><pre>Reescreva este trecho para um empresário sem formação jurídica
+entender, em até 5 frases, sem perder a precisão técnica.</pre></div>
+<h2><span class="n">4</span>O que cada pedido economiza (e o que você confere)</h2>
+<table><tr><th>Pedido</th><th>Economiza</th><th>Você confere</th></tr><tr><td>1 e 2</td><td>Leitura linear dos autos</td><td>Datas e IDs nos autos</td></tr><tr><td>3</td><td>Comparação manual de documentos</td><td>Cada contradição apontada</td></tr><tr><td>4</td><td>Montagem da lista de citações</td><td>Cada citação no site oficial</td></tr><tr><td>5 a 7</td><td>Rodada de revisão crítica</td><td>Se a objeção é juridicamente sólida</td></tr><tr><td>8</td><td>Reescrita para leigo</td><td>Se a precisão técnica foi mantida</td></tr></table>
+<div class="call dica"><div class="ic">✓</div><div class="lb">Resumo</div>A IA sugere; você confere na fonte oficial e assina.</div>
+<h2>Fontes</h2><div class="fontes">
+<!--fontes-->
+<ul>
+<li>CFOAB, Recomendação 001/2024: <a href="https://www.oab.org.br/noticia/62711/confira-versao-final-da-recomendacao-do-cfoab-sobre-o-uso-de-ia-na-pratica-juridica">https://www.oab.org.br/noticia/62711/confira-versao-final-da-recomendacao-do-cfoab-sobre-o-uso-de-ia-na-pratica-juridica</a></li>
+<li>Lei 8.906/1994 (Estatuto da OAB), art. 32: <a href="https://www.planalto.gov.br/ccivil_03/leis/l8906.htm">https://www.planalto.gov.br/ccivil_03/leis/l8906.htm</a></li>
+<li>Código de Ética e Disciplina da OAB (Resolução CFOAB 02/2015), art. 35.</li>
+<li>Lei 13.709/2018 (LGPD), art. 6º: <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm">https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm</a></li>
+</ul></div><div class="fim"><div><b>Gostou?</b> Salve este PDF e compartilhe com um colega.<div class="s">Mais conteúdo prático de IA na advocacia em @thiago.massicano</div></div><div class="s">Material informativo,<br>sem caráter de consultoria.</div></div><div class="quebra"></div><div class="capa"><div class="txt"><div class="kick">@thiago.massicano · ferramenta</div><h1>Jus IA Monitora: IA gratuita que lê suas intimações</h1><p class="sub">Ferramenta do Jusbrasil que monitora o DJEN pelo seu número de OAB. Use como segunda camada; prazo fatal se confere no sistema do tribunal.</p></div><div class="barra"></div></div><div class="call dica"><div class="ic">→</div><div class="lb">Endereço oficial</div><a href="https://ia.jusbrasil.com.br/jusia-monitora">https://ia.jusbrasil.com.br/jusia-monitora</a></div><div class="quebra"></div><div class="capa"><div class="txt"><div class="kick">@thiago.massicano · IA na advocacia</div><h1>Checklist do PDF antes de protocolar</h1><p class="sub">1 minuto para garantir que a sua peça não carrega texto escondido</p></div><div class="foto" style="background-image:url('file:///C:/Users/Dr.Thiago/OneDrive/Instagram%20-%20IA%20na%20Advocacia/Fotos/02-retrato-sentado-terno-cinza.jpg')"></div><div class="barra"></div></div><div class="meta"><div class="bloco"><div class="rot">Fundamentado em</div><span class="chip">CPC, arts. 77, I, e 80, II e V</span><span class="chip">Estatuto da OAB, art. 34, XIV</span><span class="chip">Resolução CNJ 615/2025</span></div><div class="bloco"><div class="rot">Neste material</div><ol class="sum"><li><b>01</b>Por que isso importa</li><li><b>02</b>Conferência do arquivo final</li><li><b>03</b>Prevenção</li><li><b>04</b>O que fazer se encontrar</li></ol></div></div><h2><span class="n">1</span>Por que isso importa</h2>
+<div class="call alerta"><div class="ic">!</div><div class="lb">Atenção</div>Em novembro de 2026, o TJ-BA detectou com a ferramenta Elos IA linhas em fonte branca numa petição, com instruções para a IA decidir a favor do réu. O relator registrou nos autos e oficiou a OAB-BA (Bahia Notícias, 17/11/2026). Os tribunais já usam IA, regulada pela Resolução CNJ 615/2025, e já procuram esse tipo de manipulação.</div>
+<div class="call fund"><div class="ic">§</div><div class="lb">Fundamento</div>É dever de quem participa do processo expor os fatos conforme a verdade (CPC, art. 77, I). Alterar a verdade dos fatos e proceder de modo temerário caracterizam litigância de má-fé (CPC, art. 80, II e V), e tentar iludir o juiz é infração disciplinar (Estatuto da OAB, art. 34, XIV).</div>
+<div class="call dica"><div class="ic">✓</div><div class="lb">Na prática</div>O texto escondido pode entrar sem você saber, por um modelo de peça de origem desconhecida ou por um arquivo recebido de terceiro. Por isso a conferência é do arquivo final, sempre.</div>
+<h2><span class="n">2</span>Conferência do arquivo final</h2>
+<ol class="passos" style="counter-reset:p 0">
+<li><strong>Ctrl+A no PDF.</strong> Se aparecer seleção numa área que parece vazia, há texto escondido.</li>
+<li><strong>Ctrl+C e cole no Bloco de Notas.</strong> Leia tudo o que aparece além do texto da peça.</li>
+<li><strong>Procure fonte minúscula,</strong> texto atrás de imagens, comentários e campos de formulário.</li>
+<li><strong>Busque (Ctrl+F)</strong> termos como "ignore", "instrução", "IA", "modelo", "decida".</li>
 </ol>
-<h2>Prevenção</h2>
-<ol start="5">
-<li><b>Use modelos do próprio escritório.</b> Desconfie de modelos de peça de origem desconhecida.</li>
-<li><b>Gere o PDF a partir do seu arquivo</b> (Word &gt; Salvar como PDF), nunca de arquivos recebidos de terceiros.</li>
-<li><b>Anexos digitalizados:</b> aplique OCR e confira se o texto é pesquisável.</li>
-<li><b>Quem usa IA para redigir</b> revisa o texto final inteiro antes de assinar.</li>
-</ol>
-<div class="f">Fonte do caso: Bahia Notícias, 17/11/2026. Material informativo, sem caráter de consultoria. Thiago Massicano · Advogado</div>
-</div></body></html>
+<h2><span class="n">3</span>Prevenção</h2>
+<ul class="check">
+<li>Uso modelos do próprio escritório; desconfio de modelos de origem desconhecida.</li>
+<li>Gero o PDF a partir do meu arquivo (Word &gt; Salvar como PDF), nunca de arquivo recebido pronto.</li>
+<li>Anexos digitalizados com OCR e texto pesquisável.</li>
+<li>Quem usou IA para redigir revisa o texto final inteiro antes de assinar.</li>
+</ul>
+<h2><span class="n">4</span>O que fazer se encontrar</h2>
+<table><tr><th>Situação</th><th>Ação</th></tr><tr><td>Texto oculto no seu arquivo</td><td>Apague, regenere o PDF do zero e confira de novo</td></tr><tr><td>Texto oculto em peça da outra parte</td><td>Informe ao juízo nos autos, com a demonstração (print do Ctrl+A)</td></tr><tr><td>Modelo contaminado no escritório</td><td>Retire o modelo de circulação e avise a equipe</td></tr></table>
+<h2>Fontes</h2><div class="fontes">
+<!--fontes-->
+<ul>
+<li>Bahia Notícias, 17/11/2026 (caso do TJ-BA).</li>
+<li>CNJ, Resolução 615/2025: <a href="https://atos.cnj.jus.br/atos/detalhar/6001">https://atos.cnj.jus.br/atos/detalhar/6001</a></li>
+<li>Lei 13.105/2015 (CPC), arts. 77 e 80: <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm">https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm</a></li>
+<li>Lei 8.906/1994 (Estatuto da OAB), art. 34: <a href="https://www.planalto.gov.br/ccivil_03/leis/l8906.htm">https://www.planalto.gov.br/ccivil_03/leis/l8906.htm</a></li>
+</ul></div><div class="fim"><div><b>Gostou?</b> Salve este PDF e compartilhe com um colega.<div class="s">Mais conteúdo prático de IA na advocacia em @thiago.massicano</div></div><div class="s">Material informativo,<br>sem caráter de consultoria.</div></div></body></html>

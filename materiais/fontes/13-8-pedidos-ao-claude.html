@@ -1,48 +1,111 @@
 <!doctype html><html lang="pt-br"><head><meta charset="utf-8"><title>8 pedidos ao Claude que poupam horas no escritório</title><style>
-@page{size:A4;margin:0}
+@page{size:A4;margin:16mm 15mm 20mm}
+@page:first{margin-top:0}
 *{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-html,body{margin:0;background:#071226}
-body{font-family:"Segoe UI",Arial,sans-serif;color:#e8eefc}
-.p{padding:52px 60px 40px;page-break-after:always;break-after:page}
-.p:last-child{page-break-after:auto;break-after:auto}
-.h{font-size:13px;letter-spacing:2px;color:#7fb2ff;text-transform:uppercase}
-h1{font-size:38px;line-height:1.08;margin:10px 0 6px;color:#fff;font-weight:900;text-transform:uppercase}
-h2{color:#7fb2ff;font-size:19px;margin:26px 0 8px}
-h3{color:#7fb2ff;font-size:16px;margin:20px 0 6px}
-.sub{color:#a9c4f5;font-size:17px;margin-bottom:24px}
-p{font-size:15px;line-height:1.5;margin:8px 0}
-ol,ul{padding-left:22px}
-li{margin:0 0 12px;font-size:15px;line-height:1.5}
-.box{background:#0d1f3d;border-left:4px solid #3d8bff;padding:14px 18px;margin:10px 0 16px;border-radius:6px;font-size:14.5px;line-height:1.5}
-.q{font-family:Consolas,monospace;font-size:13.5px;color:#d6e4ff}
-.f{margin-top:30px;border-top:1px solid #23406e;padding-top:14px;font-size:12.5px;color:#8fa9d6}
-b,strong{color:#fff}
-a{color:#7fb2ff}
-.capa{min-height:1120px;display:flex;flex-direction:column;justify-content:center}
-.capa h1{font-size:58px}
-.sumario li{font-size:17px;margin-bottom:14px}
-.num{display:inline-block;min-width:34px;color:#3d8bff;font-weight:900}
-.p .box{margin:6px 0 8px;padding:9px 14px;line-height:1.4}
-.p .q{font-size:13px}
-.p{padding:34px 56px 16px}
-.p .f{margin-top:14px;padding-top:8px}
-.p h2{margin:14px 0 4px}
-.p h1{font-size:34px}
-.p .sub{margin-bottom:16px;font-size:16px}
-.capa h1{font-size:58px}
-.p h2{margin:20px 0 6px}
-.md li{margin:0 0 6px;font-size:14.5px}
-.md h1{font-size:34px}
-</style></head><body><div class="p md"><div class="h">@thiago.massicano · IA na advocacia</div><h1>8 pedidos ao Claude que poupam horas no escritório</h1><div class="sub"></div><p><em>Material do Reels "8 pedidos ao Claude" · @thiago.massicano</em> · Funcionam também no ChatGPT e no Gemini. Anonimize os dados do cliente antes de colar.</p>
-<ol>
-<li><strong>Linha do tempo dos autos:</strong> "Você é advogado(a) revisando um processo. Leia os autos abaixo e monte uma linha do tempo em tabela com: data, ato, quem praticou, folha/ID. Não invente datas: se não houver, escreva 'não consta'."</li>
-<li><strong>Pedidos, valores e prazos:</strong> "Desta decisão, liste em tabela: cada pedido, o que foi deferido ou indeferido, valores, prazos e a quem cabe cumprir. Indique o trecho de onde tirou cada item."</li>
-<li><strong>Contradições:</strong> "Compare a petição inicial com os documentos anexos. Aponte toda contradição de datas, valores, nomes e fatos, indicando onde está cada uma. Não presuma nada que não esteja escrito."</li>
-<li><strong>Tabela de citações:</strong> "Liste todas as leis, súmulas e julgados citados neste texto, com tribunal, número, relator e data quando houver. Marque CONFERIR o que estiver incompleto. Não confirme a existência de nenhum julgado."</li>
-<li><strong>Contrato pela outra parte:</strong> "Você é advogado(a) da outra parte neste contrato. Aponte as cláusulas que você exploraria contra o meu cliente e por quê."</li>
-<li><strong>Cláusulas de risco:</strong> "Classifique as cláusulas deste contrato por risco para o meu cliente (alto, médio, baixo), com um parágrafo de justificativa e uma sugestão de redação para cada risco alto."</li>
-<li><strong>Objeções do juiz:</strong> "Esta é a tese que vou sustentar: (resuma a tese). Atue como um juiz cético e liste as 5 principais objeções que você faria, da mais forte para a mais fraca."</li>
-<li><strong>Para o cliente entender:</strong> "Reescreva este trecho para um empresário sem formação jurídica entender, em até 5 frases, sem perder a precisão técnica."</li>
-</ol>
-<p><strong>Regra para todos:</strong> a IA sugere; você confere na fonte oficial e assina.</p>
-<p class="f"><em>Material informativo, sem caráter de consultoria.</em> · Thiago Massicano · Advogado</p></div></body></html>
+html,body{margin:0;background:#fff}
+body{font-family:"Segoe UI",Arial,sans-serif;color:#1d2a3f;font-size:10.5pt;line-height:1.5}
+.capa{background:linear-gradient(135deg,#061226 0%,#0b2350 60%,#123a7a 100%);color:#fff;
+  margin:0 -15mm 18px;padding:15mm 15mm 12mm;display:flex;gap:22px;align-items:center;position:relative}
+.capa .txt{flex:1}
+.kick{font-size:8.5pt;letter-spacing:2.2px;text-transform:uppercase;color:#7fb6ff;font-weight:700}
+.capa h1{font-size:25pt;line-height:1.08;margin:8px 0 8px;font-weight:900;letter-spacing:-.3px}
+.capa .sub{font-size:11.5pt;color:#c9dcff;margin:0}
+.capa .foto{width:118px;height:148px;border-radius:12px;background-size:cover;background-position:center 20%;
+  border:3px solid #3d8bff;flex:none;box-shadow:0 6px 20px rgba(0,0,0,.35)}
+.capa .barra{position:absolute;left:0;right:0;bottom:0;height:5px;background:linear-gradient(90deg,#3d8bff,#7fb6ff)}
+.meta{display:flex;gap:18px;margin:0 0 14px}
+.meta .bloco{flex:1;background:#f3f7fe;border:1px solid #dbe6fa;border-radius:10px;padding:10px 14px}
+.meta .rot{font-size:7.5pt;letter-spacing:1.6px;text-transform:uppercase;color:#2f6fe0;font-weight:800;margin-bottom:6px}
+.chip{display:inline-block;background:#fff;border:1px solid #b9cff5;color:#0b2350;border-radius:20px;
+  padding:2px 10px;margin:0 5px 5px 0;font-size:8.5pt;font-weight:600}
+.sum{margin:0;padding:0;list-style:none;counter-reset:s}
+.sum li{font-size:9pt;margin:0 0 3px;color:#24365a}
+.sum li b{color:#2f6fe0;margin-right:6px}
+h2{font-size:14pt;color:#0b2350;margin:20px 0 8px;padding-bottom:5px;border-bottom:2px solid #e2ebfb;
+  display:flex;align-items:center;gap:10px;break-after:avoid;page-break-after:avoid}
+h2 .n{background:#2f6fe0;color:#fff;border-radius:8px;min-width:28px;height:28px;display:inline-flex;
+  align-items:center;justify-content:center;font-size:11pt;font-weight:900}
+h3{font-size:11pt;color:#2f6fe0;margin:14px 0 4px;break-after:avoid}
+p{margin:6px 0}
+ul,ol{margin:6px 0 8px;padding-left:20px}
+li{margin:0 0 4px}
+strong{color:#0b2350}
+a{color:#2f6fe0;text-decoration:none;word-break:break-all}
+.call{border-radius:10px;padding:10px 14px 10px 50px;margin:10px 0;position:relative;break-inside:avoid}
+.call .ic{position:absolute;left:12px;top:10px;width:26px;height:26px;border-radius:50%;color:#fff;
+  display:flex;align-items:center;justify-content:center;font-weight:900;font-size:12pt}
+.call .lb{font-size:7.5pt;letter-spacing:1.5px;text-transform:uppercase;font-weight:800;margin-bottom:2px}
+.fund{background:#eef4ff;border-left:4px solid #2f6fe0}.fund .ic{background:#2f6fe0}.fund .lb{color:#2f6fe0}
+.alerta{background:#fff4ec;border-left:4px solid #e2701d}.alerta .ic{background:#e2701d}.alerta .lb{color:#c25a10}
+.dica{background:#ecf9f1;border-left:4px solid #1f9d55}.dica .ic{background:#1f9d55}.dica .lb{color:#1a8048}
+.ex{background:#f4f1fd;border-left:4px solid #6d4fd6}.ex .ic{background:#6d4fd6}.ex .lb{color:#5a3ec0}
+.quote{border-left:4px solid #b9cff5;background:#f7f9fd;padding:8px 14px;margin:10px 0;font-style:italic;color:#33466b}
+.prompt{background:#0b1830;border-radius:10px;margin:10px 0 12px;break-inside:avoid;overflow:hidden}
+.prompt .lb{background:#16305e;color:#9cc4ff;font-size:7.5pt;letter-spacing:1.6px;font-weight:800;padding:6px 14px;
+  text-transform:uppercase}
+.prompt pre{margin:0;padding:10px 14px 12px;color:#e3ecff;font-family:Consolas,"Cascadia Mono",monospace;
+  font-size:8.8pt;line-height:1.45;white-space:pre-wrap}
+ul.check{list-style:none;padding-left:0}
+ul.check li{position:relative;padding:5px 8px 5px 30px;margin:0 0 4px;background:#f7f9fd;border-radius:6px;break-inside:avoid}
+ul.check li:before{content:"";position:absolute;left:9px;top:8px;width:12px;height:12px;border:2px solid #2f6fe0;border-radius:3px;background:#fff}
+ol.passos{list-style:none;padding-left:0;counter-reset:p}
+ol.passos li{counter-increment:p;position:relative;padding:6px 10px 6px 42px;margin:0 0 6px;background:#f7f9fd;
+  border-radius:8px;break-inside:avoid}
+ol.passos li:before{content:counter(p);position:absolute;left:10px;top:6px;width:22px;height:22px;border-radius:6px;
+  background:#0b2350;color:#fff;font-weight:900;font-size:9.5pt;display:flex;align-items:center;justify-content:center}
+table{width:100%;border-collapse:collapse;margin:8px 0 12px;font-size:9.3pt;break-inside:avoid}
+th{background:#0b2350;color:#fff;text-align:left;padding:6px 9px;font-weight:700}
+td{padding:6px 9px;border-bottom:1px solid #e2ebfb;vertical-align:top}
+tr:nth-child(even) td{background:#f7f9fd}
+.fontes{font-size:8.5pt;color:#4a5b7c}
+.fontes li{margin-bottom:3px}
+.rodape{position:fixed;bottom:-12mm;left:0;right:0;font-size:7.5pt;color:#7d8daa;display:flex;justify-content:space-between;
+  border-top:1px solid #e2ebfb;padding-top:4px}
+.fim{margin-top:16px;background:#0b2350;color:#fff;border-radius:10px;padding:12px 16px;display:flex;
+  justify-content:space-between;align-items:center;break-inside:avoid}
+.fim b{color:#7fb6ff}
+.fim .s{font-size:8.5pt;color:#c9dcff}
+.kitcapa{min-height:250mm;display:flex;flex-direction:column}
+.quebra{break-before:page;page-break-before:always}
+</style></head><body><div class="rodape"><span>Thiago Massicano · Advogado · @thiago.massicano</span><span>Material informativo, sem caráter de consultoria</span></div><div class="capa"><div class="txt"><div class="kick">@thiago.massicano · IA na advocacia</div><h1>8 pedidos ao Claude que poupam horas no escritório</h1><p class="sub">Prompts prontos para processos, contratos e peças, com o cuidado ético de cada um</p></div><div class="foto" style="background-image:url('file:///C:/Users/Dr.Thiago/OneDrive/Instagram%20-%20IA%20na%20Advocacia/Fotos/03-retrato-mao-no-queixo.jpg')"></div><div class="barra"></div></div><div class="meta"><div class="bloco"><div class="rot">Fundamentado em</div><span class="chip">Estatuto da OAB, art. 32</span><span class="chip">Código de Ética da OAB, art. 35</span><span class="chip">LGPD, art. 6º, III</span><span class="chip">Recomendação CFOAB 001/2024</span></div><div class="bloco"><div class="rot">Neste material</div><ol class="sum"><li><b>01</b>Antes de usar</li><li><b>02</b>Processos</li><li><b>03</b>Contratos e estratégia</li><li><b>04</b>O que cada pedido economiza (e o que você confere)</li></ol></div></div><h2><span class="n">1</span>Antes de usar</h2>
+<div class="call fund"><div class="ic">§</div><div class="lb">Fundamento</div>A Recomendação CFOAB 001/2024 trata a IA generativa como ferramenta de apoio, com sigilo, ética e transparência. Quem responde pelo resultado é o advogado (Estatuto da OAB, art. 32).</div>
+<ul>
+<li>Anonimize os dados do cliente antes de colar (CED, art. 35; LGPD, art. 6º, III).</li>
+<li>Use um pedido por vez e cole só o trecho necessário.</li>
+<li>Funcionam também no ChatGPT e no Gemini.</li>
+</ul>
+<h2><span class="n">2</span>Processos</h2>
+<div class="prompt"><div class="lb">1 · Linha do tempo dos autos</div><pre>Você é advogado(a) revisando um processo. Leia os autos abaixo e
+monte uma linha do tempo em tabela: data | ato | quem praticou |
+folha ou ID. Não invente datas: se não houver, escreva &quot;não consta&quot;.</pre></div>
+<div class="prompt"><div class="lb">2 · Pedidos, valores e prazos de uma decisão</div><pre>Desta decisão, liste em tabela: cada pedido, o que foi deferido ou
+indeferido, valores, prazos e a quem cabe cumprir. Indique o trecho
+de onde tirou cada item.</pre></div>
+<div class="prompt"><div class="lb">3 · Contradições entre inicial e documentos</div><pre>Compare a petição inicial com os documentos anexos. Aponte toda
+contradição de datas, valores, nomes e fatos, indicando onde está
+cada uma. Não presuma nada que não esteja escrito.</pre></div>
+<div class="prompt"><div class="lb">4 · Tabela de citações</div><pre>Liste todas as leis, súmulas e julgados citados neste texto, com
+tribunal, número, relator e data quando houver. Marque CONFERIR o
+que estiver incompleto. Não confirme a existência de nenhum julgado.</pre></div>
+<h2><span class="n">3</span>Contratos e estratégia</h2>
+<div class="prompt"><div class="lb">5 · O contrato pelos olhos da outra parte</div><pre>Você é advogado(a) da outra parte neste contrato. Aponte as
+cláusulas que você exploraria contra o meu cliente e por quê.</pre></div>
+<div class="prompt"><div class="lb">6 · Cláusulas por risco</div><pre>Classifique as cláusulas deste contrato por risco para o meu cliente
+(alto, médio, baixo), com um parágrafo de justificativa e uma
+sugestão de redação para cada risco alto.</pre></div>
+<div class="prompt"><div class="lb">7 · Objeções do juiz cético</div><pre>Esta é a tese que vou sustentar: [resuma]. Atue como um juiz cético
+e liste as 5 principais objeções que você faria, da mais forte para
+a mais fraca.</pre></div>
+<div class="prompt"><div class="lb">8 · Para o cliente entender</div><pre>Reescreva este trecho para um empresário sem formação jurídica
+entender, em até 5 frases, sem perder a precisão técnica.</pre></div>
+<h2><span class="n">4</span>O que cada pedido economiza (e o que você confere)</h2>
+<table><tr><th>Pedido</th><th>Economiza</th><th>Você confere</th></tr><tr><td>1 e 2</td><td>Leitura linear dos autos</td><td>Datas e IDs nos autos</td></tr><tr><td>3</td><td>Comparação manual de documentos</td><td>Cada contradição apontada</td></tr><tr><td>4</td><td>Montagem da lista de citações</td><td>Cada citação no site oficial</td></tr><tr><td>5 a 7</td><td>Rodada de revisão crítica</td><td>Se a objeção é juridicamente sólida</td></tr><tr><td>8</td><td>Reescrita para leigo</td><td>Se a precisão técnica foi mantida</td></tr></table>
+<div class="call dica"><div class="ic">✓</div><div class="lb">Resumo</div>A IA sugere; você confere na fonte oficial e assina.</div>
+<h2>Fontes</h2><div class="fontes">
+<!--fontes-->
+<ul>
+<li>CFOAB, Recomendação 001/2024: <a href="https://www.oab.org.br/noticia/62711/confira-versao-final-da-recomendacao-do-cfoab-sobre-o-uso-de-ia-na-pratica-juridica">https://www.oab.org.br/noticia/62711/confira-versao-final-da-recomendacao-do-cfoab-sobre-o-uso-de-ia-na-pratica-juridica</a></li>
+<li>Lei 8.906/1994 (Estatuto da OAB), art. 32: <a href="https://www.planalto.gov.br/ccivil_03/leis/l8906.htm">https://www.planalto.gov.br/ccivil_03/leis/l8906.htm</a></li>
+<li>Código de Ética e Disciplina da OAB (Resolução CFOAB 02/2015), art. 35.</li>
+<li>Lei 13.709/2018 (LGPD), art. 6º: <a href="https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm">https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm</a></li>
+</ul></div><div class="fim"><div><b>Gostou?</b> Salve este PDF e compartilhe com um colega.<div class="s">Mais conteúdo prático de IA na advocacia em @thiago.massicano</div></div><div class="s">Material informativo,<br>sem caráter de consultoria.</div></div></body></html>

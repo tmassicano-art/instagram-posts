@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Conferência de citações com o Claude antes de protocolar</title><style>
+<title>Conferência de citações com IA antes de protocolar</title><style>
 :root{--azul:#0b2a5b;--azul2:#1f5fbf;--fundo:#f4f6fa;--texto:#1b2333;--card:#fff}
 *{box-sizing:border-box}
 body{margin:0;background:var(--fundo);color:var(--texto);font:17px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
@@ -19,65 +19,74 @@ ul,ol{padding-left:22px}
 li{margin:4px 0}
 footer{max-width:680px;margin:0 auto;padding:8px 16px 32px;font-size:.9rem;opacity:.8}
 </style></head>
-<body><header><main style="padding:0"><p class="sub"><a href="index.html">&larr; Todos os materiais</a></p><h1>Conferência de citações com o Claude antes de protocolar</h1><p class="sub">IA na advocacia, com ética</p></main></header>
-<main><section class="card"><p><em>Material do Reels de 27/11/2026 · @thiago.massicano</em></p>
+<body><header><main style="padding:0"><p class="sub"><a href="index.html">&larr; Todos os materiais</a></p><h1>Conferência de citações com IA antes de protocolar</h1><p class="sub">IA na advocacia, com ética</p></main></header>
+<main><section class="card"><p><em>O método em 4 passos para nenhuma jurisprudência inventada chegar ao processo</em></p>
+<p>Base: CPC, arts. 77, 80 e 81 · Estatuto da OAB, arts. 32 e 34, XIV · CNJ, pauta do Plenário Virtual (DJe 277/2026) · TJPR, 9ª Câmara Cível</p>
 <h3>Por que agora</h3>
-<ul>
-<li>A pauta da 18ª Sessão do Plenário Virtual do CNJ (27/11 a 04/12/2026) traz um recurso que pede recomendação sobre a apuração individualizada da responsabilidade de advogados que apresentam jurisprudência inexistente gerada por IA generativa, sem caracterização automática de litigância de má-fé. Fonte: CNJ, pauta publicada no DJe nº 277/2026, de 19/11/2026.</li>
-<li>Os tribunais já aplicam sanção: a 9ª Câmara Cível do TJPR, em acórdão de 16/05/2026, aplicou multa por litigância de má-fé "pelo uso de inteligência artificial sem o devido zelo e cautela" e determinou ofício à OAB/PR (TJPR, 0108267-74.2025.8.16.0000).</li>
-</ul>
+<p>&gt; <strong>Fundamento:</strong> é dever de partes e procuradores não formular pretensão ou defesa sabidamente sem fundamento (CPC, art. 77, II). Deturpar o teor de dispositivo de lei ou de julgado para iludir o juiz é infração disciplinar (Estatuto da OAB, art. 34, XIV).</p>
+<p>| Fato | Onde |</p>
+<p>|---|---|</p>
+<p>| O CNJ pautou recurso que pede recomendação sobre a apuração individualizada da responsabilidade de advogados que apresentam jurisprudência inexistente gerada por IA, sem caracterizar automaticamente má-fé | 18ª Sessão do Plenário Virtual (27/11 a 04/12/2026), DJe 277/2026 |</p>
+<p>| O TJPR aplicou multa por litigância de má-fé "pelo uso de inteligência artificial sem o devido zelo e cautela" e oficiou a OAB/PR | 9ª Câmara Cível, 0108267-74.2025.8.16.0000, julgado em 16/05/2026 |</p>
+<p>| A multa por má-fé vai de mais de 1% a menos de 10% do valor corrigido da causa, além de indenização | CPC, art. 81 |</p>
 <h3>Passo 1 · Anonimize</h3>
-<p>Antes de colar, apague nome das partes, CPF, CNPJ, endereço, número do processo e qualquer dado do cliente. Sigilo profissional vale também na tela do chat.</p>
-<h3>Passo 2 · Ative a pesquisa na web</h3>
-<p>No Claude, a pesquisa na web fica no menu "+" da conversa (na interface nova, o Claude pesquisa sozinho quando precisa). Em planos Team e Enterprise, o administrador precisa liberar o recurso antes.</p>
-<h3>Passo 3 · Cole este prompt</h3>
+<p>Antes de colar, retire nome das partes, CPF, CNPJ, endereço, número do processo e qualquer dado do cliente. O sigilo profissional vale também na janela do chat.</p>
+<h3>Passo 2 · Ligue a pesquisa na web</h3>
+<p>No Claude, a pesquisa na web fica no menu de ferramentas da conversa; em planos Team e Enterprise, o administrador precisa liberar o recurso. Sem pesquisa, a IA só "lembra" e pode inventar.</p>
+<h3>Passo 3 · Cole o prompt revisor</h3>
 <p>```</p>
 <p>Atue como revisor de citações de uma peça jurídica brasileira.</p>
 <ol>
-<li>Liste em tabela TODAS as referências do texto abaixo: leis e artigos,</li>
+<li>Liste em tabela TODAS as referências do texto: leis e artigos,</li>
 </ol>
 <p>súmulas, temas repetitivos, julgados e doutrina.</p>
 <ol start="2">
-<li>Colunas: trecho citado | tipo | identificação informada (tribunal,</li>
+<li>Colunas: trecho citado | tipo | identificação informada</li>
 </ol>
-<p>classe, número, relator, data) | link encontrado em site OFICIAL</p>
+<p>(tribunal, classe, número, relator, data) | link em site OFICIAL</p>
 <p>(planalto.gov.br, stf.jus.br, stj.jus.br, site do tribunal) |</p>
 <p>situação.</p>
 <ol start="3">
-<li>Na coluna "situação", use só: LOCALIZADO NA FONTE OFICIAL,</li>
+<li>Situação, só uma destas: LOCALIZADO NA FONTE OFICIAL,</li>
 </ol>
 <p>NÃO LOCALIZADO ou DIVERGENTE (número, relator, data ou conteúdo</p>
 <p>diferentes do citado).</p>
 <ol start="4">
-<li>Não use blogs, sites de cursos nem agregadores como prova de</li>
+<li>Blog, site de curso e agregador não provam existência: nesses</li>
 </ol>
-<p>existência. Se só achar a citação nesses sites, marque NÃO LOCALIZADO.</p>
+<p>casos marque NÃO LOCALIZADO.</p>
 <ol start="5">
-<li>Nunca complete dados que faltam. Se faltar número ou relator, diga</li>
+<li>Nunca complete dados que faltam: diga o que falta.</li>
+<li>Ao final, liste por prioridade o que devo abrir pessoalmente.</li>
 </ol>
-<p>o que falta.</p>
-<ol start="6">
-<li>Ao final, liste em ordem de prioridade o que devo abrir pessoalmente</li>
-</ol>
-<p>antes de protocolar.</p>
 <p>Texto:</p>
 <p>[cole aqui a peça já anonimizada]</p>
 <p>```</p>
 <h3>Passo 4 · Você confere (a parte que não se delega)</h3>
 <ul>
-<li>[ ] Abri cada link marcado como LOCALIZADO e li a ementa no site do tribunal</li>
-<li>[ ] O número, o relator e a data batem com o que está na peça</li>
-<li>[ ] O trecho entre aspas está de fato na ementa ou no voto</li>
-<li>[ ] Removi ou substituí todo item NÃO LOCALIZADO ou DIVERGENTE</li>
-<li>[ ] Artigos de lei conferidos no texto compilado do Planalto</li>
-<li>[ ] Súmulas e temas conferidos como vigentes (não cancelados nem superados)</li>
+<li>[ ] Abri cada link LOCALIZADO e li a ementa no site do tribunal.</li>
+<li>[ ] Número, relator e data batem com o que está na peça.</li>
+<li>[ ] O trecho entre aspas está de fato na ementa ou no voto.</li>
+<li>[ ] Retirei ou substituí todo item NÃO LOCALIZADO ou DIVERGENTE.</li>
+<li>[ ] Artigos de lei conferidos no texto compilado do Planalto.</li>
+<li>[ ] Súmulas e temas conferidos como vigentes (não cancelados nem superados).</li>
 </ul>
-<h3>Cuidados</h3>
+<p>&gt; <strong>Atenção:</strong> a IA também erra na conferência. Um "LOCALIZADO" só vale depois que você abriu o link e leu.</p>
+<h3>Como ler a tabela que a IA devolve</h3>
+<p>| Situação | O que fazer |</p>
+<p>|---|---|</p>
+<p>| LOCALIZADO NA FONTE OFICIAL | Abrir, ler e confirmar o trecho citado |</p>
+<p>| DIVERGENTE | Corrigir o dado na peça ou trocar o precedente |</p>
+<p>| NÃO LOCALIZADO | Procurar você mesmo no site do tribunal; não achou, retira |</p>
+<p>&gt; <strong>Resumo:</strong> a IA mostra onde procurar. Quem assina é quem responde (Estatuto da OAB, art. 32).</p>
+<h3>Fontes</h3>
 <ul>
-<li>A IA ajuda a achar onde procurar. A responsabilidade pela citação continua sendo de quem assina a peça.</li>
-<li>Repita a conferência sempre que a peça mudar depois da revisão.</li>
+<li>CNJ, pauta da 18ª Sessão do Plenário Virtual de 2026 (DJe 277/2026, 19/11/2026): https://www.cnj.jus.br/pauta-de-julgamentos-18a-sessao-do-plenario-virtual-de-2026-27-11-2026-a-04-12-2026/</li>
+<li>TJPR, 9ª Câmara Cível, rel. Luis Sergio Swiech, 0108267-74.2025.8.16.0000, j. 16/05/2026: https://portal.tjpr.jus.br/jurisprudencia/j/4100000035214151/Ac%C3%B3rd%C3%A3o-0108267-74.2025.8.16.0000</li>
+<li>Lei 13.105/2015 (CPC), arts. 77, 80 e 81: https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2015/lei/l13105.htm</li>
+<li>Lei 8.906/1994 (Estatuto da OAB), arts. 32 e 34: https://www.planalto.gov.br/ccivil_03/leis/l8906.htm</li>
+<li>Central de Ajuda da Anthropic, pesquisa na web: https://support.claude.com/en/articles/10684626-enable-and-use-web-search</li>
 </ul>
-<p><strong>Fontes:</strong> CNJ, pauta de julgamentos da 18ª Sessão do Plenário Virtual de 2026 (DJe nº 277/2026, 19/11/2026): https://www.cnj.jus.br/pauta-de-julgamentos-18a-sessao-do-plenario-virtual-de-2026-27-11-2026-a-04-12-2026/ · TJPR, 9ª Câmara Cível, rel. Luis Sergio Swiech, julgado em 16/05/2026: https://portal.tjpr.jus.br/jurisprudencia/j/4100000035214151/Ac%C3%B3rd%C3%A3o-0108267-74.2025.8.16.0000 · Central de Ajuda da Anthropic, "Enable and use web search": https://support.claude.com/en/articles/10684626-enable-and-use-web-search</p>
 <p><em>Material informativo, sem caráter de consultoria.</em></p></section></main>
 <footer>Thiago Massicano · Advogado · <a href="https://instagram.com/thiago.massicano">@thiago.massicano</a><br>
 Material informativo, sem caráter de consultoria.</footer></body></html>

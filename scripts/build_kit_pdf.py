@@ -1,4 +1,4 @@
-"""Gera o PDF unico do KIT (todos os materiais em um arquivo) para o ManyChat.
+﻿"""Gera o PDF unico do KIT (todos os materiais em um arquivo) para o ManyChat.
 
 Le materiais/README.md (a ordem dos blocos "## " e a ordem do kit, o mais novo primeiro) e monta:
   - material .md                -> convertido para HTML
@@ -14,7 +14,8 @@ import re
 import subprocess
 from pathlib import Path
 
-from build_materiais import inline, md_to_html  # mesmo conversor da pagina do celular
+from build_materiais import inline  # links da descricao
+from material_pdf import CSS as CSS_MAT, bloco_material, converter, documento  # modelo visual desde 28/11/2026
 
 ROOT = Path(__file__).resolve().parent.parent
 MAT = ROOT / "materiais"
@@ -27,52 +28,17 @@ NAVEGADORES = [
     r"C:\Program Files\Google\Chrome\Application\chrome.exe",
 ]
 
-CSS = """
-@page{size:A4;margin:0}
-*{box-sizing:border-box;-webkit-print-color-adjust:exact;print-color-adjust:exact}
-html,body{margin:0;background:#071226}
-body{font-family:"Segoe UI",Arial,sans-serif;color:#e8eefc}
-.p{padding:52px 60px 40px;page-break-after:always;break-after:page}
-.p:last-child{page-break-after:auto;break-after:auto}
-.h{font-size:13px;letter-spacing:2px;color:#7fb2ff;text-transform:uppercase}
-h1{font-size:38px;line-height:1.08;margin:10px 0 6px;color:#fff;font-weight:900;text-transform:uppercase}
-h2{color:#7fb2ff;font-size:19px;margin:26px 0 8px}
-h3{color:#7fb2ff;font-size:16px;margin:20px 0 6px}
-.sub{color:#a9c4f5;font-size:17px;margin-bottom:24px}
-p{font-size:15px;line-height:1.5;margin:8px 0}
-ol,ul{padding-left:22px}
-li{margin:0 0 12px;font-size:15px;line-height:1.5}
-.box{background:#0d1f3d;border-left:4px solid #3d8bff;padding:14px 18px;margin:10px 0 16px;border-radius:6px;font-size:14.5px;line-height:1.5}
-.q{font-family:Consolas,monospace;font-size:13.5px;color:#d6e4ff}
-.f{margin-top:30px;border-top:1px solid #23406e;padding-top:14px;font-size:12.5px;color:#8fa9d6}
-b,strong{color:#fff}
-a{color:#7fb2ff}
-.capa{min-height:1120px;display:flex;flex-direction:column;justify-content:center}
-.capa h1{font-size:58px}
-.sumario li{font-size:17px;margin-bottom:14px}
-.num{display:inline-block;min-width:34px;color:#3d8bff;font-weight:900}
-.p .box{margin:6px 0 8px;padding:9px 14px;line-height:1.4}
-.p .q{font-size:13px}
-.p{padding:34px 56px 16px}
-.p .f{margin-top:14px;padding-top:8px}
-.p h2{margin:14px 0 4px}
-.p h1{font-size:34px}
-.p .sub{margin-bottom:16px;font-size:16px}
-.capa h1{font-size:58px}
-.p h2{margin:20px 0 6px}
-.md li{margin:0 0 6px;font-size:14.5px}
-.md h1{font-size:34px}
-"""
+CSS = CSS_MAT
 
 
-def bloco_fonte(nome_pdf: str) -> str | None:
-    """Conteudo da pagina que gerou o PDF (div.p de materiais/fontes/<nome>.html)."""
-    f = FONTES / (Path(nome_pdf).stem + ".html")
-    if not f.exists():
+def md_do_alvo(alvo: str) -> Path | None:
+    """Material em .md: o proprio link, ou o .md de mesmo nome de um link .pdf (ex.: checklist-pdf)."""
+    if "://" in alvo or not alvo:
         return None
-    t = f.read_text(encoding="utf-8")
-    m = re.search(r'<div class="p">(.*)</div>\s*</body>', t, re.S)
-    return m.group(1) if m else None
+    p = MAT / alvo
+    if p.suffix == ".pdf":
+        p = p.with_suffix(".md")
+    return p if p.suffix == ".md" and p.exists() else None
 
 
 def blocos_readme():
@@ -87,92 +53,72 @@ def blocos_readme():
 
 
 def secao(titulo: str, desc: str, alvo: str) -> str | None:
-    cab = '<div class="h">@thiago.massicano · IA na advocacia</div>'
-    if alvo.endswith(".pdf"):
-        corpo = bloco_fonte(alvo)
-        if corpo is None:
-            print("AVISO: sem fonte HTML para", alvo, "- material fora do kit")
-            return None
-        return f'<div class="p">{corpo}</div>'
-    if alvo.endswith(".md") and "://" not in alvo:
-        t, corpo = md_to_html((MAT / alvo).read_text(encoding="utf-8"))
-        corpo = corpo.replace("<h2>", "<h2>").replace("<p><em>Material informativo", '<p class="f"><em>Material informativo')
-        return (f'<div class="p md">{cab}<h1>{html.escape(t)}</h1>'
-                f'<div class="sub">{inline(desc)}</div>{corpo}</div>')
+    mdp = md_do_alvo(alvo)
+    if mdp:
+        return bloco_material(mdp.read_text(encoding="utf-8"), mdp.stem)
     if "://" in alvo:
-        return (f'<div class="p">{cab}<h1>{inline(titulo)}</h1><div class="sub">{inline(desc)}</div>'
-                f'<div class="box">Endereço oficial: <a href="{alvo}">{html.escape(alvo)}</a></div>'
-                '<div class="f">Material informativo, sem caráter de consultoria. Thiago Massicano · Advogado</div></div>')
+        return (f'<div class="capa"><div class="txt"><div class="kick">@thiago.massicano · ferramenta</div>'
+                f'<h1>{inline(titulo)}</h1><p class="sub">{inline(desc)}</p></div><div class="barra"></div></div>'
+                f'<div class="call dica"><div class="ic">→</div><div class="lb">Endereço oficial</div>'
+                f'<a href="{alvo}">{html.escape(alvo)}</a></div>')
+    print("AVISO: material sem .md, fora do kit:", alvo)
     return None
 
 
 def montar() -> str:
     itens = [(t, s) for t, d, a in blocos_readme() if (s := secao(t, d, a))]
     hoje = dt.date.today().strftime("%d/%m/%Y")
-    sumario = "".join(f'<li><span class="num">{i:02d}</span>{inline(t)}</li>'
-                      for i, (t, _) in enumerate(itens, 1))
-    capa = (f'<div class="p capa"><div class="h">@thiago.massicano · IA na advocacia</div>'
-            f'<h1>Kit IA na Advocacia</h1>'
-            f'<div class="sub">Todos os materiais gratuitos do perfil em um só arquivo. '
-            f'Prompts, checklists e ferramentas para usar a IA com ética no dia a dia do escritório.</div>'
-            f'<h2>Neste kit</h2><ol class="sumario" style="list-style:none;padding:0">{sumario}</ol>'
-            f'<div class="f">Atualizado em {hoje}. Comente <b>KIT</b> em qualquer post do '
-            f'@thiago.massicano para receber a versão mais recente. Material informativo, sem caráter de '
-            f'consultoria. Thiago Massicano · Advogado</div></div>')
-    return (f'<!doctype html><html lang="pt-br"><head><meta charset="utf-8">'
-            f'<title>Kit IA na Advocacia · @thiago.massicano</title><style>{CSS}</style></head><body>'
-            + capa + "".join(s for _, s in itens) + "</body></html>")
+    sumario = "".join(f"<li><b>{i:02d}</b>{inline(t)}</li>" for i, (t, _) in enumerate(itens, 1))
+    capa = (f'<div class="capa"><div class="txt"><div class="kick">@thiago.massicano · IA na advocacia</div>'
+            f'<h1>Kit IA na Advocacia</h1><p class="sub">Todos os materiais gratuitos do perfil em um só arquivo: '
+            f'prompts, checklists e protocolos, cada um com a base legal conferida na fonte oficial.</p></div>'
+            f'<div class="barra"></div></div>'
+            f'<div class="meta"><div class="bloco"><div class="rot">Neste kit</div><ol class="sum">{sumario}</ol></div></div>'
+            f'<p style="font-size:9pt;color:#4a5b7c">Atualizado em {hoje}. Comente <b>KIT</b> em qualquer post do '
+            f'@thiago.massicano para receber a versão mais recente.</p>')
+    corpo = capa + "".join(f'<div class="quebra"></div>{s}' for _, s in itens)
+    return documento("Kit IA na Advocacia · @thiago.massicano", corpo)
 
 
 def imprimir(origem: Path, destino: Path):
     nav = next((n for n in NAVEGADORES if Path(n).exists()), None)
     if not nav:
         raise SystemExit("Edge/Chrome nao encontrado para gerar o PDF")
-    subprocess.run([nav, "--headless=new", "--disable-gpu", "--no-pdf-header-footer",
+    subprocess.run([nav, "--headless=new", "--disable-gpu", "--no-pdf-header-footer", "--allow-file-access-from-files",
                     f"--print-to-pdf={destino}", origem.as_uri()],
                    check=True, capture_output=True, timeout=120)
 
 
+def pdf_de_md(mdp: Path, nome: str | None = None) -> Path:
+    mdp = Path(mdp).resolve()
+    nome = nome or mdp.stem
+    md = mdp.read_text(encoding="utf-8")
+    FONTES.mkdir(exist_ok=True)
+    tmp = FONTES / (nome + ".html")
+    tmp.write_text(documento(converter(md)[0], bloco_material(md, nome)), encoding="utf-8")
+    destino = MAT / (nome + ".pdf")
+    imprimir(tmp, destino)
+    return destino
+
+
 def pdfs_individuais():
-    """Cada material .md do README ganha o proprio PDF (materiais/<nome>.pdf), no mesmo visual."""
-    for titulo, desc, alvo in blocos_readme():
-        if not (alvo.endswith(".md") and "://" not in alvo):
-            continue
-        s = secao(titulo, desc, alvo)
-        if not s:
-            continue
-        tmp = FONTES / (Path(alvo).stem + ".html")
-        tmp.write_text(f'<!doctype html><html lang="pt-br"><head><meta charset="utf-8">'
-                       f'<title>{html.escape(titulo)}</title><style>{CSS}</style></head><body>{s}</body></html>',
-                       encoding="utf-8")
-        imprimir(tmp, MAT / (Path(alvo).stem + ".pdf"))
-        print("pdf:", Path(alvo).stem + ".pdf")
+    """Cada material do README com .md ganha o proprio PDF (materiais/<nome>.pdf), no modelo visual novo."""
+    for _, _, alvo in blocos_readme():
+        mdp = md_do_alvo(alvo)
+        if mdp:
+            print("pdf:", pdf_de_md(mdp).name)
 
 
 def pdf_avulso(md_path: Path, desc: str = "") -> Path:
-    """PDF independente de um material .md (mesmo de fora do README): materiais/<nome>.pdf.
-    Usado para publicar o PDF de um post antes da publicacao (o ManyChat ja aponta para ele)."""
-    md_path = Path(md_path).resolve()
-    titulo, corpo = md_to_html(md_path.read_text(encoding="utf-8"))
-    corpo = corpo.replace("<p><em>Material informativo", '<p class="f"><em>Material informativo')
-    cab = '<div class="h">@thiago.massicano · IA na advocacia</div>'
-    s = (f'<div class="p md">{cab}<h1>{html.escape(titulo)}</h1>'
-         f'<div class="sub">{inline(desc)}</div>{corpo}</div>')
-    FONTES.mkdir(exist_ok=True)
-    tmp = FONTES / (md_path.stem + ".html")
-    tmp.write_text(f'<!doctype html><html lang="pt-br"><head><meta charset="utf-8">'
-                   f'<title>{html.escape(titulo)}</title><style>{CSS}</style></head><body>{s}</body></html>',
-                   encoding="utf-8")
-    destino = MAT / (md_path.stem + ".pdf")
-    imprimir(tmp, destino)
-    return destino
+    """PDF independente de um material .md (mesmo de fora do README): materiais/<nome>.pdf."""
+    return pdf_de_md(Path(md_path))
 
 
 if __name__ == "__main__":
     import sys
     if len(sys.argv) >= 3 and sys.argv[1] == "--material":
-        # uso: python scripts/build_kit_pdf.py --material <caminho.md> ["descricao curta"]
-        print("pdf:", pdf_avulso(Path(sys.argv[2]), sys.argv[3] if len(sys.argv) > 3 else ""))
+        # uso: python scripts/build_kit_pdf.py --material <caminho.md>
+        print("pdf:", pdf_avulso(Path(sys.argv[2])))
         raise SystemExit
     SAIDA_HTML.write_text(montar(), encoding="utf-8")
     imprimir(SAIDA_HTML, SAIDA_PDF)

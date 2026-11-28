@@ -1,7 +1,7 @@
 <!doctype html>
 <html lang="pt-BR"><head><meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Prompt de anonimização: antes de colar a peça na IA</title><style>
+<title>Anonimize antes de colar a peça na IA</title><style>
 :root{--azul:#0b2a5b;--azul2:#1f5fbf;--fundo:#f4f6fa;--texto:#1b2333;--card:#fff}
 *{box-sizing:border-box}
 body{margin:0;background:var(--fundo);color:var(--texto);font:17px/1.55 -apple-system,Segoe UI,Roboto,Helvetica,Arial,sans-serif}
@@ -19,8 +19,21 @@ ul,ol{padding-left:22px}
 li{margin:4px 0}
 footer{max-width:680px;margin:0 auto;padding:8px 16px 32px;font-size:.9rem;opacity:.8}
 </style></head>
-<body><header><main style="padding:0"><p class="sub"><a href="index.html">&larr; Todos os materiais</a></p><h1>Prompt de anonimização: antes de colar a peça na IA</h1><p class="sub">IA na advocacia, com ética</p></main></header>
-<main><section class="card"><p>Use este prompt numa ferramenta <strong>aprovada pelo escritório</strong> e confira o resultado antes de usar o texto anonimizado em outra IA.</p>
+<body><header><main style="padding:0"><p class="sub"><a href="index.html">&larr; Todos os materiais</a></p><h1>Anonimize antes de colar a peça na IA</h1><p class="sub">IA na advocacia, com ética</p></main></header>
+<main><section class="card"><p><em>Prompt pronto, checklist e a base legal para usar IA sem expor o cliente</em></p>
+<p>Base: LGPD, arts. 5º e 6º · Estatuto da OAB, art. 34, VII · Código de Ética da OAB, art. 35 · Recomendação CFOAB 001/2024</p>
+<h3>Por que anonimizar</h3>
+<p>&gt; <strong>Fundamento:</strong> o advogado tem o dever de guardar sigilo dos fatos que conhece no exercício da profissão (Código de Ética e Disciplina da OAB, art. 35), e violar sigilo profissional sem justa causa é infração disciplinar (Estatuto da OAB, art. 34, VII).</p>
+<p>A LGPD reforça o mesmo caminho:</p>
+<p>| Conceito | O que a LGPD diz | Na prática |</p>
+<p>|---|---|---|</p>
+<p>| Dado pessoal | Informação de pessoa natural identificada ou identificável (art. 5º, I) | Nome, CPF, endereço, e-mail, telefone |</p>
+<p>| Dado sensível | Saúde, vida sexual, religião, biometria, entre outros (art. 5º, II) | Laudos, atestados, prontuários: cuidado redobrado |</p>
+<p>| Anonimização | Meios técnicos razoáveis que tiram a possibilidade de associar o dado ao titular (art. 5º, XI) | Trocar por marcadores e generalizar valores e datas |</p>
+<p>| Necessidade | Tratar só o mínimo necessário para a finalidade (art. 6º, III) | A IA recebe só o que a tarefa exige |</p>
+<p>&gt; <strong>Atenção:</strong> trocar só o nome não basta. Número do processo, valor exato da causa e endereço permitem identificar o cliente com uma busca simples.</p>
+<h3>O prompt de anonimização</h3>
+<p>Use numa ferramenta aprovada pelo escritório e confira o resultado antes de levar o texto a outra IA.</p>
 <p>```</p>
 <p>Você vai anonimizar um texto jurídico antes do uso em ferramentas de IA.</p>
 <p>Substitua, de forma consistente em todo o texto:</p>
@@ -28,23 +41,48 @@ footer{max-width:680px;margin:0 auto;padding:8px 16px 32px;font-size:.9rem;opaci
 <li>nomes de pessoas físicas por [PARTE 1], [PARTE 2], [TESTEMUNHA 1]...</li>
 <li>nomes de empresas por [EMPRESA 1], [EMPRESA 2]...</li>
 <li>CPF, CNPJ, RG, OAB, e-mail e telefone por [DOCUMENTO] ou [CONTATO]</li>
-<li>endereços completos por [ENDEREÇO] e cidades por [CIDADE] (se a cidade não for relevante para a tese)</li>
-<li>número do processo por [PROCESSO]</li>
-<li>valores exatos por faixas aproximadas ("cerca de R$ 50 mil")</li>
-<li>datas exatas por referências relativas ("três meses depois"), salvo prazos relevantes</li>
+<li>endereços por [ENDEREÇO] e cidades por [CIDADE] (se a cidade não</li>
 </ul>
-<p>Não altere fundamentos jurídicos, artigos de lei nem a narrativa dos fatos.</p>
-<p>Ao final, entregue: (1) o texto anonimizado; (2) uma tabela de correspondência</p>
-<p>[marcador → dado original] para eu guardar fora da IA.</p>
+<p>for relevante para a tese)</p>
+<ul>
+<li>número do processo por [PROCESSO]</li>
+<li>valores exatos por faixas ("cerca de R$ 50 mil")</li>
+<li>datas exatas por referências relativas ("três meses depois"),</li>
+</ul>
+<p>salvo prazos relevantes para a tese</p>
+<ul>
+<li>dados de saúde, religião ou vida sexual por [DADO SENSÍVEL]</li>
+</ul>
+<p>Não altere fundamentos jurídicos, artigos de lei nem a narrativa.</p>
+<p>Entregue: (1) o texto anonimizado; (2) a tabela</p>
+<p>[marcador -&gt; dado original] para eu guardar fora da IA.</p>
 <p>```</p>
-<p><strong>Checklist rápido</strong></p>
-<ol>
-<li>Nomes, documentos e endereços trocados por marcadores.</li>
-<li>Número do processo e valores exatos generalizados.</li>
-<li>Ferramenta conferida: veja nos termos se os dados são usados para treinamento e se há opção de desativar.</li>
-<li>A tabela de correspondência fica <strong>fora</strong> da IA, no sistema do escritório.</li>
-</ol>
-<p>Fonte: CFOAB, recomendação sobre o uso de IA na prática jurídica (13/11/2024), pilar de confidencialidade e privacidade.</p>
-<p><em>Material informativo, sem caráter de consultoria.</em> · Thiago Massicano · Advogado</p></section></main>
+<p>&gt; <strong>Na prática:</strong> a tabela de correspondência fica no sistema do escritório, nunca na conversa com a IA. Depois de usar a resposta, você troca os marcadores de volta.</p>
+<h3>Exemplo fictício</h3>
+<p>&gt; <strong>Exemplo:</strong> "Maria Souza, CPF 123..., moradora da Rua X, 100, ajuizou em 03/02/2025 a ação 1000123-45.2025... cobrando R$ 48.317,22" vira "[PARTE 1], [DOCUMENTO], moradora de [ENDEREÇO], ajuizou a ação [PROCESSO] no início de 2025, cobrando cerca de R$ 50 mil".</p>
+<h3>Checklist antes de colar</h3>
+<ul>
+<li>[ ] Nomes, documentos e endereços trocados por marcadores.</li>
+<li>[ ] Número do processo, valores exatos e datas generalizados.</li>
+<li>[ ] Dados sensíveis (saúde, religião, biometria) retirados ou marcados.</li>
+<li>[ ] Anexos conferidos: metadados, assinaturas e cabeçalhos também identificam.</li>
+<li>[ ] Termos da ferramenta lidos: os dados são usados para treinamento? Dá para desativar?</li>
+<li>[ ] Tabela de correspondência guardada fora da IA.</li>
+</ul>
+<h3>Erros comuns</h3>
+<p>&gt; <strong>Erro comum:</strong> colar o PDF inteiro dos autos "só para resumir". Recorte o trecho necessário e anonimize; a IA quase nunca precisa do processo todo.</p>
+<ul>
+<li>Esquecer o nome do cliente no nome do arquivo enviado.</li>
+<li>Deixar o número da OAB do colega ou o e-mail do cliente na assinatura.</li>
+<li>Usar conta pessoal gratuita para trabalho do escritório sem verificar a política de dados.</li>
+</ul>
+<h3>Fontes</h3>
+<ul>
+<li>Lei 13.709/2018 (LGPD), arts. 5º e 6º: https://www.planalto.gov.br/ccivil_03/_ato2015-2018/2018/lei/l13709.htm</li>
+<li>Lei 8.906/1994 (Estatuto da OAB), art. 34: https://www.planalto.gov.br/ccivil_03/leis/l8906.htm</li>
+<li>Código de Ética e Disciplina da OAB (Resolução CFOAB 02/2015), art. 35.</li>
+<li>CFOAB, Recomendação 001/2024 sobre IA generativa na prática jurídica, pilar de confidencialidade e privacidade: https://www.oab.org.br/noticia/62711/confira-versao-final-da-recomendacao-do-cfoab-sobre-o-uso-de-ia-na-pratica-juridica</li>
+</ul>
+<p><em>Material informativo, sem caráter de consultoria.</em></p></section></main>
 <footer>Thiago Massicano · Advogado · <a href="https://instagram.com/thiago.massicano">@thiago.massicano</a><br>
 Material informativo, sem caráter de consultoria.</footer></body></html>
